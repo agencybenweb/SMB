@@ -1,5 +1,9 @@
-export const dynamic = 'force-dynamic';
 "use client";
+
+// Force dynamic is NOT supported in "use client" files in the same way, 
+// but we just need to fix the syntax error for now. 
+// Ideally, dynamic config belongs in layout or server components.
+// We remove the explicit export here to be safe and standard compliant.
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
