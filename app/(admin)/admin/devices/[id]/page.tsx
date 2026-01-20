@@ -3,12 +3,13 @@ import { notFound } from "next/navigation";
 import { DeviceForm } from "../_components/device-form";
 
 interface PageProps {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export default async function EditDevicePage({ params }: PageProps) {
+    const { id } = await params;
     const device = await prisma.device.findUnique({
-        where: { id: params.id },
+        where: { id },
     });
 
     if (!device) {

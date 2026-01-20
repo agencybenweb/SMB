@@ -13,12 +13,13 @@ import { QuoteGenerator } from "../_components/quote-generator";
 
 
 interface PageProps {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export default async function AdminOrderDetailPage({ params }: PageProps) {
+    const { id } = await params;
     const order = await prisma.order.findUnique({
-        where: { id: params.id },
+        where: { id },
         include: {
             user: true,
             items: {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -33,7 +33,9 @@ interface Ticket {
   }>;
 }
 
-export default function TicketDetailPage({ params }: { params: { id: string } }) {
+
+export default function TicketDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = React.use(params);
   const { data: session } = useSession();
   const router = useRouter();
   const [ticket, setTicket] = useState<Ticket | null>(null);
@@ -51,11 +53,11 @@ export default function TicketDetailPage({ params }: { params: { id: string } })
     }, 30000);
 
     return () => clearInterval(interval);
-  }, [params.id]);
+  }, [id]);
 
   const fetchTicket = async () => {
     try {
-      const res = await fetch(`/api/tickets/${params.id}`);
+      const res = await fetch(`/api/tickets/${id}`);
       if (res.ok) {
         const data = await res.json();
         setTicket(data);
@@ -73,7 +75,7 @@ export default function TicketDetailPage({ params }: { params: { id: string } })
 
     setSending(true);
     try {
-      const res = await fetch(`/api/tickets/${params.id}/messages`, {
+      const res = await fetch(`/api/tickets/${id}/messages`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: message }),

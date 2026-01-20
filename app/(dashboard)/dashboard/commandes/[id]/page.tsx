@@ -9,8 +9,9 @@ import { Button } from "@/components/ui/button";
 export default async function OrderDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
     redirect("/auth/login");
@@ -18,7 +19,7 @@ export default async function OrderDetailPage({
 
   const order = await prisma.order.findFirst({
     where: {
-      id: params.id,
+      id: id,
       userId: session.user.id,
     },
     include: {

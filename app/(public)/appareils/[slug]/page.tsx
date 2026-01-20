@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { AddToCartButton } from "@/components/shop/add-to-cart-button";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Technologies labels en français
@@ -28,8 +28,9 @@ const technologyLabels: Record<string, string> = {
 };
 
 export default async function DeviceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
   const device = await prisma.device.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
     include: {
       documents: {
         where: {

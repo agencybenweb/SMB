@@ -24,10 +24,11 @@ const technologyLabels: Record<string, string> = {
 export default async function AppareilsPage({
   searchParams,
 }: {
-  searchParams: { tech?: string; q?: string };
+  searchParams: Promise<{ tech?: string; q?: string }>;
 }) {
   // Filtres
-  const technologyFilter = searchParams.tech;
+  const params = await searchParams;
+  const technologyFilter = params.tech;
   const whereClause: any = { status: "ACTIVE" };
 
   if (technologyFilter) {

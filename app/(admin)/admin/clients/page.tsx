@@ -19,14 +19,15 @@ const statusLabels: Record<string, { label: string; color: string }> = {
 export default async function ClientsPage({
   searchParams,
 }: {
-  searchParams: { status?: string };
+  searchParams: Promise<{ status?: string }>;
 }) {
   const session = await getServerSession(authOptions);
   if (!session || session.user?.role !== "ADMIN") {
     redirect("/dashboard");
   }
 
-  const statusFilter = searchParams?.status as any;
+  const params = await searchParams;
+  const statusFilter = params?.status as any;
 
   const clients = await prisma.user.findMany({
     where: {
@@ -129,10 +130,9 @@ export default async function ClientsPage({
                 </td>
                 <td className="px-6 py-4">
                   <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                      statusLabels[client.status]?.color ||
+                    className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${statusLabels[client.status]?.color ||
                       "bg-gray-100 text-gray-800"
-                    }`}
+                      }`}
                   >
                     {statusLabels[client.status]?.label || client.status}
                   </span>

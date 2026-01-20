@@ -10,9 +10,10 @@ import { Input } from "@/components/ui/input";
 export default async function AdminDocumentsPage({
     searchParams,
 }: {
-    searchParams: { q?: string };
+    searchParams: Promise<{ q?: string }>;
 }) {
-    const query = searchParams.q || "";
+    const params = await searchParams;
+    const query = params.q || "";
 
     const documents = await prisma.userDocument.findMany({
         where: {
