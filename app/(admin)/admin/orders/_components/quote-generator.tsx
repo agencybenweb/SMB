@@ -132,7 +132,7 @@ export function QuoteGenerator({ order }: QuoteGeneratorProps) {
                 startY: 105,
                 theme: 'grid',
                 headStyles: {
-                    fillColor: colorDark,
+                    fillColor: [20, 20, 20],
                     textColor: [255, 255, 255],
                     fontStyle: 'bold',
                     halign: 'center'
