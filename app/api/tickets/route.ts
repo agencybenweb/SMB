@@ -5,6 +5,8 @@ import { prisma } from "@/lib/prisma";
 import { generateTicketNumber } from "@/lib/utils";
 
 // POST /api/tickets - Créer un ticket
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions);
