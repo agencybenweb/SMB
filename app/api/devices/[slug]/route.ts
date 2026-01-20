@@ -7,11 +7,12 @@ export const dynamic = 'force-dynamic';
 // GET /api/devices/[slug] - Récupère un appareil par son slug
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const device = await prisma.device.findUnique({
-      where: { slug: params.slug },
+      where: { slug },
       include: {
         documents: {
           where: {

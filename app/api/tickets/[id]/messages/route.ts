@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -26,10 +26,11 @@ export async function POST(
       );
     }
 
+    const { id } = await params;
     // Vérifier que le ticket appartient à l'utilisateur
     const ticket = await prisma.supportTicket.findFirst({
       where: {
-        id: params.id,
+        id,
         userId: session.user.id,
       },
     });

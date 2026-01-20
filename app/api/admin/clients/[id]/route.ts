@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 // GET /api/admin/clients/[id]
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -17,8 +17,9 @@ export async function GET(
       return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
     }
 
+    const { id } = await params;
     const client = await prisma.user.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         _count: {
           select: {
@@ -50,7 +51,7 @@ export async function GET(
 // PUT /api/admin/clients/[id]
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -68,8 +69,9 @@ export async function PUT(
       );
     }
 
+    const { id } = await params;
     const client = await prisma.user.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         status: status as any,
         updatedAt: new Date(),
