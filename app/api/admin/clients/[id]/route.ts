@@ -3,6 +3,9 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+// Force dynamic for this route to avoid build time static optimization issues with DB
+export const dynamic = 'force-dynamic';
+
 // GET /api/admin/clients/[id]
 export async function GET(
   request: Request,
