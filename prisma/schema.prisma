@@ -1,0 +1,472 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// AUTHENTIFICATION & UTILISATEURS
+// ============================================
+
+enum UserRole {
+  ADMIN
+  CLIENT_PRO
+}
+
+enum AccountStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING_VERIFICATION
+}
+
+model User {
+  id            String         @id @default(uuid())
+  email         String         @unique
+  passwordHash  String
+  role          UserRole       @default(CLIENT_PRO)
+  status        AccountStatus  @default(PENDING_VERIFICATION)
+  
+  // Profil entreprise
+  companyName   String?
+  siret         String?        @unique
+  address       String?
+  city          String?
+  postalCode    String?
+  country       String?        @default("France")
+  phone         String?
+  website       String?
+  
+  // Contact principal
+  firstName     String?
+  lastName      String?
+  jobTitle      String?
+  
+  // Métadonnées
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  lastLoginAt   DateTime?
+  emailVerified DateTime?
+  
+  // Relations
+  orders        Order[]
+  supportTickets SupportTicket[]
+  ownedDevices  DeviceOwnership[]
+  documents     UserDocument[]
+  
+  @@map("users")
+}
+
+// ============================================
+// CATALOGUE APPAREILS
+// ============================================
+
+enum DeviceTechnology {
+  EMS
+  CRYOLIPOLYSE
+  RADIOFREQUENCE
+  CAVITATION
+  LIPOLASER
+  HIFU
+  VACUUM_RF
+  PRESSOTHERAPIE
+  ENDERMOLOGIE
+  LED
+  ANALYSE_CORPORELLE
+  MULTI_TECHNOLOGIES
+}
+
+enum DeviceStatus {
+  ACTIVE
+  INACTIVE
+  COMING_SOON
+  DISCONTINUED
+}
+
+model Device {
+  id          String          @id @default(uuid())
+  
+  // Informations principales
+  name        String
+  slug        String          @unique
+  technology  DeviceTechnology
+  shortDescription String      @db.Text
+  description String          @db.Text
+  
+  // Indications et bénéfices
+  indications String          @db.Text  // JSON ou texte structuré
+  benefits    String          @db.Text  // Bénéfices pour les clients finaux
+  expectedResults String      @db.Text
+  
+  // Caractéristiques techniques
+  specifications String       @db.Text  // JSON
+  
+  // Normes et certifications
+  certifications String       @db.Text  // JSON: ["CE", "ISO 13485", etc.]
+  
+  // Visuels
+  imageUrl    String?
+  galleryUrls String          @db.Text  // JSON array
+  videoUrl    String?
+  
+  // Commercial
+  basePrice   Decimal?        @db.Decimal(10, 2)
+  rentability String?         @db.Text  // Estimation de rentabilité
+  
+  // Statut
+  status      DeviceStatus    @default(ACTIVE)
+  featured    Boolean         @default(false)
+  orderIndex  Int             @default(0)
+  
+  // Métadonnées
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  
+  // Relations
+  orderItems  OrderItem[]
+  ownerships  DeviceOwnership[]
+  documents   DeviceDocument[]
+  
+  @@map("devices")
+}
+
+// ============================================
+// COMMANDES & FACTURATION
+// ============================================
+
+enum OrderStatus {
+  DRAFT
+  PENDING
+  CONFIRMED
+  IN_PRODUCTION
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  CASH
+  INSTALLMENT
+  LEASING
+  BANK_TRANSFER
+}
+
+enum PaymentStatus {
+  PENDING
+  PARTIAL
+  PAID
+  FAILED
+  REFUNDED
+}
+
+model Order {
+  id              String          @id @default(uuid())
+  orderNumber     String          @unique // Format: ORD-YYYY-XXXXX
+  
+  // Client
+  userId          String
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Détails commande
+  status          OrderStatus     @default(DRAFT)
+  totalAmount     Decimal         @db.Decimal(10, 2)
+  taxAmount       Decimal         @db.Decimal(10, 2)
+  discountAmount  Decimal         @db.Decimal(10, 2) @default(0)
+  
+  // Paiement
+  paymentMethod   PaymentMethod?
+  paymentStatus   PaymentStatus   @default(PENDING)
+  paidAmount      Decimal         @db.Decimal(10, 2) @default(0)
+  
+  // Livraison
+  shippingAddress String          @db.Text
+  shippingCity    String?
+  shippingPostalCode String?
+  shippingCountry String?         @default("France")
+  trackingNumber  String?
+  
+  // Dates
+  orderDate       DateTime        @default(now())
+  deliveryDate    DateTime?
+  
+  // Métadonnées
+  notes           String?         @db.Text
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  
+  // Relations
+  items           OrderItem[]
+  invoices        Invoice[]
+  contracts       Contract[]
+  
+  @@map("orders")
+}
+
+model OrderItem {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  deviceId    String
+  device      Device   @relation(fields: [deviceId], references: [id])
+  
+  quantity    Int      @default(1)
+  unitPrice   Decimal  @db.Decimal(10, 2)
+  totalPrice  Decimal  @db.Decimal(10, 2)
+  
+  // Options spécifiques à la commande
+  configuration String? @db.Text // JSON
+  
+  createdAt   DateTime @default(now())
+  
+  @@map("order_items")
+}
+
+// ============================================
+// DOCUMENTS & FACTURATION
+// ============================================
+
+enum DocumentType {
+  INVOICE
+  QUOTE
+  CONTRACT
+  TECHNICAL_SHEET
+  PROTOCOL
+  CERTIFICATE_CE
+  CERTIFICATE_ISO
+  MARKETING
+  TRAINING_VIDEO
+  TRAINING_PDF
+  CERTIFICATE_TRAINING
+}
+
+enum DocumentAccessLevel {
+  PUBLIC
+  CLIENT_PRO
+  DEVICE_OWNER
+  ADMIN_ONLY
+}
+
+model UserDocument {
+  id          String            @id @default(uuid())
+  userId      String?
+  user        User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title       String
+  type        DocumentType
+  description String?           @db.Text
+  fileUrl     String
+  fileSize    Int?              // en bytes
+  mimeType    String?
+  accessLevel DocumentAccessLevel @default(CLIENT_PRO)
+  
+  // Métadonnées
+  uploadedAt  DateTime          @default(now())
+  expiresAt   DateTime?
+  
+  @@map("user_documents")
+}
+
+model DeviceDocument {
+  id          String            @id @default(uuid())
+  deviceId    String
+  device      Device            @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  title       String
+  type        DocumentType
+  description String?           @db.Text
+  fileUrl     String
+  fileSize    Int?
+  mimeType    String?
+  accessLevel DocumentAccessLevel
+  
+  uploadedAt  DateTime          @default(now())
+  
+  @@map("device_documents")
+}
+
+model Invoice {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  invoiceNumber String @unique // Format: INV-YYYY-XXXXX
+  fileUrl     String
+  issueDate   DateTime @default(now())
+  dueDate     DateTime?
+  amount      Decimal  @db.Decimal(10, 2)
+  status      PaymentStatus @default(PENDING)
+  
+  createdAt   DateTime @default(now())
+  
+  @@map("invoices")
+}
+
+model Contract {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  contractNumber String @unique
+  fileUrl     String
+  signedAt    DateTime?
+  expiresAt   DateTime?
+  
+  createdAt   DateTime @default(now())
+  
+  @@map("contracts")
+}
+
+// ============================================
+// SAV & SUPPORT
+// ============================================
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  WAITING_CLIENT
+  RESOLVED
+  CLOSED
+  CANCELLED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum TicketCategory {
+  TECHNICAL
+  WARRANTY
+  TRAINING
+  BILLING
+  OTHER
+}
+
+model SupportTicket {
+  id          String          @id @default(uuid())
+  ticketNumber String         @unique // Format: TICK-YYYY-XXXXX
+  
+  // Client
+  userId      String
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Appareil concerné (optionnel)
+  deviceOwnershipId String?
+  deviceOwnership   DeviceOwnership? @relation(fields: [deviceOwnershipId], references: [id])
+  
+  // Détails
+  subject     String
+  description String          @db.Text
+  category    TicketCategory
+  priority    TicketPriority  @default(MEDIUM)
+  status      TicketStatus    @default(OPEN)
+  
+  // Attribué à (admin)
+  assignedTo  String?         // User ID de l'admin
+  
+  // Dates
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  resolvedAt  DateTime?
+  closedAt    DateTime?
+  
+  // Relations
+  messages    TicketMessage[]
+  
+  @@map("support_tickets")
+}
+
+model TicketMessage {
+  id          String         @id @default(uuid())
+  ticketId    String
+  ticket      SupportTicket  @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  
+  authorId    String
+  authorName  String         // Peut être différent de User si admin
+  content     String         @db.Text
+  
+  // Pièces jointes
+  attachments String?        @db.Text // JSON array
+  
+  createdAt   DateTime       @default(now())
+  isInternal  Boolean        @default(false) // Notes internes admin
+  
+  @@map("ticket_messages")
+}
+
+// ============================================
+// APPAREILS ACHETÉS & GARANTIES
+// ============================================
+
+model DeviceOwnership {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deviceId    String
+  device      Device   @relation(fields: [deviceId], references: [id])
+  orderItemId String?  @unique // Lien vers la commande d'origine
+  
+  // Informations spécifiques
+  serialNumber String? @unique
+  purchaseDate DateTime @default(now())
+  
+  // Garantie
+  warrantyStartDate DateTime?
+  warrantyEndDate   DateTime?
+  warrantyStatus    String?  // ACTIVE, EXPIRED, VOID
+  
+  // Statut
+  status      String   @default("ACTIVE") // ACTIVE, MAINTENANCE, RETIRED
+  
+  // Métadonnées
+  notes       String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  supportTickets SupportTicket[]
+  
+  @@map("device_ownerships")
+}
+
+// ============================================
+// FORMATIONS
+// ============================================
+
+enum TrainingStatus {
+  AVAILABLE
+  IN_PROGRESS
+  COMPLETED
+  LOCKED
+}
+
+model UserTraining {
+  id          String         @id @default(uuid())
+  userId      String
+  deviceId    String?       // Formation liée à un appareil spécifique
+  
+  title       String
+  description String?       @db.Text
+  content     String        @db.Text // JSON: vidéos, PDFs, etc.
+  
+  status      TrainingStatus @default(AVAILABLE)
+  progress    Int           @default(0) // 0-100
+  completedAt DateTime?
+  
+  // Certificat
+  certificateUrl String?
+  
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  
+  @@map("user_trainings")
+}
