@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { formatDateShort, formatDate } from "@/lib/utils";
+import { formatDateShort } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 interface Client {
