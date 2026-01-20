@@ -30,3 +30,17 @@ export function safeJsonParse<T>(json: string | null, fallback: T): T {
     return fallback;
   }
 }
+
+export function isValidSIRET(siret: string): boolean {
+  if (!siret || siret.length !== 14 || isNaN(Number(siret))) {
+    return false;
+  }
+  // Luhn algorithm could be implemented here for real validation
+  return true;
+}
+
+export function generateTicketNumber(): string {
+  const timestamp = Date.now().toString().slice(-6);
+  const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+  return `TICK-${new Date().getFullYear()}-${timestamp}${random}`;
+}
