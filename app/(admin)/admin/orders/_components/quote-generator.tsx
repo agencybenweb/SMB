@@ -204,6 +204,10 @@ export function QuoteGenerator({ order }: QuoteGeneratorProps) {
             // --- Upload ---
             const pdfBase64 = doc.output('datauristring');
 
+            // Create local blob for immediate viewing (bypasses Data URI browser restrictions)
+            const pdfBlob = doc.output('blob');
+            const blobUrl = URL.createObjectURL(pdfBlob);
+
             const result = await uploadQuote({
                 userId: order.user.id,
                 orderId: order.id,
@@ -214,7 +218,12 @@ export function QuoteGenerator({ order }: QuoteGeneratorProps) {
 
             if (result.success) {
                 toast.success("Devis pro généré avec succès !");
-                window.open(result.url, '_blank');
+                // Open the local blob URL which works perfectly in all browsers
+                window.open(blobUrl, '_blank');
+
+                // Optional: Revoke URL after some time to free memory, 
+                // but window.open might need it for a bit. 1 minute is safe.
+                setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
             } else {
                 toast.error("Erreur lors de l'enregistrement");
             }
