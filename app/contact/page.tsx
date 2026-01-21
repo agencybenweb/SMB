@@ -57,7 +57,7 @@ function ContactContent() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
 
       {/* HEADER */}
-      <div className="bg-slate-900 text-white pt-32 pb-24 relative overflow-hidden">
+      <div className="bg-slate-900 text-white pt-32 pb-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
