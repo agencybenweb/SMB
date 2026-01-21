@@ -18,7 +18,7 @@ export async function deleteDocument(documentId: string) {
         }
 
         // 2. Delete file from filesystem if it's stored locally
-        if (document.fileUrl.startsWith("/uploads/")) {
+        if (document.fileUrl && document.fileUrl.startsWith("/uploads/")) {
             const filePath = path.join(process.cwd(), "public", document.fileUrl);
             try {
                 await fs.unlink(filePath);
