@@ -11,7 +11,8 @@ import {
     LogOut,
     Shield,
     ExternalLink,
-    FileText
+    FileText,
+    MessageSquare
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -77,6 +78,12 @@ export default async function AdminLayout({
                     <Link href="/admin/documents">
                         <Button variant="ghost" className="w-full justify-start gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
                             <FileText className="w-4 h-4" /> Devis
+                        </Button>
+                    </Link>
+
+                    <Link href="/admin/tickets">
+                        <Button variant="ghost" className="w-full justify-start gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
+                            <MessageSquare className="w-4 h-4" /> Tickets SAV
                         </Button>
                     </Link>
 
