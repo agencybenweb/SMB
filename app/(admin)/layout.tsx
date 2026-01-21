@@ -104,7 +104,7 @@ export default async function AdminLayout({
                             <div className="text-xs text-slate-400 truncate">{session.user.email}</div>
                         </div>
                     </div>
-                    <Link href="/api/auth/signout">
+                    <Link href="/auth/signout">
                         <Button variant="outline" className="w-full gap-2 border-slate-700 bg-transparent text-slate-300 hover:bg-slate-800 hover:text-white">
                             <LogOut className="w-4 h-4" /> Déconnexion
                         </Button>
