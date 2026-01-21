@@ -37,7 +37,9 @@ export async function uploadQuote(formData: {
 
         // 2. Define path
         const uploadDir = path.join(process.cwd(), "public/uploads/documents");
-        // Ensure dir exists (should be done by mkdir, but good practice to check logic, here assuming existed or handled)
+
+        // Ensure directory exists
+        await fs.mkdir(uploadDir, { recursive: true });
 
         const fileName = `devis-${formData.orderNumber}-${uuidv4().slice(0, 8)}.pdf`;
         const filePath = path.join(uploadDir, fileName);
