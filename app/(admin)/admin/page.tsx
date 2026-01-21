@@ -1,12 +1,14 @@
 import { prisma } from "@/lib/prisma";
-import { Users, Smartphone, ShoppingCart, TrendingUp, DollarSign } from "lucide-react";
+import { Users, Smartphone, ShoppingCart, TrendingUp, DollarSign, MessageSquare } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatPrice } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
 import { fr } from "date-fns/locale";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 export default async function AdminDashboardPage() {
-  const [userCount, deviceCount, orderCount, revenue] = await Promise.all([
+  const [userCount, deviceCount, orderCount, revenue, ticketsCount, openTicketsCount] = await Promise.all([
     prisma.user.count(),
     prisma.device.count(),
     prisma.order.count(),
@@ -17,6 +19,14 @@ export default async function AdminDashboardPage() {
       where: {
         status: {
           in: ["CONFIRMED", "IN_PRODUCTION", "SHIPPED", "DELIVERED"],
+        },
+      },
+    }),
+    prisma.supportTicket.count(),
+    prisma.supportTicket.count({
+      where: {
+        status: {
+          in: ["OPEN", "IN_PROGRESS"],
         },
       },
     }),
@@ -90,6 +100,36 @@ export default async function AdminDashboardPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* TICKETS SAV SECTION */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <MessageSquare className="h-5 h-5 text-primary" />
+              <CardTitle>Tickets SAV</CardTitle>
+            </div>
+            <Link href="/admin/tickets">
+              <Badge variant={openTicketsCount > 0 ? "destructive" : "secondary"} className="text-sm">
+                {openTicketsCount} en attente
+              </Badge>
+            </Link>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-2xl font-bold">{ticketsCount}</p>
+              <p className="text-xs text-muted-foreground">Total tickets</p>
+            </div>
+            <Link href="/admin/tickets">
+              <button className="text-sm text-primary hover:underline">
+                Voir tous les tickets →
+              </button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
         <Card className="col-span-4">

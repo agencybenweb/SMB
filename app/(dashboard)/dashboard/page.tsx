@@ -161,17 +161,26 @@ export default async function DashboardPage() {
               </div>
             ) : (
               tickets.map((ticket) => (
-                <div key={ticket.id} className="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+                <Link
+                  key={ticket.id}
+                  href={`/dashboard/sav/${ticket.id}`}
+                  className="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors block"
+                >
                   <div className="flex flex-col max-w-[70%]">
                     <span className="font-medium text-sm truncate">{ticket.subject}</span>
                     <span className="text-xs text-muted-foreground">#{ticket.ticketNumber}</span>
                   </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${ticket.status === 'OPEN' ? 'bg-blue-100 text-blue-700' :
-                    ticket.status === 'RESOLVED' ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-700'
-                    }`}>
-                    {ticket.status}
-                  </span>
-                </div>
+                  <div className="flex items-center gap-2">
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${ticket.status === 'OPEN' ? 'bg-blue-100 text-blue-700' :
+                        ticket.status === 'IN_PROGRESS' ? 'bg-yellow-100 text-yellow-700' :
+                          ticket.status === 'RESOLVED' ? 'bg-green-100 text-green-700' :
+                            'bg-slate-100 text-slate-700'
+                      }`}>
+                      {ticket.status}
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                  </div>
+                </Link>
               ))
             )}
           </div>
