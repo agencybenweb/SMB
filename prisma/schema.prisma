@@ -263,6 +263,7 @@ model UserDocument {
   description String?           @db.Text
   fileUrl     String?           // URL pour fichiers externes (optionnel)
   fileData    String?           @db.Text // Base64 pour stockage en BDD (optionnel)
+  fileName    String?           // Nom du fichier original
   fileSize    Int?              // en bytes
   mimeType    String?
   accessLevel DocumentAccessLevel @default(CLIENT_PRO)
