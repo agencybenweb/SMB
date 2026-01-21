@@ -88,7 +88,12 @@ export default async function AdminDocumentsPage({
 
                                 <div className="flex items-center gap-2 shrink-0">
                                     <Button variant="outline" size="sm" asChild>
-                                        <a href={doc.fileUrl} target="_blank" rel="noopener noreferrer">
+                                        <a
+                                            href={(doc as any).fileUrl || `data:application/pdf;base64,${(doc as any).fileData}`}
+                                            download={(doc as any).fileName || `${doc.title}.pdf`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
                                             <Download className="w-4 h-4 mr-2" />
                                             Télécharger
                                         </a>

@@ -126,9 +126,10 @@ export default async function DocumentsPage() {
             {allDocuments.map((doc) => (
               <a
                 key={doc.id}
-                href={doc.fileUrl}
+                href={(doc as any).fileUrl || `data:application/pdf;base64,${(doc as any).fileData}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                download={!(doc as any).fileUrl ? `${doc.title}.pdf` : undefined}
                 className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors group"
               >
                 <div className="flex-1">
