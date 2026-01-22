@@ -62,6 +62,7 @@ export function Header() {
               ['Technologies', '/technologies'],
               ['Formation', '/formation'],
               ['SAV', '/sav'],
+              ['À propos', '/a-propos'],
               ['Contact', '/contact']
             ].map(([label, href]) => (
               <Link
@@ -120,7 +121,7 @@ export function Header() {
                 <Link href="/auth/login">
                   <Button variant="ghost" size="sm" className={!forceDarkText ? "text-white hover:text-white hover:bg-white/10" : ""}>Connexion</Button>
                 </Link>
-                <Link href="/auth/register">
+                <Link href="/auth/login">
                   <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20">
                     Espace Pro
                   </Button>
@@ -148,6 +149,7 @@ export function Header() {
               ['Technologies', '/technologies'],
               ['Formation', '/formation'],
               ['SAV', '/sav'],
+              ['À propos', '/a-propos'],
               ['Contact', '/contact']
             ].map(([label, href]) => (
               <Link
@@ -167,8 +169,8 @@ export function Header() {
                 <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="outline" className="w-full">Connexion</Button>
                 </Link>
-                <Link href="/auth/register" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full">Créer un compte pro</Button>
+                <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="w-full">Espace Pro</Button>
                 </Link>
               </>
             ) : (
