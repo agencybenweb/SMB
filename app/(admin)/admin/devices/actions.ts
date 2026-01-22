@@ -18,10 +18,12 @@ export async function upsertDevice(formData: FormData, id?: string) {
 
     // Handle File Upload
     const imageFile = formData.get("imageFile") as File;
+
     if (imageFile && imageFile.size > 0 && imageFile.name !== "undefined") {
         try {
             const buffer = Buffer.from(await imageFile.arrayBuffer());
-            const filename = `${Date.now()}-${imageFile.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
+            const ext = path.extname(imageFile.name) || ".jpg";
+            const filename = `device-${Date.now()}${ext}`;
             const uploadDir = path.join(process.cwd(), "public/uploads/devices");
 
             await mkdir(uploadDir, { recursive: true });
