@@ -23,14 +23,12 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Définition du style flottant "Bulle"
+  // Définition du style flottant "Bulle" avec contraste renforcé
   const headerClasses = scrolled
     ? "fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4"
-    : "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4";
+    : "fixed top-6 left-0 right-0 z-50 transition-all duration-300 px-4";
 
-  const navContainerClasses = scrolled
-    ? "bg-white/90 backdrop-blur-xl border border-white/40 shadow-xl shadow-indigo-500/10 rounded-full py-2 px-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300"
-    : "bg-white/60 backdrop-blur-md border border-white/20 shadow-sm rounded-full py-3 px-8 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 mt-2";
+  const navContainerClasses = "bg-white/80 backdrop-blur-2xl border border-indigo-100/80 shadow-2xl shadow-indigo-900/10 rounded-full py-3 px-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 relative z-50";
 
   return (
     <header className={headerClasses}>
@@ -46,7 +44,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav - Centered Pills */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-100/50 p-1.5 rounded-full border border-white/50 backdrop-blur-sm mx-4">
+        <nav className="hidden lg:flex items-center gap-1 bg-white p-1.5 rounded-full border border-indigo-50 shadow-inner mx-4">
           {[
             ['Appareils', '/appareils'],
             ['Technologies', '/technologies'],
