@@ -125,16 +125,47 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 via-amber-800 to-neutral-800 dark:from-neutral-200 dark:via-amber-500 dark:to-neutral-200;
   }
 
+  .glass-premium {
+    @apply bg-obsidian-950/80 backdrop-blur-xl border border-white/5 shadow-2xl shadow-obsidian-950/50;
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 20px rgba(198, 156, 88, 0.3);
+  }
+
+  .border-glow-gold {
+    box-shadow: 0 0 15px rgba(198, 156, 88, 0.15);
+  }
+
+  /* Futuristic Grid Background Utility */
+  .bg-grid-premium {
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
   .bg-gradient-gold {
-    @apply bg-gradient-to-br from-amber-600 via-amber-500 to-yellow-600;
+    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600;
   }
 
-  .bg-gradient-gold-subtle {
-    @apply bg-gradient-to-br from-neutral-50 via-amber-50/50 to-neutral-100 dark:from-neutral-900 dark:via-amber-950/20 dark:to-neutral-950;
+  /* Scrollbar Premium */
+  ::-webkit-scrollbar {
+    width: 8px;
   }
 
-  .bg-gradient-dark-gold {
-    @apply bg-gradient-to-br from-neutral-900 via-neutral-900 to-amber-950/50;
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c69c58;
   }
 
   .border-elegant {
