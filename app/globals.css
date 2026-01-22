@@ -101,176 +101,28 @@
     @apply bg-gradient-to-br from-white/90 to-amber-50/60 dark:from-black/70 dark:to-amber-950/20 backdrop-blur-xl border border-amber-200/20 dark:border-amber-700/20 shadow-xl shadow-amber-500/5;
   }
 
-  .accent-gold {
-    @apply bg-gradient-to-br from-neutral-50 to-amber-50/50 dark:from-neutral-900 dark:to-amber-950/30 border border-amber-200/30 dark:border-amber-800/30;
-  }
-
-  .text-accent-subtle {
-    @apply text-neutral-700 dark:text-neutral-300;
-  }
-
-  .text-premium {
-    @apply text-neutral-900 dark:text-neutral-100 font-medium tracking-tight;
-  }
-
   .text-gradient-gold {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 dark:from-amber-500 dark:via-amber-400 dark:to-amber-500;
-  }
-
-  .text-gradient-bronze {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-800 via-amber-700 to-orange-800 dark:from-orange-600 dark:via-amber-500 dark:to-orange-600;
   }
 
   .text-gradient-elegant {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 via-amber-800 to-neutral-800 dark:from-neutral-200 dark:via-amber-500 dark:to-neutral-200;
   }
 
-  .glass-premium {
-    @apply bg-obsidian-950/80 backdrop-blur-xl border border-white/5 shadow-2xl shadow-obsidian-950/50;
-  }
-
-  .text-glow-gold {
-    text-shadow: 0 0 20px rgba(198, 156, 88, 0.3);
-  }
-
-  .border-glow-gold {
-    box-shadow: 0 0 15px rgba(198, 156, 88, 0.15);
-  }
-
-  /* Futuristic Grid Background Utility */
-  .bg-grid-premium {
-    background-size: 50px 50px;
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-  }
-
   .bg-gradient-gold {
-    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600;
+    @apply bg-gradient-to-br from-amber-600 via-amber-500 to-yellow-600;
   }
 
-  /* Scrollbar Premium */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #050505;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #c69c58;
-  }
-
-  .border-elegant {
-    @apply border-neutral-200/60 dark:border-neutral-800/60;
-  }
-
-  .border-gold {
-    @apply border-amber-500/20 dark:border-amber-500/20;
-  }
-
-  .border-gold-glow {
-    @apply border-amber-500/30 shadow-lg shadow-amber-500/10 dark:border-amber-500/30 dark:shadow-amber-500/10;
+  .bg-gradient-gold-subtle {
+    @apply bg-gradient-to-br from-neutral-50 via-amber-50/50 to-neutral-100 dark:from-neutral-900 dark:via-amber-950/20 dark:to-neutral-950;
   }
 
   .hover-elegant {
     @apply transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-lg hover:shadow-black/5;
   }
 
-  .hover-gold {
-    @apply transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/10;
-  }
-
-  .admin-accent {
-    @apply bg-gradient-to-br from-amber-700 to-orange-700 text-white;
-  }
-
-  .admin-border {
-    @apply border-amber-600/20 dark:border-amber-500/20;
-  }
-
-  .client-accent {
-    @apply bg-gradient-to-br from-slate-700 to-neutral-800 text-white;
-  }
-
   .btn-premium {
     @apply bg-gradient-to-br from-amber-600 to-amber-700 text-white hover:from-amber-700 hover:to-amber-800 transition-all duration-200 shadow-lg shadow-amber-600/20;
-  }
-
-  .btn-elegant {
-    @apply bg-neutral-900 dark:bg-neutral-100 text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors duration-200 shadow-lg shadow-black/10;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-glow {
-    animation: glow 3s ease-in-out infinite;
-  }
-
-  .animate-shimmer {
-    animation: shimmer 8s linear infinite;
-    background-size: 200% 100%;
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.5s ease-out;
-  }
-
-  .animate-scale-in {
-    animation: scaleIn 0.4s ease-out;
-  }
-
-  .group:hover .group-hover-lift {
-    transform: translateY(-4px);
-    transition: transform 0.3s ease;
-  }
-
-  .group:hover .group-hover-scale {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-  }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out;
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out;
-  }
-
-  .animate-rotate-in {
-    animation: rotateIn 0.5s ease-out;
-  }
-
-  .animate-pulse {
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  .animate-bounce {
-    animation: bounce 2s ease-in-out infinite;
-  }
-
-  .animate-gradient {
-    animation: gradientShift 8s ease infinite;
-    background-size: 200% 200%;
-  }
-
-  .parallax {
-    transform: translateZ(0);
-    will-change: transform;
   }
 
   .scroll-reveal {

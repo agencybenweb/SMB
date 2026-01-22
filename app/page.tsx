@@ -50,96 +50,87 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-obsidian-950 text-white selection:bg-gold-500/30">
+    <div className="flex flex-col min-h-screen bg-slate-50 text-slate-900 selection:bg-gold-500/30">
 
-      {/* HERO SECTION - Futuristic Premium */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-obsidian-950">
+      {/* HERO SECTION - Luxe Sobre & Lumineux */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white">
 
-        {/* Dynamic Background */}
-        <div className="absolute inset-0 bg-grid-premium opacity-20" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-600/10 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
+        {/* Subtle Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.05),transparent_50%)]" />
 
-        <div className="container relative z-10 px-4 text-center max-w-6xl">
+        <div className="container relative z-10 px-4 text-center max-w-5xl">
 
-          <ScrollReveal className="mb-10 flex justify-center">
-            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-gold-500/30 bg-gold-500/5 backdrop-blur-md shadow-lg shadow-gold-500/10 animate-fade-in">
-              <Star className="w-3.5 h-3.5 text-gold-400 fill-gold-400 animate-spin-slow" />
-              <span className="text-xs font-bold tracking-[0.3em] text-gold-200 uppercase">
-                Nouvelle Ère Esthétique
+          <ScrollReveal className="mb-8 flex justify-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200">
+              <Star className="w-3.5 h-3.5 text-gold-500 fill-gold-500" />
+              <span className="text-xs font-semibold tracking-wider text-slate-600 uppercase">
+                Leader de l'esthétique B2B
               </span>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal className="mb-10">
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-medium text-white tracking-tighter leading-[0.9] text-glow-gold">
-              L'Art de la <br />
-              <span className="text-transparent bg-clip-text bg-gradient-gold animate-shimmer bg-[length:200%_100%] italic relative">
-                Perfection
-                <span className="absolute -bottom-4 left-0 w-full h-2 bg-gradient-to-r from-transparent via-gold-500 to-transparent opacity-50 blur-sm"></span>
-              </span>
+          <ScrollReveal className="mb-8">
+            <h1 className="font-serif text-6xl md:text-8xl font-medium text-slate-900 tracking-tight leading-[0.95] mb-6">
+              L'Excellence <br />
+              <span className="italic text-gold-600">Technologique</span>
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.2} className="mb-16">
-            <p className="font-sans text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto font-light leading-relaxed">
-              Redéfinissez les standards de votre institut avec des technologies d'avant-garde.
-              <span className="block mt-2 text-gold-400/80">Performance clinique. Design d'exception.</span>
+          <ScrollReveal delay={0.2} className="mb-12">
+            <p className="font-sans text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Équipez votre centre avec des appareils de dernière génération.
+              <br />Performance, rentabilité et design pour les professionnels exigeants.
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.4} className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+          <ScrollReveal delay={0.4} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/appareils">
-              <Button size="lg" className="h-16 px-12 bg-gold-600 hover:bg-gold-500 text-white rounded-none text-lg tracking-widest uppercase font-medium shadow-xl shadow-gold-900/20 border-r-2 border-b-2 border-gold-800 transition-all hover:-translate-y-1">
-                Explorer
+              <Button size="lg" className="h-14 px-10 bg-slate-900 hover:bg-slate-800 text-white rounded-md text-base font-medium shadow-lg shadow-slate-900/10 transition-all hover:-translate-y-1">
+                Découvrir nos appareils
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="h-16 px-12 bg-transparent border border-white/10 hover:border-gold-500/50 text-white hover:bg-white/5 rounded-none text-lg tracking-widest uppercase font-medium backdrop-blur-sm transition-all hover:-translate-y-1">
-                Contact
+              <Button size="lg" variant="outline" className="h-14 px-10 border-slate-200 text-slate-900 hover:bg-slate-50 rounded-md text-base font-medium transition-all hover:-translate-y-1">
+                Demander un devis
               </Button>
             </Link>
           </ScrollReveal>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
-          <span className="text-[10px] uppercase tracking-widest text-neutral-500">Scroll</span>
-          <div className="w-[1px] h-20 bg-gradient-to-b from-gold-500/0 via-gold-500 to-gold-500/0 animate-stream" />
+          {/* Trust Badges */}
+          <ScrollReveal delay={0.6} className="mt-20 pt-10 border-t border-slate-100 flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            {/* Vous pouvez ajouter ici des logos partenaires si besoin */}
+            <span className="font-serif text-xl italic text-slate-400">My Sculpt Technology</span>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* PHILOSOPHY SECTION - Glassmorphism Cards */}
-      <section className="py-32 bg-obsidian-950 relative">
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03]" />
-
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* VALUES SECTION - Clean Cards */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 icon: ShieldCheck,
-                title: "Certification Médicale",
-                desc: "Normes CE et ISO 13485 pour une sécurité absolue."
+                title: "Technologies Certifiées",
+                desc: "Tous nos appareils répondent aux normes CE et ISO pour garantir sécurité et efficacité."
               },
               {
                 icon: Award,
-                title: "Expertise & Formation",
-                desc: "Masterclasses exclusives pour maîtriser chaque technologie."
+                title: "Formation Incluse",
+                desc: "Formation théorique et pratique assurée par nos médecins experts."
               },
               {
                 icon: Zap,
-                title: "Rentabilité Maximale",
-                desc: "Retour sur investissement accéléré grâce à la haute performance."
+                title: "Rentabilité Immédiate",
+                desc: "Retour sur investissement rapide grâce à des protocoles de soin haute performance."
               }
             ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="glass-premium p-10 group hover:bg-white/5 transition-all duration-500 hover:-translate-y-2">
-                <div className="mb-8 w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-500/20 to-transparent border border-gold-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(198,156,88,0.1)]">
-                  <item.icon className="w-7 h-7 text-gold-400" />
+              <ScrollReveal key={i} delay={i * 0.1} className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-gold-200/50 hover:shadow-xl hover:shadow-gold-500/5 transition-all duration-300">
+                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-gold-600">
+                  <item.icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-serif text-3xl text-white mb-4 group-hover:text-gold-300 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="font-sans text-neutral-400 leading-relaxed font-light text-lg">
+                <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
                   {item.desc}
                 </p>
               </ScrollReveal>
@@ -148,50 +139,49 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED DEVICES - The Showroom */}
+      {/* FEATURED DEVICES - Clean & Premium */}
       {featuredDevices.length > 0 && (
-        <section className="py-40 bg-obsidian-950 relative overflow-hidden">
-          {/* Decorative Lines */}
-          <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          <div className="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
+        <section className="py-32 bg-slate-50 relative overflow-hidden">
           <div className="container mx-auto px-4 max-w-7xl">
-            <ScrollReveal className="text-center mb-24">
-              <h2 className="font-serif text-5xl md:text-7xl text-white mb-6">
-                Le Showroom
+            <ScrollReveal className="text-center mb-20">
+              <h2 className="font-serif text-4xl md:text-5xl text-slate-900 mb-6">
+                Nos Best-Sellers
               </h2>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto" />
+              <div className="w-16 h-1 bg-gold-500 mx-auto rounded-full" />
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-3 gap-8">
               {featuredDevices.map((device, i) => (
-                <ScrollReveal key={device.id} delay={i * 0.15} className="group cursor-pointer perspective-1000">
+                <ScrollReveal key={device.id} delay={i * 0.15} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 border border-slate-100">
                   <Link href={`/appareils/${device.id}`}>
-                    <div className="relative aspect-[3/4] overflow-hidden bg-obsidian-900 border border-white/10 transition-all duration-700 group-hover:border-gold-500/40 group-hover:shadow-[0_0_50px_rgba(198,156,88,0.15)] transform-style-3d group-hover:rotate-y-2">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                       {device.imageUrl ? (
-                        <div className="absolute inset-0">
-                          <img
-                            src={device.imageUrl}
-                            alt={device.name}
-                            className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-90" />
-                        </div>
+                        <img
+                          src={device.imageUrl}
+                          alt={device.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
                       ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-obsidian-900">
-                          <span className="font-serif text-gold-500/20 text-6xl italic">MySculpt</span>
+                        <div className="absolute inset-0 flex items-center justify-center text-slate-300">
+                          <span className="font-serif text-2xl italic">MySculpt</span>
                         </div>
                       )}
-
-                      <div className="absolute bottom-0 left-0 w-full p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <h3 className="font-serif text-4xl text-white mb-2 tracking-wide group-hover:text-gold-300 transition-colors">
-                          {device.name}
-                        </h3>
-                        <div className="h-1 w-12 bg-gold-500 mb-6 origin-left scale-x-50 group-hover:scale-x-100 transition-transform duration-500" />
-
-                        <div className="flex items-center text-white/50 text-sm tracking-[0.2em] uppercase group-hover:text-white transition-colors">
-                          Explorer le produit <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover:translate-x-2 transition-all" />
+                      {device.featured && (
+                        <div className="absolute top-4 left-4 px-3 py-1 bg-gold-500 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg">
+                          Best Seller
                         </div>
+                      )}
+                    </div>
+
+                    <div className="p-8">
+                      <h3 className="font-serif text-2xl text-slate-900 mb-3 group-hover:text-gold-600 transition-colors">
+                        {device.name}
+                      </h3>
+                      <p className="text-slate-500 text-sm mb-6 line-clamp-2 leading-relaxed">
+                        {device.description}
+                      </p>
+                      <div className="flex items-center text-slate-900 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                        Découvrir <ArrowRight className="w-4 h-4 ml-2 text-gold-500" />
                       </div>
                     </div>
                   </Link>
@@ -199,51 +189,45 @@ export default async function HomePage() {
               ))}
             </div>
 
-            <ScrollReveal className="text-center mt-24">
+            <div className="text-center mt-16">
               <Link href="/appareils">
-                <Button variant="outline" className="h-14 px-8 border-white/20 text-white hover:bg-gold-500 hover:border-gold-500 hover:text-black tracking-widest uppercase text-sm group transition-all duration-500 rounded-none bg-transparent">
-                  Voir toute la collection
+                <Button variant="outline" className="border-slate-300 hover:border-slate-900 text-slate-600 hover:text-slate-900 h-12 px-8 min-w-[200px]">
+                  Voir le catalogue complet
                 </Button>
               </Link>
-            </ScrollReveal>
+            </div>
           </div>
         </section>
       )}
 
-      {/* FINAL CTA - The Horizon */}
-      <section className="py-40 bg-obsidian-950 relative border-t border-white/5 overflow-hidden">
-        {/* Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold-600/5 rounded-full blur-[150px]" />
+      {/* FINAL CTA - Clean Black */}
+      <section className="py-24 bg-slate-900 relative isolate overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 blur-3xl opacity-20 pointer-events-none">
+          <div className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style={{ clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' }}></div>
+        </div>
 
-        <div className="container mx-auto px-4 text-center max-w-5xl relative z-10">
+        <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
           <ScrollReveal>
-            <h2 className="font-serif text-5xl md:text-7xl text-white mb-10 leading-tight">
-              L'avenir de votre centre <br />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-600">commence ici</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">
+              Prêt à transformer votre institut ?
             </h2>
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mt-16">
+            <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto font-light">
+              Rejoignez plus de 500 centres équipés par My Sculpt Technology et offrez à vos clients des résultats exceptionnels.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="min-w-[240px] h-16 bg-white text-obsidian-950 hover:bg-gold-400 hover:text-white rounded-none font-bold tracking-widest text-lg transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-                  DEMANDER UN DEVIS
+                <Button size="lg" className="h-14 px-8 bg-gold-600 hover:bg-gold-500 text-white rounded-md font-medium shadow-lg shadow-gold-900/20">
+                  Contacter un expert
+                </Button>
+              </Link>
+              <Link href="/appareils">
+                <Button size="lg" variant="outline" className="h-14 px-8 border-white/10 text-white hover:bg-white/10 rounded-md bg-transparent">
+                  Catalogue
                 </Button>
               </Link>
             </div>
           </ScrollReveal>
-
-          {/* Footer stats minimal */}
-          <div className="mt-32 grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-white/5 mx-auto max-w-4xl">
-            {[
-              { label: "Centres Équipés", val: "500+" },
-              { label: "Satisfaction", val: "100%" },
-              { label: "Garantie", val: "2 Ans" },
-              { label: "Support", val: "24/7" },
-            ].map((stat, i) => (
-              <div key={i} className="group">
-                <div className="font-serif text-3xl text-white mb-2 group-hover:text-gold-400 transition-colors duration-300">{stat.val}</div>
-                <div className="font-sans text-[10px] text-neutral-500 tracking-[0.2em] uppercase group-hover:text-neutral-300 transition-colors">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
