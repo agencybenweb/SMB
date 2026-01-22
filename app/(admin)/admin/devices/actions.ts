@@ -57,6 +57,11 @@ export async function upsertDevice(formData: FormData, id?: string) {
     }
     const specifications = JSON.stringify(specificationsObj);
 
+    const certificationsRaw = formData.get("certifications") as string;
+    const certifications = JSON.stringify(
+        certificationsRaw ? certificationsRaw.split("\n").map(l => l.trim()).filter(l => l.length > 0) : []
+    );
+
     const data = {
         name,
         slug,
@@ -71,6 +76,7 @@ export async function upsertDevice(formData: FormData, id?: string) {
         benefits,
         specifications,
         indications,
+        certifications,
     };
 
     if (id) {
@@ -83,7 +89,6 @@ export async function upsertDevice(formData: FormData, id?: string) {
             data: {
                 ...data,
                 orderIndex: 0,
-                certifications: "[]",
                 galleryUrls: "[]"
             },
         });

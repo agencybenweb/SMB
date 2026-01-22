@@ -21,18 +21,17 @@ import { Badge } from "@/components/ui/badge";
 
 // Hardcoded for now to avoid server-client import issues with Enums if not configured
 const TECHNOLOGIES = [
-    "EMS",
-    "CRYOLIPOLYSE",
-    "RADIOFREQUENCE",
-    "CAVITATION",
-    "LIPOLASER",
     "HIFU",
-    "VACUUM_RF",
-    "PRESSOTHERAPIE",
-    "ENDERMOLOGIE",
+    "LASER",
     "LED",
+    "CRYOLIPOLYSE",
+    "LIFTING",
+    "VACUUM",
+    "EMS",
+    "HYDRAFACIAL",
+    "PRESSOTHERAPIE",
     "ANALYSE_CORPORELLE",
-    "MULTI_TECHNOLOGIES"
+    "DIAGNOSTIC"
 ];
 
 const STATUSES = ["ACTIVE", "INACTIVE", "DRAFT", "ARCHIVED"];
@@ -91,7 +90,7 @@ export function DeviceForm({ device }: { device?: Device }) {
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <Label>Technologie</Label>
-                                <Select name="technology" defaultValue={device?.technology || "MULTI_TECHNOLOGIES"}>
+                                <Select name="technology" defaultValue={device?.technology || "HIFU"}>
                                     <SelectTrigger>
                                         <SelectValue placeholder="Sélectionner" />
                                     </SelectTrigger>
@@ -163,6 +162,19 @@ export function DeviceForm({ device }: { device?: Device }) {
                                 defaultValue={device?.specifications ? Object.entries(JSON.parse(device.specifications) as Record<string, string>).map(([k, v]) => `${k}: ${v}`).join("\n") : ""}
                                 rows={5}
                                 placeholder="Puissance: 2000W&#10;Fréquence: 50Hz&#10;Poids: 20kg"
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="flex justify-between">
+                                <Label>Certifications</Label>
+                                <span className="text-xs text-slate-400">Une par ligne (Ex: CE, FDA...)</span>
+                            </div>
+                            <Textarea
+                                name="certifications"
+                                defaultValue={device?.certifications ? (JSON.parse(device.certifications) as string[]).join("\n") : ""}
+                                rows={3}
+                                placeholder="CE&#10;FDA&#10;ISO 13485"
                             />
                         </div>
                     </div>
