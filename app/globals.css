@@ -4,106 +4,104 @@
 
 @layer base {
   :root {
-    /* Light Mode - Blanc Premium */
-    --background: 0 0% 100%;
-    /* Blanc pur */
-    --foreground: 0 0% 5%;
-    /* Noir profond pour texte */
+    /* Light Mode - Blanc Premium Sobre */
+    --background: 0 0% 98%;
+    /* Blanc cassé élégant */
+    --foreground: 0 0% 8%;
+    /* Noir doux pour texte */
 
-    /* Cards: Blanc avec bordures subtiles */
+    /* Cards: Blanc pur avec ombres subtiles */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card-foreground: 0 0% 8%;
 
     /* Popovers */
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Primary: Or Premium */
-    --primary: 43 74% 49%;
-    /* Or riche #D4AF37 */
+    /* Primary: Or champagne très discret */
+    --primary: 40 20% 50%;
+    /* Or désaturé, sobre */
     --primary-foreground: 0 0% 100%;
-    /* Blanc sur or */
 
-    /* Secondary: Gris élégant */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
+    /* Secondary: Gris perle */
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 15%;
 
-    /* Muted: Gris doux */
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    /* Muted: Gris très doux */
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
 
-    /* Accent: Or pâle */
-    --accent: 43 74% 95%;
-    --accent-foreground: 43 74% 20%;
+    /* Accent: Gris chaud */
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 15%;
 
     /* Destructive */
-    --destructive: 0 84% 60%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Borders & Inputs */
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 43 74% 49%;
-    /* Or pour focus */
+    /* Borders & Inputs - Très subtils */
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 20%;
+    /* Focus discret gris foncé */
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --chart-1: 43 74% 49%;
-    --chart-2: 30 65% 45%;
-    --chart-3: 20 55% 40%;
-    --chart-4: 10 45% 35%;
-    --chart-5: 0 35% 30%;
+    --chart-1: 0 0% 20%;
+    --chart-2: 0 0% 35%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 0 0% 65%;
+    --chart-5: 0 0% 80%;
   }
 
   .dark {
-    /* Dark Mode - Noir Premium */
-    --background: 0 0% 4%;
-    /* Noir profond #0A0A0A */
-    --foreground: 0 0% 98%;
+    /* Dark Mode - Noir Premium Sobre */
+    --background: 0 0% 6%;
+    /* Noir profond #0F0F0F */
+    --foreground: 0 0% 95%;
     /* Blanc cassé */
 
-    /* Cards: Noir avec légère élévation */
-    --card: 0 0% 8%;
-    /* Légèrement plus clair que bg */
-    --card-foreground: 0 0% 98%;
+    /* Cards: Gris anthracite */
+    --card: 0 0% 10%;
+    /* #1A1A1A */
+    --card-foreground: 0 0% 95%;
 
     /* Popovers */
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Primary: Or lumineux */
-    --primary: 43 96% 56%;
-    /* Or éclatant pour contraste #F4C430 */
-    --primary-foreground: 0 0% 5%;
-    /* Noir sur or */
+    /* Primary: Or platine très subtil */
+    --primary: 40 15% 65%;
+    /* Champagne désaturé */
+    --primary-foreground: 0 0% 10%;
 
     /* Secondary: Gris foncé */
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 95%;
 
     /* Muted */
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 55%;
 
     /* Accent */
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 95%;
 
     /* Destructive */
-    --destructive: 0 75% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 95%;
 
-    /* Borders */
+    /* Borders - Très subtils */
     --border: 0 0% 18%;
-    /* Bordures subtiles */
     --input: 0 0% 18%;
-    --ring: 43 96% 56%;
+    --ring: 0 0% 75%;
+    /* Focus discret blanc cassé */
 
-    --chart-1: 43 96% 56%;
-    --chart-2: 30 85% 50%;
-    --chart-3: 20 75% 45%;
-    --chart-4: 10 65% 40%;
-    --chart-5: 0 55% 35%;
+    --chart-1: 0 0% 80%;
+    --chart-2: 0 0% 65%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 0 0% 35%;
+    --chart-5: 0 0% 20%;
   }
 }
 
@@ -117,59 +115,63 @@
   }
 }
 
-/* Premium Utilities */
+/* Premium Sobre Utilities */
 @layer utilities {
 
-  /* Glassmorphism avec touches dorées */
+  /* Glassmorphism minimaliste */
   .glass {
-    @apply bg-white/80 dark:bg-black/60 backdrop-blur-xl border border-white/30 dark:border-white/10;
+    @apply bg-white/90 dark:bg-black/70 backdrop-blur-xl border border-black/5 dark:border-white/5;
   }
 
   .glass-card {
-    @apply bg-white/70 dark:bg-white/5 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-2xl;
+    @apply bg-white/95 dark:bg-white/3 backdrop-blur-lg border border-black/5 dark:border-white/5 shadow-2xl shadow-black/5;
   }
 
-  .glass-gold {
-    @apply bg-gradient-to-br from-white/90 to-yellow-50/90 dark:from-black/70 dark:to-yellow-950/30 backdrop-blur-xl border border-yellow-200/40 dark:border-yellow-600/20 shadow-xl shadow-yellow-500/10;
+  /* Accent or très discret */
+  .accent-gold {
+    @apply bg-gradient-to-br from-neutral-100 to-stone-100 dark:from-neutral-900 dark:to-stone-900 border border-stone-200/50 dark:border-stone-800/50;
   }
 
-  /* Dégradés Or Premium */
-  .text-gradient-gold {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-amber-500 to-yellow-600 dark:from-yellow-400 dark:via-amber-300 dark:to-yellow-400;
+  /* Texte avec micro-accent */
+  .text-accent-subtle {
+    @apply text-neutral-700 dark:text-neutral-300;
   }
 
-  .text-gradient-bronze {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-700 via-orange-600 to-amber-700 dark:from-amber-500 dark:via-orange-400 dark:to-amber-500;
+  .text-premium {
+    @apply text-neutral-900 dark:text-neutral-100 font-medium tracking-tight;
   }
 
-  .bg-gradient-gold {
-    @apply bg-gradient-to-br from-yellow-500 via-amber-500 to-yellow-600;
+  /* Bordures élégantes */
+  .border-elegant {
+    @apply border-neutral-200/60 dark:border-neutral-800/60;
   }
 
-  .bg-gradient-gold-subtle {
-    @apply bg-gradient-to-br from-yellow-50 via-amber-50 to-yellow-100 dark:from-yellow-950/20 dark:via-amber-950/20 dark:to-yellow-900/20;
+  /* Hover subtil */
+  .hover-elegant {
+    @apply transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-lg hover:shadow-black/5;
   }
 
-  /* Bordures dorées */
-  .border-gold {
-    @apply border-yellow-500/30 dark:border-yellow-400/30;
-  }
-
-  .border-gold-glow {
-    @apply border-yellow-500/50 shadow-lg shadow-yellow-500/20 dark:border-yellow-400/50 dark:shadow-yellow-400/20;
-  }
-
-  /* Hover effects premium */
-  .hover-gold {
-    @apply transition-all duration-300 hover:border-yellow-500/60 hover:shadow-xl hover:shadow-yellow-500/20;
-  }
-
-  /* Admin specific - Cuivre/Ambre */
+  /* Admin - Légère distinction avec teinte chaude */
   .admin-accent {
-    @apply bg-gradient-to-br from-amber-600 to-orange-600 text-white;
+    @apply bg-gradient-to-br from-stone-800 to-neutral-900 text-white;
   }
 
   .admin-border {
-    @apply border-amber-500/30 dark:border-amber-400/30;
+    @apply border-stone-700/30 dark:border-stone-600/30;
+  }
+
+  /* Client - Teinte froide */
+  .client-accent {
+    @apply bg-gradient-to-br from-slate-800 to-neutral-900 text-white;
+  }
+
+  /* Dégradés très discrets pour titres importants */
+  .text-gradient-elegant {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 via-neutral-600 to-neutral-800 dark:from-neutral-200 dark:via-neutral-400 dark:to-neutral-200;
+  }
+
+  /* Bouton premium sobre */
+  .btn-premium {
+    @apply bg-neutral-900 dark:bg-neutral-100 text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors duration-200 shadow-lg shadow-black/10;
   }
 }
