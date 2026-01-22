@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { UserActions } from "./_components/user-actions";
+import { CreateUserButton } from "./_components/create-user-button";
 
 export default async function AdminUsersPage() {
     const users = await prisma.user.findMany({
@@ -21,6 +22,7 @@ export default async function AdminUsersPage() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <h1 className="text-3xl font-bold tracking-tight">Utilisateurs</h1>
+                <CreateUserButton />
             </div>
 
             <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
