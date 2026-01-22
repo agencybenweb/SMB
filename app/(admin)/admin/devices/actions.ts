@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { DeviceStatus, DeviceTechnology } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { writeFile, mkdir } from "fs/promises";
+import path from "path";
 
 export async function upsertDevice(formData: FormData, id?: string) {
     const name = formData.get("name") as string;
@@ -12,7 +14,23 @@ export async function upsertDevice(formData: FormData, id?: string) {
     const shortDescription = formData.get("shortDescription") as string;
     const description = formData.get("description") as string;
     const basePrice = parseFloat(formData.get("basePrice") as string);
-    const imageUrl = formData.get("imageUrl") as string;
+    let imageUrl = formData.get("imageUrl") as string;
+
+    // Handle File Upload
+    const imageFile = formData.get("imageFile") as File;
+    if (imageFile && imageFile.size > 0 && imageFile.name !== "undefined") {
+        try {
+            const buffer = Buffer.from(await imageFile.arrayBuffer());
+            const filename = `${Date.now()}-${imageFile.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
+            const uploadDir = path.join(process.cwd(), "public/uploads/devices");
+
+            await mkdir(uploadDir, { recursive: true });
+            await writeFile(path.join(uploadDir, filename), buffer);
+            imageUrl = `/uploads/devices/${filename}`;
+        } catch (error) {
+            console.error("Error uploading device image:", error);
+        }
+    }
     const status = formData.get("status") as DeviceStatus;
     const featured = formData.get("featured") === "on";
     const expectedResults = formData.get("expectedResults") as string;
