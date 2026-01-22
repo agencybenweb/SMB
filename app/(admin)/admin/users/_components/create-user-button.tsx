@@ -22,14 +22,22 @@ export function CreateUserButton() {
     const [loading, setLoading] = useState(false);
 
     // Form data
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<{
+        email: string;
+        firstName: string;
+        lastName: string;
+        companyName: string;
+        password: string;
+        role: "ADMIN" | "CLIENT_PRO";
+        status: "ACTIVE" | "PENDING_VERIFICATION" | "SUSPENDED";
+    }>({
         email: "",
         firstName: "",
         lastName: "",
         companyName: "",
         password: "",
-        role: "CLIENT_PRO" as const,
-        status: "ACTIVE" as const
+        role: "CLIENT_PRO",
+        status: "ACTIVE"
     });
 
     const handleSubmit = async () => {
