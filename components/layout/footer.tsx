@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="relative bg-transparent pt-0 pb-6 px-4 font-sans">
 
       {/* Footer Bubble Container */}
-      <div className="container mx-auto max-w-7xl bg-slate-900 text-slate-300 rounded-[2.5rem] overflow-hidden relative shadow-2xl shadow-slate-200/50">
+      <div className="container mx-auto max-w-6xl bg-slate-900 text-slate-300 rounded-[2.5rem] overflow-hidden relative shadow-2xl shadow-slate-200/50">
 
         {/* Decorative Gradient Blob Inside Bubble */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none opacity-40" />
