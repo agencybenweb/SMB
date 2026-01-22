@@ -114,7 +114,7 @@ export default async function HomePage() {
                 </div>
 
                 {/* Floating Bubble Central - Growth Chart */}
-                <div className="absolute top-0 left-[40%] bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+                <div className="absolute top-8 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
                   <div className="flex flex-col gap-2 w-32">
                     <div className="flex justify-between items-end">
                       <div className="w-2 h-4 bg-indigo-200 rounded-t-sm"></div>
