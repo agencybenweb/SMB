@@ -19,6 +19,11 @@ const technologyLabels: Record<string, string> = {
   LED: "LED",
   ANALYSE_CORPORELLE: "Analyse Corporelle",
   MULTI_TECHNOLOGIES: "Multi-Technologies",
+  LASER: "Laser Épilation",
+  HYDRAFACIAL: "Hydrafacial",
+  VACUUM: "Vacuum Therapy",
+  DIAGNOSTIC: "Diagnostic de Peau",
+  LIFTING: "Lifting Visage",
 };
 
 export default async function AppareilsPage({
