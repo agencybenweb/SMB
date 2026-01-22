@@ -310,6 +310,124 @@ export default function DesignSystemPage() {
                     </div>
                 </section>
 
+                {/* Animations */}
+                <section className="animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
+                        <Zap className="w-6 h-6 text-primary animate-glow" />
+                        <span className="text-gradient-gold">Animations & Mouvements</span>
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <Card className="border-elegant group">
+                            <CardHeader>
+                                <CardTitle>Float Animation</CardTitle>
+                                <CardDescription>Mouvement de flottement doux</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="flex items-center justify-center h-32 bg-gradient-gold-subtle rounded-lg">
+                                    <Crown className="w-16 h-16 text-primary animate-float" />
+                                </div>
+                                <code className="block mt-4 text-xs bg-muted px-2 py-1 rounded">
+                                    .animate-float
+                                </code>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-gold-glow group">
+                            <CardHeader>
+                                <CardTitle>Glow Animation</CardTitle>
+                                <CardDescription>Effet de lueur pulsante</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="flex items-center justify-center h-32 bg-gradient-dark-gold rounded-lg animate-glow">
+                                    <Star className="w-16 h-16 text-amber-400" />
+                                </div>
+                                <code className="block mt-4 text-xs bg-muted px-2 py-1 rounded">
+                                    .animate-glow
+                                </code>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-elegant group">
+                            <CardHeader>
+                                <CardTitle>Hover Lift</CardTitle>
+                                <CardDescription>Élévation au survol</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="flex items-center justify-center h-32 bg-gradient-gold-subtle rounded-lg">
+                                    <Gem className="w-16 h-16 text-primary group-hover-lift" />
+                                </div>
+                                <code className="block mt-4 text-xs bg-muted px-2 py-1 rounded">
+                                    .group-hover-lift
+                                </code>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-elegant group">
+                            <CardHeader>
+                                <CardTitle>Hover Scale</CardTitle>
+                                <CardDescription>Agrandissement au survol</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="flex items-center justify-center h-32 bg-accent-gold rounded-lg">
+                                    <Award className="w-16 h-16 text-primary group-hover-scale" />
+                                </div>
+                                <code className="block mt-4 text-xs bg-muted px-2 py-1 rounded">
+                                    .group-hover-scale
+                                </code>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-elegant animate-slide-up">
+                            <CardHeader>
+                                <CardTitle>Slide Up</CardTitle>
+                                <CardDescription>Apparition par le bas</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="flex items-center justify-center h-32 bg-gradient-gold-subtle rounded-lg">
+                                    <TrendingUp className="w-16 h-16 text-primary" />
+                                </div>
+                                <code className="block mt-4 text-xs bg-muted px-2 py-1 rounded">
+                                    .animate-slide-up
+                                </code>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-elegant animate-scale-in">
+                            <CardHeader>
+                                <CardTitle>Scale In</CardTitle>
+                                <CardDescription>Apparition avec zoom</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="flex items-center justify-center h-32 bg-accent-gold rounded-lg">
+                                    <Sparkles className="w-16 h-16 text-primary" />
+                                </div>
+                                <code className="block mt-4 text-xs bg-muted px-2 py-1 rounded">
+                                    .animate-scale-in
+                                </code>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    <div className="mt-8 p-6 glass-gold rounded-xl border-gold">
+                        <h3 className="text-xl font-bold mb-4 text-gradient-gold">Boutons Animés</h3>
+                        <div className="flex flex-wrap gap-4">
+                            <Button className="btn-premium group">
+                                <Crown className="w-4 h-4 mr-2 group-hover-scale" />
+                                Premium avec Hover
+                            </Button>
+                            <Button className="btn-elegant group">
+                                <Shield className="w-4 h-4 mr-2 group-hover-lift" />
+                                Elegant avec Lift
+                            </Button>
+                            <Button className="admin-accent animate-glow">
+                                <Sparkles className="w-4 h-4 mr-2" />
+                                Admin Glow
+                            </Button>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Forms */}
                 <section>
                     <h2 className="text-3xl font-bold mb-8">Formulaires</h2>
