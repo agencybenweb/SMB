@@ -12,7 +12,8 @@ import {
     Shield,
     ExternalLink,
     FileText,
-    MessageSquare
+    MessageSquare,
+    Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -65,7 +66,7 @@ export default async function AdminLayout({
 
                     <Link href="/admin/technologies">
                         <Button variant="ghost" className="w-full justify-start gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
-                            <Smartphone className="w-4 h-4" /> Technologies
+                            <Zap className="w-4 h-4" /> Technologies
                         </Button>
                     </Link>
 
