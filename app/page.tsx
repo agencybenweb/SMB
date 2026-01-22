@@ -62,7 +62,7 @@ export default async function HomePage() {
 
         <div className="container relative z-10 px-4 text-center max-w-6xl">
 
-          <ScrollReveal direction="down" className="mb-10 flex justify-center">
+          <ScrollReveal className="mb-10 flex justify-center">
             <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-gold-500/30 bg-gold-500/5 backdrop-blur-md shadow-lg shadow-gold-500/10 animate-fade-in">
               <Star className="w-3.5 h-3.5 text-gold-400 fill-gold-400 animate-spin-slow" />
               <span className="text-xs font-bold tracking-[0.3em] text-gold-200 uppercase">
