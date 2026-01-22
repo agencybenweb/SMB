@@ -18,7 +18,7 @@ export function Header() {
 
   // Pages where valid transparent header (Hero section exists)
   // Logic: Only top level pages have the dark hero section. Subpages (like product details) are usually light.
-  const darkHeroRoutes = ["/", "/appareils", "/technologies", "/formation", "/sav", "/contact"];
+  const darkHeroRoutes = ["/", "/appareils", "/technologies", "/formation", "/sav", "/contact", "/a-propos"];
   // We use strict inclusion, but we can handle valid query params or trailing slashes potentially (Next.js pathname usually clean)
   const isDarkHeroPage = pathname ? darkHeroRoutes.includes(pathname) : false;
 
