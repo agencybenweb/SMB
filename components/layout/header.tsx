@@ -119,9 +119,6 @@ export function Header() {
             ) : (
               <div className="flex items-center gap-2">
                 <Link href="/auth/login">
-                  <Button variant="ghost" size="sm" className={!forceDarkText ? "text-white hover:text-white hover:bg-white/10" : ""}>Connexion</Button>
-                </Link>
-                <Link href="/auth/login">
                   <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20">
                     Espace Pro
                   </Button>
@@ -165,14 +162,9 @@ export function Header() {
           <div className="h-px bg-border my-2" />
           <div className="flex flex-col gap-2">
             {!session ? (
-              <>
-                <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full">Connexion</Button>
-                </Link>
-                <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full">Espace Pro</Button>
-                </Link>
-              </>
+              <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
+                <Button className="w-full">Espace Pro</Button>
+              </Link>
             ) : (
               <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="w-full">Accéder à mon espace</Button>
