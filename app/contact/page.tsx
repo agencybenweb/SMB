@@ -60,7 +60,7 @@ function ContactContent() {
       <div className="bg-slate-900 text-white pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Discutons de <span className="text-gradient-gold">votre projet</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
