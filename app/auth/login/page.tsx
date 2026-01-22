@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -33,7 +33,13 @@ function LoginContent() {
       if (result?.error) {
         setError("Identifiants incorrects. Veuillez réessayer.");
       } else if (result?.ok) {
-        const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+        const session = await getSession();
+        // @ts-ignore
+        const isAdmin = session?.user?.role === "ADMIN";
+
+        const defaultUrl = isAdmin ? "/admin" : "/dashboard";
+        const callbackUrl = searchParams.get("callbackUrl") || defaultUrl;
+
         router.push(callbackUrl);
         router.refresh();
       }
