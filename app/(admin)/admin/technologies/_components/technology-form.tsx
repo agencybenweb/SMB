@@ -34,6 +34,7 @@ const TECHNOLOGIES = [
 
 export function TechnologyForm({ technology }: { technology?: TechnologyContent }) {
     const [loading, setLoading] = useState(false);
+    const [previewImage, setPreviewImage] = useState(technology?.imageUrl || "");
 
     return (
         <form
@@ -118,6 +119,58 @@ export function TechnologyForm({ technology }: { technology?: TechnologyContent 
 
                 {/* SIDEBAR SETTINGS */}
                 <div className="space-y-6">
+
+                    {/* IMAGE UPLOAD */}
+                    <div className="bg-white dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 space-y-4">
+                        <h3 className="font-semibold">Image Illustration</h3>
+                        <div className="aspect-square rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative border border-slate-200 dark:border-slate-700 flex items-center justify-center group">
+                            {previewImage ? (
+                                <img src={previewImage} alt="Preview" className="w-full h-full object-cover" />
+                            ) : (
+                                <div className="text-center p-4">
+                                    <span className="text-slate-400 text-sm block">Aucune image</span>
+                                    <span className="text-slate-500 text-xs mt-1">Cliquez pour importer</span>
+                                </div>
+                            )}
+
+                            {/* Overlay on hover */}
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full border border-white/20">
+                                    Importer une image
+                                </span>
+                            </div>
+
+                            <input
+                                type="file"
+                                name="imageFile"
+                                accept="image/*"
+                                className="absolute inset-0 opacity-0 cursor-pointer z-10"
+                                onChange={(e) => {
+                                    const file = e.target.files?.[0];
+                                    if (file) {
+                                        setPreviewImage(URL.createObjectURL(file));
+                                    }
+                                }}
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label>URL de l'image (ou laisser automatique après import)</Label>
+                            <Input
+                                name="imageUrl"
+                                value={previewImage.startsWith("blob:") ? "" : previewImage}
+                                onChange={(e) => setPreviewImage(e.target.value)}
+                                placeholder="https://..."
+                            />
+                            {previewImage.startsWith("blob:") && (
+                                <p className="text-xs text-green-600 font-medium">Image locale sélectionnée. Sera uploadée à l'enregistrement.</p>
+                            )}
+                            <p className="text-xs text-slate-500">
+                                Cliquez sur le carré ci-dessus pour importer depuis votre PC.
+                            </p>
+                        </div>
+                    </div>
+
                     <div className="bg-white dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 space-y-4">
                         <h3 className="font-semibold">Publication</h3>
 

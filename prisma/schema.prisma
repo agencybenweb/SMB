@@ -149,6 +149,7 @@ model TechnologyContent {
   description String           @db.Text
   benefits    String           @db.Text // JSON array
   icon        String           @default("✨")
+  imageUrl    String?
   orderIndex  Int              @default(0)
   visible     Boolean          @default(true)
   

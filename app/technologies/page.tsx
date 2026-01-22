@@ -80,9 +80,15 @@ export default async function TechnologiesPage() {
 
                 {/* Visual / Illustration */}
                 <div className="flex-1 w-full">
-                  <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 rounded-2xl flex items-center justify-center text-slate-400 font-medium border border-slate-200 dark:border-slate-800">
-                    Illustration {tech.title}
-                  </div>
+                  {tech.imageUrl ? (
+                    <div className="aspect-square rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg">
+                      <img src={tech.imageUrl} alt={tech.title} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 rounded-2xl flex items-center justify-center text-slate-400 font-medium border border-slate-200 dark:border-slate-800">
+                      Illustration {tech.title}
+                    </div>
+                  )}
                 </div>
 
               </div>
