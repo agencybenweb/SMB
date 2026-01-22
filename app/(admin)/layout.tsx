@@ -63,6 +63,12 @@ export default async function AdminLayout({
                         </Button>
                     </Link>
 
+                    <Link href="/admin/technologies">
+                        <Button variant="ghost" className="w-full justify-start gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
+                            <Smartphone className="w-4 h-4" /> Technologies
+                        </Button>
+                    </Link>
+
                     <Link href="/admin/users">
                         <Button variant="ghost" className="w-full justify-start gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
                             <Users className="w-4 h-4" /> Utilisateurs
