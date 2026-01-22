@@ -53,7 +53,7 @@ export default async function TechnologiesPage() {
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
       {/* HEADER */}
-      <div className="bg-slate-900 text-white pt-32 pb-16 relative overflow-hidden">
+      <div className="bg-slate-900 text-white pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h1 className="text-4xl font-bold mb-4">Nos Technologies <span className="text-primary">Expertes</span></h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
