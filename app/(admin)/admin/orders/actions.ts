@@ -8,7 +8,7 @@ export async function updateOrderStatus(orderId: string, status: string) {
         const order = await prisma.order.update({
             where: { id: orderId },
             data: { status: status as any },
-            include: { user: true }
+            include: { user: true, items: { include: { device: true } } }
         });
 
         // Activation automatique du compte prospect lors de la validation du devis
@@ -27,6 +27,11 @@ export async function updateOrderStatus(orderId: string, status: string) {
             // avec un lien pour définir son mot de passe.
         }
 
+        // Si commande DELIVERED + PAID → Créer les DeviceOwnership
+        if (status === "DELIVERED" && order.paymentStatus === "PAID") {
+            await createDeviceOwnerships(order.id, order.userId, order.items);
+        }
+
         revalidatePath(`/admin/orders/${orderId}`);
         revalidatePath("/admin/orders");
         revalidatePath("/admin/users"); // Refresh users list
@@ -35,6 +40,65 @@ export async function updateOrderStatus(orderId: string, status: string) {
     } catch (error) {
         console.error("Erreur mise à jour commande:", error);
         return { success: false, error: "Erreur lors de la mise à jour" };
+    }
+}
+
+export async function updatePayment(orderId: string, formData: FormData) {
+    try {
+        const paymentStatus = formData.get("paymentStatus") as string;
+        const paymentMethod = formData.get("paymentMethod") as string;
+        const paidAmount = parseFloat(formData.get("paidAmount") as string);
+
+        const order = await prisma.order.update({
+            where: { id: orderId },
+            data: {
+                paymentStatus: paymentStatus as any,
+                paymentMethod: paymentMethod as any,
+                paidAmount
+            },
+            include: { items: { include: { device: true } } }
+        });
+
+        // Si commande DELIVERED + PAID → Créer les DeviceOwnership
+        if (order.status === "DELIVERED" && paymentStatus === "PAID") {
+            await createDeviceOwnerships(order.id, order.userId, order.items);
+        }
+
+        revalidatePath(`/admin/orders/${orderId}`);
+        revalidatePath("/admin/orders");
+        revalidatePath(`/dashboard`); // Refresh client dashboard
+
+        return { success: true };
+    } catch (error) {
+        console.error("Erreur mise à jour paiement:", error);
+        return { success: false, error: "Erreur lors de la mise à jour du paiement" };
+    }
+}
+
+async function createDeviceOwnerships(orderId: string, userId: string, items: any[]) {
+    for (const item of items) {
+        // Vérifier si ownership existe déjà
+        const existing = await prisma.deviceOwnership.findFirst({
+            where: {
+                userId,
+                deviceId: item.deviceId,
+                orderItemId: item.id
+            }
+        });
+
+        if (!existing) {
+            await prisma.deviceOwnership.create({
+                data: {
+                    userId,
+                    deviceId: item.deviceId,
+                    orderItemId: item.id,
+                    purchaseDate: new Date(),
+                    warrantyEndDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 an
+                    status: "ACTIVE"
+                }
+            });
+            console.log(`DeviceOwnership created for user ${userId}, device ${item.device.name}`);
+        }
     }
 }
 

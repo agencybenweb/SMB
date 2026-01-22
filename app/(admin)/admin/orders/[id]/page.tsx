@@ -10,6 +10,7 @@ import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { OrderStatusUpdater } from "../_components/status-updater";
 import { QuoteGenerator } from "../_components/quote-generator";
+import { PaymentManager } from "../_components/payment-manager";
 
 
 interface PageProps {
@@ -88,6 +89,13 @@ export default async function AdminOrderDetailPage({ params }: PageProps) {
                     </p>
                 </div>
                 <div className="ml-auto flex gap-2">
+                    <PaymentManager
+                        orderId={order.id}
+                        currentPaymentStatus={order.paymentStatus}
+                        currentPaymentMethod={order.paymentMethod}
+                        currentPaidAmount={Number(order.paidAmount)}
+                        totalAmount={Number(order.totalAmount)}
+                    />
                     <QuoteGenerator order={formattedOrder} />
                     <OrderStatusUpdater orderId={order.id} currentStatus={order.status} />
                 </div>
