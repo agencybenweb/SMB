@@ -83,6 +83,22 @@ export default async function AdminOrderDetailPage({ params }: PageProps) {
                         <Badge className={`${statusMap[order.status]?.color} text-white`}>
                             {statusMap[order.status]?.label || order.status}
                         </Badge>
+                        {order.status !== "DRAFT" && (
+                            <Badge
+                                variant="outline"
+                                className={`${order.paymentStatus === "PAID" ? "border-green-500 text-green-700 bg-green-50" :
+                                        order.paymentStatus === "PARTIAL" ? "border-blue-500 text-blue-700 bg-blue-50" :
+                                            order.paymentStatus === "PENDING" ? "border-amber-500 text-amber-700 bg-amber-50" :
+                                                "border-red-500 text-red-700 bg-red-50"
+                                    }`}
+                            >
+                                {order.paymentStatus === "PAID" ? "💰 Payé" :
+                                    order.paymentStatus === "PARTIAL" ? "💳 Partiel" :
+                                        order.paymentStatus === "PENDING" ? "⏳ En attente" :
+                                            order.paymentStatus === "FAILED" ? "❌ Échec" :
+                                                "🔄 Remboursé"}
+                            </Badge>
+                        )}
                     </h1>
                     <p className="text-slate-500 text-sm">
                         Créée le {format(new Date(order.createdAt), "dd MMMM yyyy à HH:mm", { locale: fr })}

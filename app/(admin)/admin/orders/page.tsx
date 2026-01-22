@@ -83,9 +83,27 @@ export default async function AdminOrdersPage() {
                                     </TableCell>
                                     <TableCell>{formatPrice(Number(order.totalAmount))}</TableCell>
                                     <TableCell>
-                                        <Badge variant="secondary" className={`${statusMap[order.status]?.color} text-white hover:${statusMap[order.status]?.color}`}>
-                                            {statusMap[order.status]?.label || order.status}
-                                        </Badge>
+                                        <div className="flex flex-col gap-1">
+                                            <Badge variant="secondary" className={`${statusMap[order.status]?.color} text-white hover:${statusMap[order.status]?.color}`}>
+                                                {statusMap[order.status]?.label || order.status}
+                                            </Badge>
+                                            {order.status !== "DRAFT" && (
+                                                <Badge
+                                                    variant="outline"
+                                                    className={`text-xs ${order.paymentStatus === "PAID" ? "border-green-500 text-green-700" :
+                                                            order.paymentStatus === "PARTIAL" ? "border-blue-500 text-blue-700" :
+                                                                order.paymentStatus === "PENDING" ? "border-amber-500 text-amber-700" :
+                                                                    "border-red-500 text-red-700"
+                                                        }`}
+                                                >
+                                                    {order.paymentStatus === "PAID" ? "💰 Payé" :
+                                                        order.paymentStatus === "PARTIAL" ? "💳 Partiel" :
+                                                            order.paymentStatus === "PENDING" ? "⏳ Paiement" :
+                                                                order.paymentStatus === "FAILED" ? "❌ Échec" :
+                                                                    "🔄 Remboursé"}
+                                                </Badge>
+                                            )}
+                                        </div>
                                     </TableCell>
                                     <TableCell className="text-right">
                                         <Button variant="ghost" size="icon" asChild>
