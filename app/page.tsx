@@ -100,7 +100,7 @@ export default async function HomePage() {
                 {/* Simulated Floating UI Elements inspired by the image provided */}
 
                 {/* Mockup Central */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-white rounded-[2rem] shadow-2xl flex flex-col items-center p-4 z-20 animate-float">
+                <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-white rounded-[2rem] shadow-2xl flex flex-col items-center p-4 z-20 animate-float">
                   <div className="w-full h-32 bg-indigo-100 rounded-xl mb-4 overflow-hidden relative">
                     <div className="absolute inset-0 flex items-center justify-center text-4xl">💆‍♀️</div>
                   </div>
