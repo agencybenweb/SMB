@@ -2,32 +2,18 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useCart } from "@/context/cart-context";
-import { Menu, X, User, LogOut, LayoutDashboard, Shield, ShoppingCart } from "lucide-react";
+import { Menu, X, ShoppingCart, LayoutDashboard, Shield, LogOut } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function Header() {
   const { data: session, status } = useSession();
-  const pathname = usePathname();
   const { cartCount } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Pages where valid transparent header (Hero section exists)
-  // Logic: Only top level pages have the dark hero section. Subpages (like product details) are usually light.
-  const darkHeroRoutes = ["/", "/appareils", "/technologies", "/formation", "/sav", "/contact", "/a-propos"];
-  // We use strict inclusion, but we can handle valid query params or trailing slashes potentially (Next.js pathname usually clean)
-  const isDarkHeroPage = pathname ? darkHeroRoutes.includes(pathname) : false;
-
-  // If we are NOT on a dark hero page (e.g. Dashboard, Admin, Product Detail), we force the "scrolled" look (dark text)
-  // or simply ensuring text is visible on white background.
-  const isLightPage = !isDarkHeroPage;
-
-  // Effective state to decide colors: Scrolled OR Light Page
-  const forceDarkText = scrolled || isLightPage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,140 +23,137 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Définition du style flottant "Bulle"
+  const headerClasses = scrolled
+    ? "fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4"
+    : "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4";
+
+  const navContainerClasses = scrolled
+    ? "bg-white/90 backdrop-blur-xl border border-white/40 shadow-xl shadow-indigo-500/10 rounded-full py-2 px-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300"
+    : "bg-white/60 backdrop-blur-md border border-white/20 shadow-sm rounded-full py-3 px-8 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 mt-2";
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isLightPage ? "bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4"
-        }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className={`w-10 h-10 ${forceDarkText ? 'bg-primary/10 border-primary/20' : 'bg-white/10 border-white/20'} rounded-full flex items-center justify-center border group-hover:border-primary/50 transition-colors`}>
-              <span className={`text-xl font-bold ${forceDarkText ? 'text-primary' : 'text-white'}`}>M</span>
-            </div>
-            <div className="flex flex-col">
-              <span className={`font-bold text-lg leading-none tracking-tight ${forceDarkText ? 'text-foreground' : 'text-white'}`}>MY SCULPT</span>
-              <span className={`text-[10px] tracking-[0.2em] uppercase ${forceDarkText ? 'text-muted-foreground' : 'text-slate-300'}`}>Technology</span>
-            </div>
+    <header className={headerClasses}>
+      <div className={navContainerClasses}>
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 group shrink-0">
+          <div className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform">
+            M
+          </div>
+          <span className="font-bold text-lg text-slate-800 tracking-tight hidden sm:block group-hover:text-indigo-600 transition-colors">
+            My Sculpt
+          </span>
+        </Link>
+
+        {/* Desktop Nav - Centered Pills */}
+        <nav className="hidden lg:flex items-center gap-1 bg-slate-100/50 p-1.5 rounded-full border border-white/50 backdrop-blur-sm mx-4">
+          {[
+            ['Appareils', '/appareils'],
+            ['Technologies', '/technologies'],
+            ['Formation', '/formation'],
+            ['Experts', '/sav'],
+            ['Contact', '/contact']
+          ].map(([label, href]) => (
+            <Link
+              key={href}
+              href={href}
+              className="px-5 py-2 rounded-full text-sm font-semibold text-slate-600 hover:bg-white hover:text-indigo-600 hover:shadow-sm transition-all duration-200"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Actions - Right */}
+        <div className="flex items-center gap-2">
+
+          {/* Cart */}
+          <Link href="/cart">
+            <Button variant="ghost" size="icon" className="rounded-full hover:bg-indigo-50 hover:text-indigo-600 relative">
+              <ShoppingCart className="w-5 h-5" />
+              {cartCount > 0 && (
+                <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-pink-500 text-white border-2 border-white">
+                  {cartCount}
+                </Badge>
+              )}
+            </Button>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {[
-              ['Appareils', '/appareils'],
-              ['Technologies', '/technologies'],
-              ['Formation', '/formation'],
-              ['SAV', '/sav'],
-              ['À propos', '/a-propos'],
-              ['Contact', '/contact']
-            ].map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                className={`text-sm font-medium transition-colors relative group ${forceDarkText ? 'text-muted-foreground hover:text-primary' : 'text-slate-300 hover:text-white'
-                  }`}
-              >
-                {label}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full opacity-0 group-hover:opacity-100 ${forceDarkText ? 'bg-primary' : 'bg-white'}`} />
+          {/* Auth Buttons */}
+          {status === "loading" ? (
+            <div className="w-24 h-9 bg-slate-100 animate-pulse rounded-full" />
+          ) : session ? (
+            <div className="hidden md:flex items-center gap-2">
+              <Link href="/dashboard">
+                <Button variant="ghost" size="sm" className="rounded-full gap-2 font-medium hover:bg-indigo-50 hover:text-indigo-600">
+                  <LayoutDashboard className="w-4 h-4" />
+                  <span className="hidden xl:inline">Pro Dashboard</span>
+                </Button>
               </Link>
-            ))}
-          </nav>
-
-          {/* Actions */}
-          <div className="hidden md:flex items-center gap-4">
-
-            {/* Cart Button */}
-            <Link href="/cart">
-              <Button variant="ghost" size="icon" className={`relative ${!forceDarkText && 'text-white hover:text-white hover:bg-white/10'}`}>
-                <ShoppingCart className="w-5 h-5" />
-                {cartCount > 0 && (
-                  <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 text-[10px] bg-primary text-white border-white dark:border-slate-900">
-                    {cartCount}
-                  </Badge>
-                )}
+              {session.user?.role === "ADMIN" && (
+                <Link href="/admin">
+                  <Button size="icon" variant="ghost" className="rounded-full text-amber-600 hover:bg-amber-50">
+                    <Shield className="w-4 h-4" />
+                  </Button>
+                </Link>
+              )}
+            </div>
+          ) : (
+            <Link href="/auth/login" className="hidden md:block">
+              <Button className="rounded-full bg-slate-900 text-white hover:bg-indigo-600 transition-colors font-medium px-6 shadow-lg shadow-indigo-500/20">
+                Espace Pro
               </Button>
             </Link>
-
-            {status === "loading" ? (
-              <div className="w-24 h-9 bg-muted animate-pulse rounded-md" />
-            ) : session ? (
-              <div className="flex items-center gap-2">
-                <Link href="/dashboard">
-                  <Button variant="ghost" size="sm" className={`gap-2 ${!forceDarkText && 'text-white hover:text-white hover:bg-white/10'}`}>
-                    <LayoutDashboard className="w-4 h-4" />
-                    <span className="hidden lg:inline">Espace Pro</span>
-                  </Button>
-                </Link>
-                {session.user?.role === "ADMIN" && (
-                  <Link href="/admin">
-                    <Button variant="ghost" size="sm" className="text-amber-600 gap-2">
-                      <Shield className="w-4 h-4" />
-                      <span className="hidden lg:inline">Admin</span>
-                    </Button>
-                  </Link>
-                )}
-                <Link href="/auth/signout">
-                  <Button variant="outline" size="sm" className={`gap-2 ${!forceDarkText && 'bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white'}`}>
-                    <LogOut className="w-4 h-4" />
-                  </Button>
-                </Link>
-              </div>
-            ) : (
-              <div className="flex items-center gap-2">
-                <Link href="/auth/login">
-                  <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20">
-                    Espace Pro
-                  </Button>
-                </Link>
-              </div>
-            )}
-          </div>
+          )}
 
           {/* Mobile Toggle */}
           <button
-            className={`md:hidden p-2 ${forceDarkText ? 'text-foreground' : 'text-white'}`}
+            className="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-full transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X /> : <Menu />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Floating Card */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b shadow-lg p-4 flex flex-col gap-4 animate-in slide-in-from-top-2">
+        <div className="absolute top-24 left-4 right-4 bg-white/95 backdrop-blur-xl p-6 rounded-[2rem] shadow-2xl border border-white/50 animate-in slide-in-from-top-4 z-40 flex flex-col gap-6">
           <nav className="flex flex-col gap-2">
             {[
-              ['Appareils', '/appareils'],
-              ['Technologies', '/technologies'],
-              ['Formation', '/formation'],
-              ['SAV', '/sav'],
-              ['À propos', '/a-propos'],
+              ['Catalogue Appareils', '/appareils'],
+              ['Nos Technologies', '/technologies'],
+              ['Formation & Academy', '/formation'],
+              ['SAV & Support', '/sav'],
               ['Contact', '/contact']
             ].map(([label, href]) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-medium py-2 px-4 hover:bg-muted rounded-md transition-colors"
+                className="text-lg font-bold text-slate-800 py-3 px-4 hover:bg-indigo-50 hover:text-indigo-600 rounded-2xl transition-colors flex justify-between items-center group"
               >
                 {label}
+                <span className="w-2 h-2 rounded-full bg-indigo-200 group-hover:bg-indigo-600 transition-colors"></span>
               </Link>
             ))}
           </nav>
-          <div className="h-px bg-border my-2" />
-          <div className="flex flex-col gap-2">
-            {!session ? (
-              <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full">Espace Pro</Button>
-              </Link>
-            ) : (
-              <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full">Accéder à mon espace</Button>
-              </Link>
-            )}
-          </div>
+
+          <div className="h-px bg-slate-100" />
+
+          {!session ? (
+            <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
+              <Button className="w-full rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white py-6 text-lg font-bold shadow-xl shadow-indigo-200">
+                Connexion Espace Pro
+              </Button>
+            </Link>
+          ) : (
+            <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+              <Button className="w-full rounded-xl bg-slate-900 text-white py-6">
+                Mon Tableau de Bord
+              </Button>
+            </Link>
+          )}
         </div>
       )}
     </header>
