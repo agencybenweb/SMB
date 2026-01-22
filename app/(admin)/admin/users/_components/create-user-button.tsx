@@ -125,7 +125,7 @@ export function CreateUserButton() {
                             <Input
                                 value={formData.companyName}
                                 onChange={e => setFormData({ ...formData, companyName: e.target.value })}
-                                placeholder="Non de l'institut..."
+                                placeholder="Nom de l'institut..."
                             />
                         </div>
 
