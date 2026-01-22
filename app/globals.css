@@ -94,7 +94,7 @@
   }
 
   .glass-card {
-    @apply bg-white/95 dark:bg-white/3 backdrop-blur-lg border border-black/5 dark:border-white/5 shadow-2xl shadow-black/5;
+    @apply bg-white/95 dark:bg-white/5 backdrop-blur-lg border border-black/5 dark:border-white/5 shadow-2xl shadow-black/5;
   }
 
   .accent-gold {
