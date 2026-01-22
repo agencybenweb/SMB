@@ -44,7 +44,7 @@ export default async function HomePage() {
     <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
 
       {/* HERO SECTION - Vibrant Tech Style */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-40 pb-32 overflow-hidden">
         <div className="container mx-auto px-4 max-w-7xl">
 
           {/* Main Hero Card Container */}

@@ -28,7 +28,7 @@ export function Header() {
     ? "fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4"
     : "fixed top-6 left-0 right-0 z-50 transition-all duration-300 px-4";
 
-  const navContainerClasses = "bg-white/80 backdrop-blur-2xl border border-indigo-100/80 shadow-2xl shadow-indigo-900/10 rounded-full py-3 px-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 relative z-50";
+  const navContainerClasses = "bg-white/95 backdrop-blur-xl border border-slate-200 shadow-xl shadow-slate-300/30 rounded-full py-3 px-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-slate-900/5";
 
   return (
     <header className={headerClasses}>
