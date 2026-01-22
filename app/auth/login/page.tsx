@@ -181,12 +181,7 @@ function LoginContent() {
             <p className="text-[10px] text-blue-500 mt-2 italic text-center">Cliquez sur les valeurs pour remplir</p>
           </div>
 
-          <p className="text-center text-sm text-muted-foreground">
-            Vous n'avez pas de compte ?{" "}
-            <Link href="/auth/register" className="text-primary font-semibold hover:underline">
-              Faire une demande d'accès
-            </Link>
-          </p>
+
         </div>
       </div>
     </div>
