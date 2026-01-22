@@ -4,102 +4,106 @@
 
 @layer base {
   :root {
-    /* Base: Clean White Medical/Tech */
+    /* Light Mode - Blanc Premium */
     --background: 0 0% 100%;
-    /* Soft off-white */
-    --foreground: 0 0% 3.9%;
-    /* Dark slate for high contrast text */
+    /* Blanc pur */
+    --foreground: 0 0% 5%;
+    /* Noir profond pour texte */
 
-    /* Cards: Pure white with subtle borders */
+    /* Cards: Blanc avec bordures subtiles */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 0 0% 5%;
 
     /* Popovers */
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover-foreground: 0 0% 5%;
 
-    /* Primary: Premium Gold */
-    --primary: 38 92% 50%;
-    /* Vibrant Gold */
+    /* Primary: Or Premium */
+    --primary: 43 74% 49%;
+    /* Or riche #D4AF37 */
     --primary-foreground: 0 0% 100%;
-    /* White Text */
+    /* Blanc sur or */
 
-    /* Secondary: Dark Tech Blue/Grey */
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary: Gris élégant */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
 
-    /* Muted: Soft greys */
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    /* Muted: Gris doux */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent: Subtle Gold tint */
-    --accent: 38 92% 96%;
-    --accent-foreground: 0 0% 9%;
+    /* Accent: Or pâle */
+    --accent: 43 74% 95%;
+    --accent-foreground: 43 74% 20%;
 
     /* Destructive */
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     /* Borders & Inputs */
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 38 92% 50%;
-    /* Gold ring */
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 43 74% 49%;
+    /* Or pour focus */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: 43 74% 49%;
+    --chart-2: 30 65% 45%;
+    --chart-3: 20 55% 40%;
+    --chart-4: 10 45% 35%;
+    --chart-5: 0 35% 30%;
   }
 
   .dark {
-    /* Base: Deep Black Premium */
-    --background: 224 71% 4%;
-    /* Deep Blue/Black */
-    --foreground: 210 20% 98%;
+    /* Dark Mode - Noir Premium */
+    --background: 0 0% 4%;
+    /* Noir profond #0A0A0A */
+    --foreground: 0 0% 98%;
+    /* Blanc cassé */
 
-    /* Cards: Slightly lighter dark */
-    --card: 224 71% 4%;
-    --card-foreground: 210 20% 98%;
+    /* Cards: Noir avec légère élévation */
+    --card: 0 0% 8%;
+    /* Légèrement plus clair que bg */
+    --card-foreground: 0 0% 98%;
 
     /* Popovers */
-    --popover: 224 71% 4%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Primary: Premium Gold (Dark Mode) */
-    --primary: 38 92% 50%;
-    /* Keep Vibrant Gold */
-    --primary-foreground: 0 0% 100%;
+    /* Primary: Or lumineux */
+    --primary: 43 96% 56%;
+    /* Or éclatant pour contraste #F4C430 */
+    --primary-foreground: 0 0% 5%;
+    /* Noir sur or */
 
-    /* Secondary */
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 210 20% 98%;
+    /* Secondary: Gris foncé */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
 
     /* Muted */
-    --muted: 215 28% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
     /* Accent */
-    --accent: 215 28% 17%;
-    --accent-foreground: 210 20% 98%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
 
     /* Destructive */
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 98%;
 
     /* Borders */
-    --border: 215 28% 17%;
-    --input: 215 28% 17%;
-    --ring: 38 92% 50%;
+    --border: 0 0% 18%;
+    /* Bordures subtiles */
+    --input: 0 0% 18%;
+    --ring: 43 96% 56%;
 
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-1: 43 96% 56%;
+    --chart-2: 30 85% 50%;
+    --chart-3: 20 75% 45%;
+    --chart-4: 10 65% 40%;
+    --chart-5: 0 55% 35%;
   }
 }
 
@@ -113,17 +117,59 @@
   }
 }
 
-/* Glassmorphism Utilities */
+/* Premium Utilities */
 @layer utilities {
+
+  /* Glassmorphism avec touches dorées */
   .glass {
-    @apply bg-white/70 dark:bg-black/50 backdrop-blur-md border border-white/20 dark:border-white/10;
+    @apply bg-white/80 dark:bg-black/60 backdrop-blur-xl border border-white/30 dark:border-white/10;
   }
 
   .glass-card {
-    @apply bg-white/60 dark:bg-white/5 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-lg;
+    @apply bg-white/70 dark:bg-white/5 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-2xl;
   }
 
+  .glass-gold {
+    @apply bg-gradient-to-br from-white/90 to-yellow-50/90 dark:from-black/70 dark:to-yellow-950/30 backdrop-blur-xl border border-yellow-200/40 dark:border-yellow-600/20 shadow-xl shadow-yellow-500/10;
+  }
+
+  /* Dégradés Or Premium */
   .text-gradient-gold {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 dark:from-yellow-400 dark:via-yellow-300 dark:to-yellow-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-amber-500 to-yellow-600 dark:from-yellow-400 dark:via-amber-300 dark:to-yellow-400;
+  }
+
+  .text-gradient-bronze {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-700 via-orange-600 to-amber-700 dark:from-amber-500 dark:via-orange-400 dark:to-amber-500;
+  }
+
+  .bg-gradient-gold {
+    @apply bg-gradient-to-br from-yellow-500 via-amber-500 to-yellow-600;
+  }
+
+  .bg-gradient-gold-subtle {
+    @apply bg-gradient-to-br from-yellow-50 via-amber-50 to-yellow-100 dark:from-yellow-950/20 dark:via-amber-950/20 dark:to-yellow-900/20;
+  }
+
+  /* Bordures dorées */
+  .border-gold {
+    @apply border-yellow-500/30 dark:border-yellow-400/30;
+  }
+
+  .border-gold-glow {
+    @apply border-yellow-500/50 shadow-lg shadow-yellow-500/20 dark:border-yellow-400/50 dark:shadow-yellow-400/20;
+  }
+
+  /* Hover effects premium */
+  .hover-gold {
+    @apply transition-all duration-300 hover:border-yellow-500/60 hover:shadow-xl hover:shadow-yellow-500/20;
+  }
+
+  /* Admin specific - Cuivre/Ambre */
+  .admin-accent {
+    @apply bg-gradient-to-br from-amber-600 to-orange-600 text-white;
+  }
+
+  .admin-border {
+    @apply border-amber-500/30 dark:border-amber-400/30;
   }
 }
