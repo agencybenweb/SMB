@@ -14,11 +14,11 @@ export default async function AdminDashboardPage() {
     prisma.order.count(),
     prisma.order.aggregate({
       _sum: {
-        totalAmount: true,
+        paidAmount: true,
       },
       where: {
-        status: {
-          in: ["CONFIRMED", "IN_PRODUCTION", "SHIPPED", "DELIVERED"],
+        paymentStatus: {
+          in: ["PAID", "PARTIAL"],
         },
       },
     }),
@@ -45,7 +45,7 @@ export default async function AdminDashboardPage() {
     },
   });
 
-  const totalRevenue = revenue._sum.totalAmount ? Number(revenue._sum.totalAmount) : 0;
+  const totalRevenue = revenue._sum.paidAmount ? Number(revenue._sum.paidAmount) : 0;
 
   return (
     <div className="space-y-8">
