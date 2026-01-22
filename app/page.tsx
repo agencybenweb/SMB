@@ -113,6 +113,25 @@ export default async function HomePage() {
                   </div>
                 </div>
 
+                {/* Floating Bubble Central - Growth Chart */}
+                <div className="absolute top-0 left-[40%] bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+                  <div className="flex flex-col gap-2 w-32">
+                    <div className="flex justify-between items-end">
+                      <div className="w-2 h-4 bg-indigo-200 rounded-t-sm"></div>
+                      <div className="w-2 h-6 bg-indigo-300 rounded-t-sm"></div>
+                      <div className="w-2 h-3 bg-indigo-200 rounded-t-sm"></div>
+                      <div className="w-2 h-8 bg-indigo-400 rounded-t-sm"></div>
+                      <div className="w-2 h-5 bg-indigo-300 rounded-t-sm"></div>
+                      <div className="w-2 h-10 bg-indigo-600 rounded-t-sm"></div>
+                    </div>
+                    <div className="h-px bg-slate-200 w-full mb-1"></div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[10px] text-slate-400 font-bold">Revenue</span>
+                      <span className="text-xs text-green-600 font-bold">▲ 24%</span>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Floating Bubble 1 */}
                 <div className="absolute top-10 right-10 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '3s' }}>
                   <div className="flex items-center gap-3">
