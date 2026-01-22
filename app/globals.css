@@ -4,46 +4,33 @@
 
 @layer base {
   :root {
-    /* Light Mode - Blanc Premium Sobre */
     --background: 0 0% 98%;
-    /* Blanc cassé élégant */
     --foreground: 0 0% 8%;
-    /* Noir doux pour texte */
 
-    /* Cards: Blanc pur avec ombres subtiles */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 8%;
 
-    /* Popovers */
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    /* Primary: Or champagne très discret */
     --primary: 40 20% 50%;
-    /* Or désaturé, sobre */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Gris perle */
     --secondary: 0 0% 94%;
     --secondary-foreground: 0 0% 15%;
 
-    /* Muted: Gris très doux */
     --muted: 0 0% 95%;
     --muted-foreground: 0 0% 40%;
 
-    /* Accent: Gris chaud */
     --accent: 0 0% 92%;
     --accent-foreground: 0 0% 15%;
 
-    /* Destructive */
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Borders & Inputs - Très subtils */
     --border: 0 0% 88%;
     --input: 0 0% 88%;
     --ring: 0 0% 20%;
-    /* Focus discret gris foncé */
 
     --radius: 0.5rem;
 
@@ -55,47 +42,33 @@
   }
 
   .dark {
-    /* Dark Mode - Noir Premium Sobre */
     --background: 0 0% 6%;
-    /* Noir profond #0F0F0F */
     --foreground: 0 0% 95%;
-    /* Blanc cassé */
 
-    /* Cards: Gris anthracite */
     --card: 0 0% 10%;
-    /* #1A1A1A */
     --card-foreground: 0 0% 95%;
 
-    /* Popovers */
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 95%;
 
-    /* Primary: Or platine très subtil */
     --primary: 40 15% 65%;
-    /* Champagne désaturé */
     --primary-foreground: 0 0% 10%;
 
-    /* Secondary: Gris foncé */
     --secondary: 0 0% 16%;
     --secondary-foreground: 0 0% 95%;
 
-    /* Muted */
     --muted: 0 0% 16%;
     --muted-foreground: 0 0% 55%;
 
-    /* Accent */
     --accent: 0 0% 16%;
     --accent-foreground: 0 0% 95%;
 
-    /* Destructive */
     --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 95%;
 
-    /* Borders - Très subtils */
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 0 0% 75%;
-    /* Focus discret blanc cassé */
 
     --chart-1: 0 0% 80%;
     --chart-2: 0 0% 65%;
@@ -115,10 +88,7 @@
   }
 }
 
-/* Premium Sobre Utilities */
 @layer utilities {
-
-  /* Glassmorphism minimaliste */
   .glass {
     @apply bg-white/90 dark:bg-black/70 backdrop-blur-xl border border-black/5 dark:border-white/5;
   }
@@ -127,12 +97,10 @@
     @apply bg-white/95 dark:bg-white/3 backdrop-blur-lg border border-black/5 dark:border-white/5 shadow-2xl shadow-black/5;
   }
 
-  /* Accent or très discret */
   .accent-gold {
     @apply bg-gradient-to-br from-neutral-100 to-stone-100 dark:from-neutral-900 dark:to-stone-900 border border-stone-200/50 dark:border-stone-800/50;
   }
 
-  /* Texte avec micro-accent */
   .text-accent-subtle {
     @apply text-neutral-700 dark:text-neutral-300;
   }
@@ -141,17 +109,14 @@
     @apply text-neutral-900 dark:text-neutral-100 font-medium tracking-tight;
   }
 
-  /* Bordures élégantes */
   .border-elegant {
     @apply border-neutral-200/60 dark:border-neutral-800/60;
   }
 
-  /* Hover subtil */
   .hover-elegant {
     @apply transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-lg hover:shadow-black/5;
   }
 
-  /* Admin - Légère distinction avec teinte chaude */
   .admin-accent {
     @apply bg-gradient-to-br from-stone-800 to-neutral-900 text-white;
   }
@@ -160,17 +125,14 @@
     @apply border-stone-700/30 dark:border-stone-600/30;
   }
 
-  /* Client - Teinte froide */
   .client-accent {
     @apply bg-gradient-to-br from-slate-800 to-neutral-900 text-white;
   }
 
-  /* Dégradés très discrets pour titres importants */
   .text-gradient-elegant {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 via-neutral-600 to-neutral-800 dark:from-neutral-200 dark:via-neutral-400 dark:to-neutral-200;
   }
 
-  /* Bouton premium sobre */
   .btn-premium {
     @apply bg-neutral-900 dark:bg-neutral-100 text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors duration-200 shadow-lg shadow-black/10;
   }
