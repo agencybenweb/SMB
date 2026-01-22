@@ -35,7 +35,10 @@ export default async function AppareilsPage({
 
   const devices = await prisma.device.findMany({
     where: whereClause,
-    orderBy: { orderIndex: "asc" },
+    orderBy: [
+      { featured: 'desc' },
+      { orderIndex: 'asc' }
+    ],
     select: {
       id: true,
       name: true,
