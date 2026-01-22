@@ -90,7 +90,12 @@
 
   /* Components Styles */
   .tech-card {
-    @apply bg-white rounded-3xl p-8 border border-white/50 shadow-[0_4px_24px_-4px_rgba(0, 0, 0, 0.05)] hover:shadow-[0_8px_32px_-4px_rgba(99, 102, 241, 0.15)] transition-all duration-300;
+    @apply bg-white rounded-3xl p-8 border border-white/50 transition-all duration-300;
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.05);
+  }
+
+  .tech-card:hover {
+    box-shadow: 0 8px 32px -4px rgba(99, 102, 241, 0.15);
   }
 
   .tech-card-dark {
