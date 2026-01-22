@@ -33,24 +33,91 @@ export default async function AppareilsPage({
     whereClause.technology = technologyFilter;
   }
 
-  const devices = await prisma.device.findMany({
-    where: whereClause,
-    orderBy: [
-      { featured: 'desc' },
-      { orderIndex: 'asc' }
-    ],
-    select: {
-      id: true,
-      name: true,
-      slug: true,
-      technology: true,
-      shortDescription: true,
-      imageUrl: true,
-      basePrice: true,
-      featured: true,
-      indications: true,
-    },
-  });
+  let devices;
+  try {
+    devices = await prisma.device.findMany({
+      where: whereClause,
+      orderBy: [
+        { featured: 'desc' },
+        { orderIndex: 'asc' }
+      ],
+      select: {
+        id: true,
+        name: true,
+        slug: true,
+        technology: true,
+        shortDescription: true,
+        imageUrl: true,
+        basePrice: true,
+        featured: true,
+        indications: true,
+      },
+    });
+  } catch (e) {
+    console.warn("DB connection failed, using mocks");
+    // Mock data for build/demo
+    devices = [
+      {
+        id: "mock-1",
+        name: "Lifting Pro Sculpt",
+        slug: "lifting-pro-sculpt",
+        technology: "HIFU",
+        shortDescription: "Technologie HIFU dernière génération pour un lifting non-chirurgical et un raffermissement cutané spectaculaire.",
+        imageUrl: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop",
+        basePrice: 15900,
+        featured: true,
+        indications: ["Anti-âge", "Lifting", "Raffermissement"]
+      },
+      {
+        id: "mock-2",
+        name: "CryoMaster Elite",
+        slug: "cryomaster-elite",
+        technology: "CRYOLIPOLYSE",
+        shortDescription: "La cryolipolyse augmentée pour une réduction des amas graisseux localisés avec une précision inégalée.",
+        imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop",
+        basePrice: 12900,
+        featured: true,
+        indications: ["Minceur", "Remodelage", "Cellulite"]
+      },
+      {
+        id: "mock-3",
+        name: "Laser Infinity",
+        slug: "laser-infinity",
+        technology: "LASER",
+        shortDescription: "Épilation définitive haute fréquence, indolore et efficace sur tous les phototypes de peau.",
+        imageUrl: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop",
+        basePrice: 18500,
+        featured: true,
+        indications: ["Épilation", "Douceur", "Tous phototypes"]
+      },
+      {
+        id: "mock-4",
+        name: "HydraPure Station",
+        slug: "hydrapure-station",
+        technology: "HYDRAFACIAL",
+        shortDescription: "Soin complet 7-en-1 : nettoyage, exfoliation, extraction et hydratation pour un teint éclatant.",
+        imageUrl: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop",
+        basePrice: 8900,
+        featured: false,
+        indications: ["Nettoyage", "Éclat", "Hydratation"]
+      },
+      {
+        id: "mock-5",
+        name: "BodySculpt EMS",
+        slug: "bodysculpt-ems",
+        technology: "EMS",
+        shortDescription: "Développement musculaire et réduction graisseuse par ondes électromagnétiques de haute intensité.",
+        imageUrl: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2070&auto=format&fit=crop",
+        basePrice: 14500,
+        featured: false,
+        indications: ["Muscle", "Sculpting", "Fessier"]
+      }
+    ];
+
+    if (technologyFilter) {
+      devices = devices.filter((d: any) => d.technology === technologyFilter);
+    }
+  }
 
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">

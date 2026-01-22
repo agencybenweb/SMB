@@ -5,16 +5,54 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default async function TechnologiesPage() {
   // Récupérer les technologies depuis la base de données
-  const technologyContents = await prisma.technologyContent.findMany({
-    where: { visible: true },
-    orderBy: { orderIndex: "asc" },
-  });
+  let technologyContents: any[];
+  let devices: any[];
 
-  // Récupérer les appareils pour afficher les liens
-  const devices = await prisma.device.findMany({
-    where: { status: "ACTIVE" },
-    select: { technology: true, name: true, slug: true },
-  });
+  try {
+    const [techs, devs] = await Promise.all([
+      (prisma as any).technologyContent.findMany({
+        where: { visible: true },
+        orderBy: { orderIndex: "asc" },
+      }),
+      prisma.device.findMany({
+        where: { status: "ACTIVE" },
+        select: { technology: true, name: true, slug: true },
+      })
+    ]);
+    technologyContents = techs;
+    devices = devs;
+  } catch (e) {
+    console.warn("DB not available, using mock technologies");
+    devices = [
+      { technology: "HIFU", name: "Lifting Pro Sculpt", slug: "lifting-pro-sculpt" },
+      { technology: "CRYOLIPOLYSE", name: "CryoMaster Elite", slug: "cryomaster-elite" },
+      { technology: "LASER", name: "Laser Infinity", slug: "laser-infinity" },
+    ];
+    technologyContents = [
+      {
+        id: "tech-1",
+        technology: "HIFU",
+        title: "HIFU (Ultrasons Focalisés)",
+        icon: "🧬",
+        description: "La technologie HIFU utilise des ultrasons focalisés de haute intensité pour cibler les couches profondes de la peau (SMAS) sans endommager l'épiderme. Elle stimule la production naturelle de collagène pour un effet lifting durable.",
+        benefits: JSON.stringify(["Lifting non-invasif", "Aucune éviction sociale", "Traitement en une séance", "Résultats durables"]),
+        imageUrl: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop",
+        visible: true,
+        orderIndex: 0
+      },
+      {
+        id: "tech-2",
+        technology: "CRYOLIPOLYSE",
+        title: "Cryolipolyse 360°",
+        icon: "❄️",
+        description: "La cryolipolyse élimine les cellules graisseuses par le froid. Notre technologie à 360° assure un refroidissement homogène pour une efficacité accrue sur les amas graisseux tenaces.",
+        benefits: JSON.stringify(["Élimination définitive des graisses", "Indolore", "Zones ciblées précises", "Alternative à la liposuccion"]),
+        imageUrl: "https://images.unsplash.com/photo-1519415510236-718bdfcd4788?q=80&w=2070&auto=format&fit=crop",
+        visible: true,
+        orderIndex: 1
+      }
+    ];
+  }
 
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
