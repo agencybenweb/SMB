@@ -5,12 +5,32 @@ import { revalidatePath } from "next/cache";
 
 export async function updateOrderStatus(orderId: string, status: string) {
     try {
-        await prisma.order.update({
+        const order = await prisma.order.update({
             where: { id: orderId },
             data: { status: status as any },
+            include: { user: true }
         });
+
+        // Activation automatique du compte prospect lors de la validation du devis
+        // Si le devis passe en PENDING (validé par admin) ou CONFIRMED
+        if (
+            (status === "PENDING" || status === "CONFIRMED") &&
+            order.user.status === "PENDING_VERIFICATION"
+        ) {
+            await prisma.user.update({
+                where: { id: order.user.id },
+                data: { status: "ACTIVE" }
+            });
+            console.log(`User ${order.user.email} (ID: ${order.user.id}) activated automatically upon order confirmation.`);
+
+            // TODO: Ici, déclencher l'envoi d'un email de bienvenue au client
+            // avec un lien pour définir son mot de passe.
+        }
+
         revalidatePath(`/admin/orders/${orderId}`);
         revalidatePath("/admin/orders");
+        revalidatePath("/admin/users"); // Refresh users list
+
         return { success: true };
     } catch (error) {
         console.error("Erreur mise à jour commande:", error);
