@@ -80,6 +80,11 @@ enum DeviceTechnology {
   LED
   ANALYSE_CORPORELLE
   MULTI_TECHNOLOGIES
+  LASER
+  HYDRAFACIAL
+  VACUUM
+  DIAGNOSTIC
+  LIFTING
 }
 
 enum DeviceStatus {
