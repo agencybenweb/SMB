@@ -5,25 +5,18 @@ import { formatPrice } from "@/lib/utils";
 import { ArrowLeft, ArrowRight, Filter, Search, Award } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-// Labels des technologies en français
 const technologyLabels: Record<string, string> = {
-  EMS: "Électrostimulation Musculaire (EMS)",
-  CRYOLIPOLYSE: "Cryolipolyse",
-  RADIOFREQUENCE: "Radiofréquence",
-  CAVITATION: "Cavitation Ultrasonique",
-  LIPOLASER: "Lipo-laser",
   HIFU: "HIFU",
-  VACUUM_RF: "RF + Aspiration",
-  PRESSOTHERAPIE: "Pressothérapie",
-  ENDERMOLOGIE: "Endermologie",
-  LED: "LED",
-  ANALYSE_CORPORELLE: "Analyse Corporelle",
-  MULTI_TECHNOLOGIES: "Multi-Technologies",
   LASER: "Laser Épilation",
-  HYDRAFACIAL: "Hydrafacial",
-  VACUUM: "Vacuum Therapy",
-  DIAGNOSTIC: "Diagnostic de Peau",
+  LED: "LED",
+  CRYOLIPOLYSE: "Cryolipolyse",
   LIFTING: "Lifting Visage",
+  VACUUM: "Vacuum Therapy",
+  EMS: "Électrostimulation (EMS)",
+  HYDRAFACIAL: "Hydrafacial",
+  PRESSOTHERAPIE: "Pressothérapie",
+  ANALYSE_CORPORELLE: "Analyse Corporelle",
+  DIAGNOSTIC: "Diagnostic de Peau",
 };
 
 export default async function AppareilsPage({
