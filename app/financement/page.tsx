@@ -1,179 +1,182 @@
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { CreditCard, Calendar, Building, FileText, CheckCircle2 } from "lucide-react";
+
 export default function FinancementPage() {
   return (
-    <div className="container mx-auto px-4 pt-24 pb-12">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Solutions de Financement</h1>
-          <p className="text-xl text-gray-600">
-            Plusieurs options s'offrent à vous pour financer vos équipements
-            professionnels
-          </p>
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
+
+      {/* HERO SECTION - Luxury Black & Gold Style */}
+      <section className="relative pt-40 pb-20 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="relative rounded-[3rem] bg-gradient-to-br from-slate-950 via-gray-900 to-stone-900 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-gold-900/20 border border-gold-500/10">
+            {/* Background Decorations */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
+
+            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
+              <ScrollReveal>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-gold-500/20 backdrop-blur-md mb-4 text-gold-200">
+                  <CreditCard className="w-4 h-4 text-gold-400" />
+                  <span className="text-sm font-semibold tracking-wide">Investissement & Retours</span>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.1}>
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white mb-2">
+                  Solutions de <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-yellow-100 to-gold-400 drop-shadow-sm">
+                    Financement
+                  </span>
+                </h1>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.2}>
+                <p className="text-xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+                  Investissez dans votre croissance sans compromettre votre trésorerie.
+                  Des options flexibles adaptées aux professionnels de l'esthétique.
+                </p>
+              </ScrollReveal>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Nos Solutions</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="border rounded-lg p-8 hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">💳</div>
-              <h3 className="text-2xl font-semibold mb-4">Paiement Comptant</h3>
-              <p className="text-gray-600 mb-4">
-                Paiement intégral à la commande. Idéal pour les professionnels
-                ayant la trésorerie disponible.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2 mb-4">
-                <li>✓ Paiement sécurisé</li>
-                <li>✓ Livraison rapide</li>
-                <li>✓ Prix préférentiel possible</li>
-              </ul>
-            </div>
+      <div className="container mx-auto px-4 py-16 space-y-24 max-w-7xl">
 
-            <div className="border rounded-lg p-8 hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">📅</div>
-              <h3 className="text-2xl font-semibold mb-4">
-                Paiement Échelonné
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Règlement en plusieurs mensualités sans intérêt (selon conditions).
-                Étalez votre investissement sur 3 à 12 mois.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2 mb-4">
-                <li>✓ 3 à 12 mensualités</li>
-                <li>✓ Sans intérêt (sous conditions)</li>
-                <li>✓ Sans apport initial</li>
-              </ul>
-            </div>
+        {/* SOLUTIONS GRID */}
+        <section>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Nos Solutions Sur-Mesure</h2>
+            <p className="text-slate-500 text-lg">Choisissez le mode d'acquisition qui convient à votre stratégie.</p>
+          </div>
 
-            <div className="border rounded-lg p-8 hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">🏦</div>
-              <h3 className="text-2xl font-semibold mb-4">Leasing</h3>
-              <p className="text-gray-600 mb-4">
-                Location avec option d'achat via notre partenaire financier.
-                Solution flexible adaptée aux professionnels.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2 mb-4">
-                <li>✓ Loyer mensuel déductible</li>
-                <li>✓ Option d'achat en fin de contrat</li>
-                <li>✓ Durée flexible (24 à 60 mois)</li>
-              </ul>
-            </div>
-
-            <div className="border rounded-lg p-8 hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-4">📋</div>
-              <h3 className="text-2xl font-semibold mb-4">Devis Personnalisé</h3>
-              <p className="text-gray-600 mb-4">
-                Demandez un devis personnalisé avec une solution de financement
-                adaptée à votre situation.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2 mb-4">
-                <li>✓ Évaluation gratuite</li>
-                <li>✓ Solutions sur mesure</li>
-                <li>✓ Réponse sous 48h</li>
-              </ul>
-            </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: CreditCard,
+                title: "Paiement Comptant",
+                desc: "Paiement intégral à la commande. Idéal pour les professionnels ayant la trésorerie disponible.",
+                list: ["Règlement sécurisé", "Livraison prioritaire", "Remise commerciale possible"]
+              },
+              {
+                icon: Calendar,
+                title: "Paiement Échelonné",
+                desc: "Règlement en plusieurs mensualités sans intérêt (selon conditions). Étalez votre investissement sur 3 à 12 mois.",
+                list: ["3 à 12 mensualités", "Frais réduits", "Gestion simplifiée"]
+              },
+              {
+                icon: Building,
+                title: "Leasing (LOA)",
+                desc: "Location avec option d'achat via nos partenaires financiers. Préservez votre capacité d'emprunt.",
+                list: ["Loyer mensuel déductible", "Option d'achat < 2%", "Durée 24 à 60 mois"]
+              },
+              {
+                icon: FileText,
+                title: "Devis Personnalisé",
+                desc: "Une situation particulière ? Demandez une étude sur mesure avec un conseiller expert.",
+                list: ["Évaluation gratuite", "Réponse sous 24h", "Montage financier adapté"]
+              }
+            ].map((item, i) => (
+              <ScrollReveal key={i} delay={i * 0.1} className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all hover:-translate-y-1 group">
+                <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-slate-900/20 group-hover:bg-gold-500 group-hover:text-slate-900 transition-colors">
+                  <item.icon className="w-8 h-8 text-gold-500 group-hover:text-slate-900 transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900">{item.title}</h3>
+                <p className="text-slate-500 mb-6 leading-relaxed font-medium">
+                  {item.desc}
+                </p>
+                <ul className="space-y-3 pt-6 border-t border-slate-50">
+                  {item.list.map((li, index) => (
+                    <li key={index} className="flex items-center gap-3 text-slate-600 text-sm font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
+                      {li}
+                    </li>
+                  ))}
+                </ul>
+              </ScrollReveal>
+            ))}
           </div>
         </section>
 
-        <section className="mb-12 bg-blue-50 rounded-lg p-8">
-          <h2 className="text-3xl font-bold mb-6">Avantages Fiscaux</h2>
-          <div className="prose max-w-none text-gray-700">
-            <p className="mb-4">
-              L'achat d'équipements professionnels peut bénéficier d'avantages
-              fiscaux selon votre situation :
-            </p>
-            <ul className="space-y-2">
-              <li>
-                <strong>Amortissement :</strong> Les appareils peuvent être
-                amortis sur plusieurs années selon leur durée de vie.
-              </li>
-              <li>
-                <strong>Crédit d'impôt :</strong> Certains équipements peuvent
-                bénéficier de crédits d'impôt ou d'aides à l'investissement.
-              </li>
-              <li>
-                <strong>TVA récupérable :</strong> La TVA sur l'achat d'équipements
-                professionnels est récupérable pour les entreprises assujetties.
-              </li>
-            </ul>
-            <p className="mt-4 text-sm text-gray-600">
-              ⚠️ Ces informations sont données à titre indicatif. Nous vous
-              recommandons de consulter un expert-comptable pour des conseils
-              adaptés à votre situation.
-            </p>
-          </div>
+        {/* AVANTAGES FISCAUX & PROCESS */}
+        <section className="grid lg:grid-cols-2 gap-12">
+
+          {/* Fiscaux - Dark Card */}
+          <ScrollReveal className="bg-slate-950 rounded-[2.5rem] p-10 md:p-12 text-white relative overflow-hidden shadow-2xl shadow-slate-900/40">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gold-600/10 rounded-full blur-[60px] translate-x-1/2 -translate-y-1/2" />
+
+            <h2 className="text-3xl font-bold mb-8 relative z-10 flex items-center gap-3">
+              <span className="text-gold-500">Avantages</span> Fiscaux
+            </h2>
+
+            <div className="space-y-8 relative z-10">
+              <div>
+                <h3 className="font-bold text-lg mb-2 text-white">Amortissement</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">Les appareils peuvent être amortis sur leur durée de vie, réduisant votre base imposable.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2 text-white">Charges Déductibles</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">En Leasing/LOA, les loyers sont comptabilisés comme des charges d'exploitation, réduisant votre IS.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-2 text-white">TVA Récupérable</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">La TVA sur l'achat ou les loyers est intégralement récupérable pour les entreprises assujetties.</p>
+              </div>
+
+              <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-400 italic">
+                ⚠️ Ces informations sont indicatives. Consultez votre expert-comptable.
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Process - Light Steps */}
+          <ScrollReveal delay={0.2} className="space-y-8 py-4">
+            <div className="pl-4">
+              <h2 className="text-3xl font-bold text-slate-900 mb-8">Processus Simplifié</h2>
+
+              <div className="space-y-8 relative">
+                {/* Ligne verticale */}
+                <div className="absolute left-[22px] top-4 bottom-4 w-0.5 bg-slate-100" />
+
+                {[
+                  { step: "1", title: "Demande de devis", desc: "Formulaire en ligne ou contact direct avec nos experts." },
+                  { step: "2", title: "Étude de financement", desc: "Nous trouvons pour vous la meilleure offre auprès de nos partenaires." },
+                  { step: "3", title: "Validation & Signature", desc: "Signature électronique sécurisée du contrat." },
+                  { step: "4", title: "Livraison & Formation", desc: "Réception de l'appareil et démarrage de votre activité." }
+                ].map((s, i) => (
+                  <div key={i} className="flex gap-6 relative z-10 group">
+                    <div className="w-12 h-12 rounded-full bg-white border-2 border-slate-100 text-slate-400 font-bold flex items-center justify-center shrink-0 group-hover:border-gold-500 group-hover:text-gold-600 group-hover:scale-110 transition-all shadow-sm">
+                      {s.step}
+                    </div>
+                    <div className="pt-2">
+                      <h4 className="text-xl font-bold text-slate-900 mb-2">{s.title}</h4>
+                      <p className="text-slate-500 leading-relaxed font-medium text-sm">{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Processus de Financement</h2>
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Demande de devis</h4>
-                <p className="text-gray-600">
-                  Remplissez notre formulaire de contact ou demandez un devis en
-                  ligne avec vos besoins.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Étude de financement</h4>
-                <p className="text-gray-600">
-                  Notre équipe commerciale étudie votre demande et vous propose
-                  la solution de financement la plus adaptée.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Validation et signature</h4>
-                <p className="text-gray-600">
-                  Validation du devis et signature électronique du contrat de
-                  financement si applicable.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
-                4
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Livraison et formation</h4>
-                <p className="text-gray-600">
-                  Livraison de votre appareil et démarrage de la formation
-                  professionnelle incluse.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t pt-12 text-center">
-          <h2 className="text-2xl font-bold mb-4">
-            Besoin d'un devis personnalisé ?
+        {/* CTA FOOTER */}
+        <section className="text-center bg-gold-50 rounded-[3rem] p-12 md:p-16 border border-gold-100">
+          <h2 className="text-3xl font-bold mb-4 text-slate-900">
+            Prêt à investir dans votre réussite ?
           </h2>
-          <p className="text-gray-600 mb-6">
-            Contactez-nous pour discuter de vos besoins et obtenir une solution
-            de financement adaptée
+          <p className="text-slate-600 mb-8 max-w-2xl mx-auto font-medium">
+            Obtenez une simulation de financement personnalisée en moins de 24h.
           </p>
-          <a
-            href="/contact"
-            className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Demander un devis
-          </a>
+          <Link href="/contact">
+            <Button className="tech-button bg-slate-900 text-white hover:bg-gold-500 hover:text-slate-900 h-14 px-10 text-base rounded-2xl shadow-xl hover:shadow-gold-500/20 border-none font-bold">
+              Demander un devis
+            </Button>
+          </Link>
         </section>
+
       </div>
     </div>
   );

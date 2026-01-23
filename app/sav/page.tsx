@@ -1,130 +1,159 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Wrench, MessageSquare, ShieldCheck, FileText, Phone, Clock } from "lucide-react";
+import { Wrench, MessageSquare, ShieldCheck, FileText, Phone, Clock, HelpCircle, LifeBuoy } from "lucide-react";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export default function SAVPage() {
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
 
-      {/* HEADER HERO */}
-      <div className="bg-slate-900 text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[100%] bg-blue-900/20 rounded-full blur-[120px]" />
+      {/* HERO SECTION - Luxury Black & Gold Style */}
+      <section className="relative pt-40 pb-20 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="relative rounded-[3rem] bg-gradient-to-br from-slate-950 via-gray-900 to-stone-900 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-gold-900/20 border border-gold-500/10">
+            {/* Background Decorations */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
 
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Support & <span className="text-blue-400">Assistance</span>
-          </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Parce que votre activité ne doit jamais s'arrêter, notre équipe technique est à vos côtés.
-            Réactivité, expertise et pièces d'origine.
-          </p>
+            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
+              <ScrollReveal>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-gold-500/20 backdrop-blur-md mb-4 text-gold-200">
+                  <LifeBuoy className="w-4 h-4 text-gold-400" />
+                  <span className="text-sm font-semibold tracking-wide">Support Premium</span>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.1}>
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white mb-2">
+                  Service & <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-yellow-100 to-gold-400 drop-shadow-sm">
+                    Assistance
+                  </span>
+                </h1>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.2}>
+                <p className="text-xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+                  Parce que votre activité ne doit jamais s'arrêter, notre équipe d'experts est à vos côtés.
+                  Réactivité immédiate et pièces certifiées d'origine.
+                </p>
+              </ScrollReveal>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto px-4 py-16 space-y-20">
+      <div className="container mx-auto px-4 py-16 space-y-24 max-w-7xl">
 
         {/* ACTION RAPIDE - GRID */}
-        <div className="grid md:grid-cols-3 gap-6 -mt-24 relative z-20">
-          {[
-            {
-              title: "Ouvrir un Ticket",
-              desc: "Signalez un problème technique ou posez une question.",
-              icon: MessageSquare,
-              action: "Créer une demande",
-              href: "/dashboard/sav/nouveau",
-              highlight: true
-            },
-            {
-              title: "Documentation",
-              desc: "Notices, guides d'entretien et mises à jour logicielles.",
-              icon: FileText,
-              action: "Consulter",
-              href: "/dashboard/documents"
-            },
-            {
-              title: "Urgence Technique",
-              desc: "La machine est à l'arrêt ? Contactez notre hotline dédiée.",
-              icon: Phone,
-              action: "Voir les numéros",
-              href: "#contact"
-            }
-          ].map((card, i) => (
-            <div key={i} className={`p-8 rounded-xl shadow-xl flex flex-col items-start ${card.highlight ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800'}`}>
-              <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${card.highlight ? 'bg-white/20' : 'bg-slate-100 dark:bg-slate-800'}`}>
-                <card.icon className={`w-6 h-6 ${card.highlight ? 'text-white' : 'text-slate-900 dark:text-white'}`} />
-              </div>
-              <h3 className={`text-xl font-bold mb-2 ${card.highlight ? 'text-white' : 'text-slate-900 dark:text-white'}`}>{card.title}</h3>
-              <p className={`mb-8 flex-1 ${card.highlight ? 'text-white/90' : 'text-slate-500'}`}>{card.desc}</p>
-              <Link href={card.href} className="w-full">
-                <Button variant={card.highlight ? "secondary" : "outline"} className="w-full">
-                  {card.action}
-                </Button>
-              </Link>
-            </div>
-          ))}
-        </div>
+        <section className="-mt-32 relative z-20">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Ouvrir un Ticket",
+                desc: "Signalez un problème technique ou posez une question urgente à nos experts.",
+                icon: MessageSquare,
+                action: "Créer une demande",
+                href: "/dashboard/sav/nouveau",
+                highlight: true
+              },
+              {
+                title: "Documentation",
+                desc: "Accédez aux manuels, guides d'entretien et protocoles techniques à jour.",
+                icon: FileText,
+                action: "Consulter la base",
+                href: "/dashboard/documents"
+              },
+              {
+                title: "Urgence Technique",
+                desc: "Machine à l'arrêt ? Une hotline dédiée est disponible pour les membres Premium.",
+                icon: Phone,
+                action: "Voir les numéros",
+                href: "/contact"
+              }
+            ].map((card, i) => (
+              <ScrollReveal key={i} delay={i * 0.1} className={`p-10 rounded-[2rem] shadow-xl flex flex-col items-start border transition-all duration-300 hover:-translate-y-2 ${card.highlight ? 'bg-gradient-to-br from-gold-500 to-amber-600 text-slate-950 border-gold-400 shadow-gold-500/20' : 'bg-white border-slate-100 shadow-slate-200/50'}`}>
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-lg ${card.highlight ? 'bg-slate-900 text-gold-500' : 'bg-slate-900/5 text-slate-900'}`}>
+                  <card.icon className="w-7 h-7" />
+                </div>
+                <h3 className={`text-2xl font-bold mb-3 ${card.highlight ? 'text-slate-950' : 'text-slate-900'}`}>{card.title}</h3>
+                <p className={`mb-8 flex-1 text-lg font-medium leading-relaxed ${card.highlight ? 'text-slate-900/80' : 'text-slate-500'}`}>{card.desc}</p>
+                <Link href={card.href} className="w-full">
+                  <Button className={`w-full h-14 text-base font-bold rounded-xl border-none ${card.highlight ? "bg-slate-900 text-white hover:bg-slate-800" : "bg-slate-100 text-slate-900 hover:bg-slate-200"}`}>
+                    {card.action}
+                  </Button>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
 
         {/* INFO SERVICES */}
-        <section className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Notre engagement SAV</h2>
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5 text-blue-600" />
+        <section className="grid lg:grid-cols-2 gap-16 items-center">
+          <ScrollReveal>
+            <span className="text-gold-600 font-bold tracking-wider uppercase text-sm mb-2 block">Sérénité Totale</span>
+            <h2 className="text-4xl font-bold mb-8 text-slate-900">Notre Engagement Qualité</h2>
+            <div className="space-y-8">
+              <div className="flex gap-6 group">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 group-hover:border-gold-500/50 group-hover:bg-gold-50 transition-colors">
+                  <Clock className="w-7 h-7 text-gold-500" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Réponse sous 24h</h3>
-                  <p className="text-slate-600 dark:text-slate-400">Pour toute demande via ticket, nos techniciens s'engagent à vous apporter un premier diagnostic dans la journée.</p>
+                  <h3 className="font-bold text-xl text-slate-900 mb-2">Réponse sous 24h</h3>
+                  <p className="text-slate-600 font-medium leading-relaxed">Pour toute demande via ticket, nos techniciens s'engagent à vous apporter un premier diagnostic précis dans la journée ouvrée.</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0">
-                  <Wrench className="w-5 h-5 text-green-600" />
+              <div className="flex gap-6 group">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 group-hover:border-gold-500/50 group-hover:bg-gold-50 transition-colors">
+                  <Wrench className="w-7 h-7 text-gold-500" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Atelier en France</h3>
-                  <p className="text-slate-600 dark:text-slate-400">Toutes les réparations sont effectuées dans notre atelier lyonnais par des experts certifiés.</p>
+                  <h3 className="font-bold text-xl text-slate-900 mb-2">Atelier Expert à Lyon</h3>
+                  <p className="text-slate-600 font-medium leading-relaxed">Toutes les réparations et maintenances sont effectuées dans notre centre technique lyonnais par des ingénieurs certifiés.</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-5 h-5 text-amber-600" />
+              <div className="flex gap-6 group">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 group-hover:border-gold-500/50 group-hover:bg-gold-50 transition-colors">
+                  <ShieldCheck className="w-7 h-7 text-gold-500" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Garantie 2 ans et +</h3>
-                  <p className="text-slate-600 dark:text-slate-400">Pièces et main d'œuvre incluses. Extension de garantie disponible jusqu'à 5 ans.</p>
+                  <h3 className="font-bold text-xl text-slate-900 mb-2">Garantie 2 ans Incluses</h3>
+                  <p className="text-slate-600 font-medium leading-relaxed">Pièces, main d'œuvre et déplacement. Extension de garantie "Tranquillité" disponible jusqu'à 5 ans.</p>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="bg-slate-100 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
-            <h3 className="font-bold text-xl mb-4">FAQ Rapide</h3>
-            <div className="space-y-4">
-              <details className="group bg-white dark:bg-slate-800 p-4 rounded-lg cursor-pointer">
-                <summary className="font-medium text-slate-900 dark:text-white flex items-center justify-between">
-                  Ma machine ne s'allume plus
-                  <span className="group-open:rotate-180 transition-transform">▼</span>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2} className="bg-slate-950 p-10 rounded-[2.5rem] border border-slate-800 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gold-600/10 rounded-full blur-[60px] translate-x-1/2 -translate-y-1/2" />
+
+            <h3 className="font-bold text-2xl mb-8 text-white flex items-center gap-3">
+              <HelpCircle className="w-8 h-8 text-gold-500" /> FAQ Rapide
+            </h3>
+            <div className="space-y-4 relative z-10">
+              <details className="group bg-white/5 border border-white/10 p-5 rounded-2xl cursor-pointer hover:bg-white/10 transition-colors">
+                <summary className="font-bold text-slate-200 flex items-center justify-between list-none">
+                  Ma machine ne s'allume pas
+                  <span className="group-open:rotate-180 transition-transform text-gold-500">▼</span>
                 </summary>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Vérifiez d'abord le branchement secteur et l'interrupteur arrière. Si le fusible est accessible, vérifiez son état.</p>
+                <div className="mt-4 text-sm text-slate-400 font-medium leading-relaxed border-t border-white/10 pt-4">Vérifiez d'abord le branchement secteur, le disjoncteur différentiel et l'interrupteur principal arrière. Si le fusible est accessible, vérifiez son état.</div>
               </details>
-              <details className="group bg-white dark:bg-slate-800 p-4 rounded-lg cursor-pointer">
-                <summary className="font-medium text-slate-900 dark:text-white flex items-center justify-between">
-                  Message d'erreur "Flow Error"
-                  <span className="group-open:rotate-180 transition-transform">▼</span>
+              <details className="group bg-white/5 border border-white/10 p-5 rounded-2xl cursor-pointer hover:bg-white/10 transition-colors">
+                <summary className="font-bold text-slate-200 flex items-center justify-between list-none">
+                  Message "Flow Error"
+                  <span className="group-open:rotate-180 transition-transform text-gold-500">▼</span>
                 </summary>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Cela indique souvent un manque d'eau. Vérifiez le niveau dans le réservoir et faites l'appoint avec de l'eau distillée uniquement.</p>
+                <div className="mt-4 text-sm text-slate-400 font-medium leading-relaxed border-t border-white/10 pt-4">Cela indique souvent une circulation d'eau insuffisante. Vérifiez le niveau dans le réservoir et assurez-vous que les tuyaux ne sont pas pincés. Appoint uniquement eau distillée.</div>
               </details>
-              <details className="group bg-white dark:bg-slate-800 p-4 rounded-lg cursor-pointer">
-                <summary className="font-medium text-slate-900 dark:text-white flex items-center justify-between">
-                  Comment commander des consommables ?
-                  <span className="group-open:rotate-180 transition-transform">▼</span>
+              <details className="group bg-white/5 border border-white/10 p-5 rounded-2xl cursor-pointer hover:bg-white/10 transition-colors">
+                <summary className="font-bold text-slate-200 flex items-center justify-between list-none">
+                  Commander des consommables
+                  <span className="group-open:rotate-180 transition-transform text-gold-500">▼</span>
                 </summary>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Rendez-vous sur la boutique pro accessible depuis votre Dashboard pour commander gels, membranes et filtres.</p>
+                <div className="mt-4 text-sm text-slate-400 font-medium leading-relaxed border-t border-white/10 pt-4">La boutique accessoires est accessible directement depuis votre espace client Dashboard. Livraison sous 48h.</div>
               </details>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
       </div>
