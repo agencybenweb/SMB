@@ -93,7 +93,7 @@ function ContactContent() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-12 max-w-7xl relative z-10 -mt-10">
+      <div className="container mx-auto px-4 py-12 max-w-7xl relative z-10 -mt-24">
         <div className="grid lg:grid-cols-3 gap-0 shadow-2xl shadow-slate-200/50 rounded-[2.5rem] overflow-hidden bg-white border border-slate-100 flex-col md:flex-row">
 
           {/* INFO LEFT SIDE (Dark) */}
