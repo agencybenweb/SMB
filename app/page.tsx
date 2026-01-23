@@ -47,11 +47,11 @@ export default async function HomePage() {
         <div className="container mx-auto px-4 max-w-7xl">
 
           {/* Main Hero Card Container */}
-          <div className="relative rounded-[3rem] bg-gradient-to-br from-slate-950 via-gray-900 to-stone-900 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-amber-900/20 border border-amber-500/10">
+          <div className="relative rounded-[3rem] bg-gradient-to-br from-slate-950 via-gray-900 to-stone-900 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-gold-900/20 border border-gold-500/10">
 
             {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-yellow-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
 
             {/* Content Flex */}
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
@@ -59,8 +59,8 @@ export default async function HomePage() {
               {/* Left Text */}
               <div className="flex-1 text-center md:text-left space-y-8">
                 <ScrollReveal>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-amber-500/20 backdrop-blur-md mb-4 text-amber-200">
-                    <Sparkles className="w-4 h-4 text-amber-400" />
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-gold-500/20 backdrop-blur-md mb-4 text-gold-200">
+                    <Sparkles className="w-4 h-4 text-gold-400" />
                     <span className="text-sm font-semibold tracking-wide">Nouvelle Collection 2026</span>
                   </div>
                 </ScrollReveal>
@@ -68,7 +68,7 @@ export default async function HomePage() {
                 <ScrollReveal delay={0.1}>
                   <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white">
                     Révolutionnez <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-400 drop-shadow-sm">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-yellow-100 to-gold-400 drop-shadow-sm">
                       Votre Institut
                     </span>
                   </h1>
@@ -82,15 +82,15 @@ export default async function HomePage() {
 
                 <ScrollReveal delay={0.3} className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
                   <Link href="/appareils" className="relative group overflow-hidden rounded-full">
-                    <Button className="tech-button bg-amber-500 text-slate-950 hover:bg-amber-400 h-14 text-base relative z-10 font-bold border-none">
+                    <Button className="tech-button bg-gold-500 text-slate-950 hover:bg-gold-400 h-14 text-base relative z-10 font-bold border-none">
                       EXPLORER LE CATALOGUE
                     </Button>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full shimmer-effect z-20 pointer-events-none" />
                   </Link>
                   <Link href="/contact" className="group">
-                    <Button variant="outline" className="tech-button bg-transparent border-2 border-amber-500/30 text-amber-100 hover:bg-amber-500 hover:text-slate-900 hover:border-amber-500 h-14 text-base transition-colors duration-300 relative overflow-hidden">
+                    <Button variant="outline" className="tech-button bg-transparent border-2 border-gold-500/30 text-gold-100 hover:bg-gold-500 hover:text-slate-900 hover:border-gold-500 h-14 text-base transition-colors duration-300 relative overflow-hidden">
                       <span className="relative z-10">DÉMO GRATUITE</span>
-                      <div className="absolute inset-0 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
+                      <div className="absolute inset-0 bg-gold-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
                     </Button>
                   </Link>
                 </ScrollReveal>
@@ -109,7 +109,7 @@ export default async function HomePage() {
                     <div className="h-2 w-1/2 bg-slate-800 rounded-full" />
                   </div>
                   <div className="mt-auto w-full">
-                    <div className="bg-gradient-to-r from-amber-600 to-yellow-600 h-10 w-full rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-amber-900/20">Démarrer Séance</div>
+                    <div className="bg-gradient-to-r from-gold-600 to-gold-500 h-10 w-full rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-gold-900/20">Démarrer Séance</div>
                   </div>
                 </div>
 
@@ -120,14 +120,14 @@ export default async function HomePage() {
                       <div className="w-2 h-4 bg-slate-700 rounded-t-sm"></div>
                       <div className="w-2 h-6 bg-slate-600 rounded-t-sm"></div>
                       <div className="w-2 h-3 bg-slate-700 rounded-t-sm"></div>
-                      <div className="w-2 h-8 bg-amber-700/50 rounded-t-sm"></div>
-                      <div className="w-2 h-5 bg-amber-600/50 rounded-t-sm"></div>
-                      <div className="w-2 h-10 bg-amber-500 rounded-t-sm"></div>
+                      <div className="w-2 h-8 bg-gold-700/50 rounded-t-sm"></div>
+                      <div className="w-2 h-5 bg-gold-600/50 rounded-t-sm"></div>
+                      <div className="w-2 h-10 bg-gold-500 rounded-t-sm"></div>
                     </div>
                     <div className="h-px bg-slate-700 w-full mb-1"></div>
                     <div className="flex justify-between items-center">
                       <span className="text-[10px] text-slate-400 font-bold">C.A.</span>
-                      <span className="text-xs text-amber-400 font-bold">▲ 24%</span>
+                      <span className="text-xs text-gold-400 font-bold">▲ 24%</span>
                     </div>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export default async function HomePage() {
                 {/* Floating Bubble 1 */}
                 <div className="absolute top-10 right-10 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '3s' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                    <div className="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-600">
                       <Activity className="w-5 h-5" />
                     </div>
                     <div>
@@ -159,7 +159,7 @@ export default async function HomePage() {
                 </div>
 
                 {/* Background Element Circle */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-yellow-500/20 rounded-full blur-3xl opacity-30 z-0 animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-gold-500/20 to-yellow-500/20 rounded-full blur-3xl opacity-30 z-0 animate-pulse" />
               </div>
 
             </div>
@@ -172,7 +172,7 @@ export default async function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-6 md:gap-12 bg-slate-950 backdrop-blur-xl border border-slate-800 p-10 rounded-[2.5rem] shadow-2xl shadow-slate-900/50">
             {['500+ Centres', 'Formation Incluse', 'SAV France', 'Garantie 2 Ans'].map((label, i) => (
-              <span key={i} className="px-8 py-3 bg-slate-900 text-slate-200 font-bold rounded-full text-base hover:bg-amber-500 hover:text-slate-950 transition-colors cursor-default border border-slate-800 shadow-sm">
+              <span key={i} className="px-8 py-3 bg-slate-900 text-slate-200 font-bold rounded-full text-base hover:bg-gold-500 hover:text-slate-950 transition-colors cursor-default border border-slate-800 shadow-sm">
                 {label}
               </span>
             ))}
@@ -183,7 +183,7 @@ export default async function HomePage() {
       {/* FEATURES GRID - Luxury Black Capsules */}
       <section className="py-24 bg-slate-50 relative overflow-hidden">
         {/* Decorative background elements matching hero style */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2" />
 
         <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="text-center mb-16">
@@ -198,11 +198,11 @@ export default async function HomePage() {
               { icon: Activity, title: "Rentabilité Immédiate", desc: "Un retour sur investissement boosté dès le premier mois." }
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1} className="tech-card group hover-glow bg-slate-950 relative overflow-hidden transition-all duration-300 border border-slate-800 shadow-xl shadow-slate-900/20">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-slate-900 border border-slate-800 group-hover:border-amber-500/50 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 relative z-10 shadow-lg">
-                  <item.icon className="w-7 h-7 text-amber-500" />
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-slate-900 border border-slate-800 group-hover:border-gold-500/50 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 relative z-10 shadow-lg">
+                  <item.icon className="w-7 h-7 text-gold-500" />
                 </div>
-                <div className="absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br from-amber-500/10 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" />
-                <h3 className="text-2xl font-bold text-white mb-3 relative z-10 group-hover:text-amber-400 transition-colors">{item.title}</h3>
+                <div className="absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br from-gold-500/10 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" />
+                <h3 className="text-2xl font-bold text-white mb-3 relative z-10 group-hover:text-gold-400 transition-colors">{item.title}</h3>
                 <p className="text-slate-400 font-medium leading-relaxed relative z-10 group-hover:text-slate-300">{item.desc}</p>
               </ScrollReveal>
             ))}
@@ -216,11 +216,11 @@ export default async function HomePage() {
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="flex justify-between items-end mb-12">
               <div>
-                <span className="text-amber-600 font-bold tracking-wider uppercase text-sm mb-2 block">Nos Chefs-d'œuvre</span>
+                <span className="text-gold-600 font-bold tracking-wider uppercase text-sm mb-2 block">Nos Chefs-d'œuvre</span>
                 <h2 className="text-4xl font-bold text-slate-900">Collection Exclusive</h2>
               </div>
               <Link href="/appareils">
-                <Button variant="ghost" className="text-slate-900 hover:text-amber-600 hover:bg-amber-50 font-bold gap-2">
+                <Button variant="ghost" className="text-slate-900 hover:text-gold-600 hover:bg-gold-50 font-bold gap-2">
                   Tout Voir <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
@@ -229,7 +229,7 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-3 gap-8">
               {featuredDevices.map((device, i) => (
                 <ScrollReveal key={device.id} delay={i * 0.1} className="group relative">
-                  <div className="bg-slate-950 rounded-[2rem] p-4 border border-slate-800 shadow-2xl shadow-slate-900/30 hover:shadow-amber-900/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+                  <div className="bg-slate-950 rounded-[2rem] p-4 border border-slate-800 shadow-2xl shadow-slate-900/30 hover:shadow-gold-900/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
                     <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-900 mb-6 overflow-hidden relative group border border-slate-800">
                       {device.imageUrl ? (
                         <>
@@ -241,7 +241,7 @@ export default async function HomePage() {
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-slate-700 font-bold text-2xl">IMG</div>
                       )}
-                      <div className="absolute top-4 right-4 bg-slate-950/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-amber-400 shadow-sm border border-amber-900/30">
+                      <div className="absolute top-4 right-4 bg-slate-950/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-gold-400 shadow-sm border border-gold-900/30">
                         PREMIUM
                       </div>
                     </div>
@@ -249,7 +249,7 @@ export default async function HomePage() {
                       <h3 className="text-xl font-bold text-white mb-2">{device.name}</h3>
                       <p className="text-slate-400 text-sm line-clamp-2 mb-4">{device.description}</p>
                       <Link href={`/appareils/${device.id}`}>
-                        <Button className="w-full rounded-xl bg-amber-500 text-slate-950 hover:bg-amber-400 font-bold h-12 transition-all">
+                        <Button className="w-full rounded-xl bg-gold-500 text-slate-950 hover:bg-gold-400 font-bold h-12 transition-all">
                           Découvrir
                         </Button>
                       </Link>
@@ -277,7 +277,7 @@ export default async function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link href="/contact">
-                  <Button className="tech-button bg-amber-500 text-slate-950 hover:bg-amber-400 h-14 px-10 text-base border-none">
+                  <Button className="tech-button bg-gold-500 text-slate-950 hover:bg-gold-400 h-14 px-10 text-base border-none">
                     Prendre Rendez-vous
                   </Button>
                 </Link>

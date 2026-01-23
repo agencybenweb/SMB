@@ -56,19 +56,19 @@ const config = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Premium Gold Palette
+				// Premium Metallic Gold Palette
 				gold: {
-					50: '#FBF9F3',
-					100: '#F5F0E1',
-					200: '#EBE0C5',
-					300: '#DFC99F',
-					400: '#D4B37D',
-					500: '#C69C58', // Base gold
-					600: '#A87F40',
-					700: '#8A6332',
-					800: '#6E4D2A',
-					900: '#533922',
-					950: '#3D2917',
+					50: '#FCF9F0',
+					100: '#F5EBD0',
+					200: '#EBD6A0',
+					300: '#DCC37D',
+					400: '#D4AF37', // Metallic Gold Standard
+					500: '#BFA13A', // Rich Gold
+					600: '#A08226',
+					700: '#7F6418',
+					800: '#634C14',
+					900: '#46350D',
+					950: '#2A1F06',
 				},
 				// Premium Black/Grey Palette
 				obsidian: {

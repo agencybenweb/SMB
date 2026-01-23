@@ -35,10 +35,10 @@ export function Header() {
       <div className={navContainerClasses}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group shrink-0">
-          <div className="w-9 h-9 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center text-slate-950 font-bold shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
+          <div className="w-9 h-9 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center text-slate-950 font-bold shadow-md shadow-gold-500/20 group-hover:scale-105 transition-transform">
             M
           </div>
-          <span className="font-bold text-lg text-slate-200 tracking-tight hidden sm:block group-hover:text-amber-400 transition-colors">
+          <span className="font-bold text-lg text-slate-200 tracking-tight hidden sm:block group-hover:text-gold-400 transition-colors">
             My Sculpt
           </span>
         </Link>
@@ -55,7 +55,7 @@ export function Header() {
             <Link
               key={href}
               href={href}
-              className="px-5 py-2 rounded-full text-sm font-semibold text-slate-300 hover:bg-slate-800 hover:text-amber-400 hover:shadow-sm transition-all duration-200"
+              className="px-5 py-2 rounded-full text-sm font-semibold text-slate-300 hover:bg-slate-800 hover:text-gold-400 hover:shadow-sm transition-all duration-200"
             >
               {label}
             </Link>
@@ -67,10 +67,10 @@ export function Header() {
 
           {/* Cart */}
           <Link href="/cart">
-            <Button variant="ghost" size="icon" className="rounded-full text-slate-300 hover:bg-slate-800 hover:text-amber-400 relative">
+            <Button variant="ghost" size="icon" className="rounded-full text-slate-300 hover:bg-slate-800 hover:text-gold-400 relative">
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
-                <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-amber-500 text-slate-950 border-2 border-slate-900 font-bold">
+                <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-gold-500 text-slate-950 border-2 border-slate-900 font-bold">
                   {cartCount}
                 </Badge>
               )}
@@ -83,14 +83,14 @@ export function Header() {
           ) : session ? (
             <div className="hidden md:flex items-center gap-2">
               <Link href="/dashboard">
-                <Button variant="ghost" size="sm" className="rounded-full gap-2 font-medium text-slate-300 hover:bg-slate-800 hover:text-amber-400">
+                <Button variant="ghost" size="sm" className="rounded-full gap-2 font-medium text-slate-300 hover:bg-slate-800 hover:text-gold-400">
                   <LayoutDashboard className="w-4 h-4" />
                   <span className="hidden xl:inline">Pro Dashboard</span>
                 </Button>
               </Link>
               {session.user?.role === "ADMIN" && (
                 <Link href="/admin">
-                  <Button size="icon" variant="ghost" className="rounded-full text-amber-500 hover:bg-slate-800">
+                  <Button size="icon" variant="ghost" className="rounded-full text-gold-500 hover:bg-slate-800">
                     <Shield className="w-4 h-4" />
                   </Button>
                 </Link>
@@ -98,7 +98,7 @@ export function Header() {
             </div>
           ) : (
             <Link href="/auth/login" className="hidden md:block">
-              <Button className="rounded-full bg-amber-500 text-slate-950 hover:bg-amber-400 transition-colors font-bold px-6 shadow-lg shadow-amber-900/20">
+              <Button className="rounded-full bg-gold-400 text-slate-950 hover:bg-gold-300 transition-colors font-bold px-6 shadow-lg shadow-gold-900/20">
                 Espace Pro
               </Button>
             </Link>
@@ -129,10 +129,10 @@ export function Header() {
                 key={href}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-bold text-slate-200 py-3 px-4 hover:bg-slate-800 hover:text-amber-400 rounded-2xl transition-colors flex justify-between items-center group"
+                className="text-lg font-bold text-slate-200 py-3 px-4 hover:bg-slate-800 hover:text-gold-400 rounded-2xl transition-colors flex justify-between items-center group"
               >
                 {label}
-                <span className="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-amber-400 transition-colors"></span>
+                <span className="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-gold-400 transition-colors"></span>
               </Link>
             ))}
           </nav>
@@ -141,7 +141,7 @@ export function Header() {
 
           {!session ? (
             <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
-              <Button className="w-full rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 py-6 text-lg font-bold shadow-xl shadow-amber-900/20">
+              <Button className="w-full rounded-xl bg-gold-500 hover:bg-gold-400 text-slate-950 py-6 text-lg font-bold shadow-xl shadow-gold-900/20">
                 Connexion Espace Pro
               </Button>
             </Link>
