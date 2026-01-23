@@ -82,14 +82,16 @@ export default async function HomePage() {
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.3} className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
-                  <Link href="/appareils">
-                    <Button className="tech-button bg-white text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 h-14 text-base">
+                  <Link href="/appareils" className="relative group overflow-hidden rounded-full">
+                    <Button className="tech-button bg-white text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 h-14 text-base relative z-10">
                       EXPLORER LE CATALOGUE
                     </Button>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full shimmer-effect z-20 pointer-events-none" />
                   </Link>
-                  <Link href="/contact">
-                    <Button variant="outline" className="tech-button bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-indigo-600 hover:border-white h-14 text-base transition-colors duration-300">
-                      DÉMO GRATUITE
+                  <Link href="/contact" className="group">
+                    <Button variant="outline" className="tech-button bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-indigo-600 hover:border-white h-14 text-base transition-colors duration-300 relative overflow-hidden">
+                      <span className="relative z-10">DÉMO GRATUITE</span>
+                      <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
                     </Button>
                   </Link>
                 </ScrollReveal>
@@ -194,12 +196,13 @@ export default async function HomePage() {
               { icon: ShieldCheck, title: "Sécurité Certifiée", desc: "Appareils conformes CE et formations certifiantes expertes.", color: "bg-green-100 text-green-600" },
               { icon: Activity, title: "Rentabilité Immédiate", desc: "Un retour sur investissement boosté dès le premier mois.", color: "bg-blue-100 text-blue-600" }
             ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="tech-card group">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform`}>
+              <ScrollReveal key={i} delay={i * 0.1} className="tech-card group hover-glow bg-white relative overflow-hidden transition-all duration-300">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 relative z-10 shadow-sm`}>
                   <item.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-500 font-medium leading-relaxed">{item.desc}</p>
+                <div className="absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br from-indigo-50/50 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" />
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 relative z-10 group-hover:text-indigo-900 transition-colors">{item.title}</h3>
+                <p className="text-slate-500 font-medium leading-relaxed relative z-10 group-hover:text-slate-600">{item.desc}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -225,10 +228,15 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-3 gap-8">
               {featuredDevices.map((device, i) => (
                 <ScrollReveal key={device.id} delay={i * 0.1} className="group relative">
-                  <div className="bg-white rounded-[2rem] p-4 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-indigo-500/20 transition-all duration-300 hover:-translate-y-2">
-                    <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-100 mb-6 overflow-hidden relative">
+                  <div className="bg-white rounded-[2rem] p-4 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-indigo-500/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+                    <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-100 mb-6 overflow-hidden relative group">
                       {device.imageUrl ? (
-                        <img src={device.imageUrl} alt={device.name} className="w-full h-full object-cover" />
+                        <>
+                          <img src={device.imageUrl} alt={device.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          {/* Shine Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full shimmer-effect pointer-events-none z-10" />
+                        </>
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-slate-300 font-bold text-2xl">IMG</div>
                       )}

@@ -120,4 +120,28 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Advanced Animations Added */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-150%);
+    }
+
+    100% {
+      transform: translateX(150%);
+    }
+  }
+
+  .group:hover .shimmer-effect {
+    animation: shimmer 1.5s infinite;
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 15px 40px -10px rgba(99, 102, 241, 0.4);
+    transform: translateY(-5px);
+  }
 }
