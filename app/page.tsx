@@ -88,7 +88,7 @@ export default async function HomePage() {
                     </Button>
                   </Link>
                   <Link href="/contact">
-                    <Button variant="outline" className="tech-button bg-transparent border-2 border-white/30 text-white hover:bg-white/10 h-14 text-base">
+                    <Button variant="outline" className="tech-button bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-indigo-600 hover:border-white h-14 text-base transition-colors duration-300">
                       Démo Gratuite
                     </Button>
                   </Link>
