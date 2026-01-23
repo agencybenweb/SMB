@@ -103,7 +103,7 @@ export default async function TechnologiesPage() {
         ) : (
           technologyContents.map((tech, index) => {
             const techDevices = devices.filter((d) => d.technology === tech.technology);
-            let benefits = [];
+            let benefits: string[] = [];
             try {
               benefits = JSON.parse(tech.benefits) as string[];
             } catch (e) {
