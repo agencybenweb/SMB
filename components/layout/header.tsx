@@ -172,11 +172,22 @@ export function Header() {
               </Button>
             </Link>
           ) : (
-            <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
-              <Button className="w-full rounded-xl bg-slate-800 text-white hover:bg-slate-700 py-6 border border-white/10">
-                Mon Tableau de Bord
+            <div className="flex flex-col gap-3">
+              <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+                <Button className="w-full rounded-xl bg-slate-800 text-white hover:bg-slate-700 py-6 border border-white/10">
+                  Mon Tableau de Bord
+                </Button>
+              </Link>
+              <Button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  signOut({ callbackUrl: '/' });
+                }}
+                className="w-full rounded-xl bg-red-500/10 text-red-500 hover:bg-red-500/20 py-6 border border-red-500/20 font-bold"
+              >
+                Déconnexion
               </Button>
-            </Link>
+            </div>
           )}
         </div>
       )}
