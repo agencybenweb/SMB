@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useCart } from "@/context/cart-context";
@@ -88,6 +88,15 @@ export function Header() {
                   <span className="hidden xl:inline">Pro Dashboard</span>
                 </Button>
               </Link>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => signOut({ callbackUrl: '/' })}
+                className="rounded-full text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-colors"
+                title="Déconnexion"
+              >
+                <LogOut className="w-4 h-4" />
+              </Button>
               {session.user?.role === "ADMIN" && (
                 <Link href="/admin">
                   <Button size="icon" variant="ghost" className="rounded-full text-gold-500 hover:bg-slate-800">
