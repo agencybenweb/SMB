@@ -197,13 +197,13 @@ export default async function HomePage() {
               { icon: ShieldCheck, title: "Sécurité Certifiée", desc: "Appareils conformes CE et formations certifiantes expertes." },
               { icon: Activity, title: "Rentabilité Immédiate", desc: "Un retour sur investissement boosté dès le premier mois." }
             ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="tech-card group hover-glow bg-slate-950 relative overflow-hidden transition-all duration-300 border border-slate-800 shadow-xl shadow-slate-900/20">
+              <ScrollReveal key={i} delay={i * 0.1} className="tech-card group hover-glow relative overflow-hidden transition-all duration-300 border border-slate-100 shadow-xl shadow-slate-200/50">
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-slate-900 border border-slate-800 group-hover:border-gold-500/50 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 relative z-10 shadow-lg">
                   <item.icon className="w-7 h-7 text-gold-500" />
                 </div>
                 <div className="absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br from-gold-500/10 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" />
-                <h3 className="text-2xl font-bold text-white mb-3 relative z-10 group-hover:text-gold-400 transition-colors">{item.title}</h3>
-                <p className="text-slate-400 font-medium leading-relaxed relative z-10 group-hover:text-slate-300">{item.desc}</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 relative z-10 group-hover:text-gold-600 transition-colors">{item.title}</h3>
+                <p className="text-slate-500 font-medium leading-relaxed relative z-10 group-hover:text-slate-600">{item.desc}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -229,25 +229,25 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-3 gap-8">
               {featuredDevices.map((device, i) => (
                 <ScrollReveal key={device.id} delay={i * 0.1} className="group relative">
-                  <div className="bg-slate-950 rounded-[2rem] p-4 border border-slate-800 shadow-2xl shadow-slate-900/30 hover:shadow-gold-900/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                    <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-900 mb-6 overflow-hidden relative group border border-slate-800">
+                  <div className="bg-white rounded-[2rem] p-4 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-gold-500/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+                    <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-100 mb-6 overflow-hidden relative group border border-slate-200">
                       {device.imageUrl ? (
                         <>
-                          <img src={device.imageUrl} alt={device.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" />
-                          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                          <img src={device.imageUrl} alt={device.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                           {/* Shine Effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full shimmer-effect pointer-events-none z-10" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full shimmer-effect pointer-events-none z-10" />
                         </>
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-slate-700 font-bold text-2xl">IMG</div>
+                        <div className="w-full h-full flex items-center justify-center text-slate-300 font-bold text-2xl">IMG</div>
                       )}
-                      <div className="absolute top-4 right-4 bg-slate-950/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-gold-400 shadow-sm border border-gold-900/30">
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-950 shadow-sm border border-slate-200">
                         PREMIUM
                       </div>
                     </div>
                     <div className="px-2 pb-4">
-                      <h3 className="text-xl font-bold text-white mb-2">{device.name}</h3>
-                      <p className="text-slate-400 text-sm line-clamp-2 mb-4">{device.description}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">{device.name}</h3>
+                      <p className="text-slate-500 text-sm line-clamp-2 mb-4">{device.description}</p>
                       <Link href={`/appareils/${device.id}`}>
                         <Button className="w-full rounded-xl bg-gold-500 text-slate-950 hover:bg-gold-400 font-bold h-12 transition-all">
                           Découvrir
