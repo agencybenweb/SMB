@@ -170,9 +170,9 @@ export default async function HomePage() {
       {/* METRICS / LOGOS - Clean Pill Style */}
       <section className="py-10 -mt-20 relative z-20">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-4 md:gap-8 bg-white/80 backdrop-blur-xl border border-white/50 p-6 rounded-[2rem] shadow-xl shadow-slate-200/50">
+          <div className="inline-flex flex-wrap items-center justify-center gap-6 md:gap-12 bg-white/95 backdrop-blur-xl border border-white/60 p-10 rounded-[2.5rem] shadow-2xl shadow-indigo-100/50">
             {['500+ Centres', 'Formation Incluse', 'SAV France', 'Garantie 2 Ans'].map((label, i) => (
-              <span key={i} className="px-6 py-2 bg-slate-50 text-slate-600 font-bold rounded-full text-sm hover:bg-indigo-50 hover:text-indigo-600 transition-colors cursor-default">
+              <span key={i} className="px-8 py-3 bg-slate-50 text-slate-800 font-bold rounded-full text-base hover:bg-indigo-50 hover:text-indigo-600 transition-colors cursor-default border border-slate-100 shadow-sm">
                 {label}
               </span>
             ))}
