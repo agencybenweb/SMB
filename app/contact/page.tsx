@@ -67,9 +67,9 @@ function ContactContent() {
 
             <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
               <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-gold-500/20 backdrop-blur-md mb-4 text-gold-200">
-                  <MessageSquare className="w-4 h-4 text-gold-400" />
-                  <span className="text-sm font-semibold tracking-wide">Contactez-nous</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/50 border border-gold-500/30 backdrop-blur-md mb-6 text-gold-200 shadow-sm">
+                  <MessageSquare className="w-3 h-3 text-gold-400" />
+                  <span className="text-xs font-bold tracking-widest uppercase">Contactez-nous</span>
                 </div>
               </ScrollReveal>
 
