@@ -17,6 +17,7 @@ export default async function HomePage() {
     featuredDevices = [
       {
         id: "mock-1",
+        slug: "lifting-pro",
         name: "Lifting Pro",
         description: "HIFU dernière génération pour un lifting précis.",
         imageUrl: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070",
@@ -24,6 +25,7 @@ export default async function HomePage() {
       },
       {
         id: "mock-2",
+        slug: "cryo-tech",
         name: "Cryo Tech",
         description: "Cryolipolyse augmentée pour résultats rapides.",
         imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070",
@@ -31,6 +33,7 @@ export default async function HomePage() {
       },
       {
         id: "mock-3",
+        slug: "laser-pulse",
         name: "Laser Pulse",
         description: "Épilation définitive haute fréquence.",
         imageUrl: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068",
@@ -248,7 +251,7 @@ export default async function HomePage() {
                     <div className="px-2 pb-4">
                       <h3 className="text-xl font-bold text-slate-900 mb-2">{device.name}</h3>
                       <p className="text-slate-500 text-sm line-clamp-2 mb-4">{device.description}</p>
-                      <Link href={`/appareils/${device.id}`}>
+                      <Link href={`/appareils/${device.slug || device.id}`}>
                         <Button className="w-full rounded-xl bg-gold-500 text-slate-950 hover:bg-gold-400 font-bold h-12 transition-all">
                           Découvrir
                         </Button>
