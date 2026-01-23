@@ -95,14 +95,14 @@ export default function SAVPage() {
                 href: "/contact"
               }
             ].map((card, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className={`p-10 rounded-[2rem] shadow-xl flex flex-col items-start border transition-all duration-300 hover:-translate-y-2 ${card.highlight ? 'bg-gradient-to-br from-gold-500 to-amber-600 text-slate-950 border-gold-400 shadow-gold-500/20' : 'bg-white border-slate-100 shadow-slate-200/50'}`}>
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-lg ${card.highlight ? 'bg-slate-900 text-gold-500' : 'bg-slate-900/5 text-slate-900'}`}>
-                  <card.icon className="w-7 h-7" />
+              <ScrollReveal key={i} delay={i * 0.1} className={`p-8 rounded-[1.5rem] shadow-xl flex flex-col items-start border transition-all duration-300 hover:-translate-y-2 ${card.highlight ? 'bg-gradient-to-br from-gold-500 to-amber-600 text-slate-950 border-gold-400 shadow-gold-500/20' : 'bg-white border-slate-100 shadow-slate-200/50'}`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-lg ${card.highlight ? 'bg-slate-900 text-gold-500' : 'bg-slate-900/5 text-slate-900'}`}>
+                  <card.icon className="w-6 h-6" />
                 </div>
-                <h3 className={`text-2xl font-bold mb-3 ${card.highlight ? 'text-slate-950' : 'text-slate-900'}`}>{card.title}</h3>
-                <p className={`mb-8 flex-1 text-lg font-medium leading-relaxed ${card.highlight ? 'text-slate-900/80' : 'text-slate-500'}`}>{card.desc}</p>
+                <h3 className={`text-xl font-bold mb-3 ${card.highlight ? 'text-slate-950' : 'text-slate-900'}`}>{card.title}</h3>
+                <p className={`mb-6 flex-1 text-base font-medium leading-relaxed ${card.highlight ? 'text-slate-900/80' : 'text-slate-500'}`}>{card.desc}</p>
                 <Link href={card.href} className="w-full">
-                  <Button className={`w-full h-14 text-base font-bold rounded-xl border-none ${card.highlight ? "bg-slate-900 text-white hover:bg-slate-800" : "bg-slate-100 text-slate-900 hover:bg-slate-200"}`}>
+                  <Button className={`w-full h-12 text-sm font-bold rounded-lg border-none ${card.highlight ? "bg-slate-900 text-white hover:bg-slate-800" : "bg-slate-100 text-slate-900 hover:bg-slate-200"}`}>
                     {card.action}
                   </Button>
                 </Link>
