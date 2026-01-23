@@ -44,7 +44,7 @@ export default function FormationPage() {
               </p>
 
               {/* Floating Widgets Elements */}
-              <div className="absolute top-1/2 -right-32 hidden lg:flex items-center gap-3 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 animate-float" style={{ animationDelay: '1s' }}>
+              <div className="absolute top-[65%] -right-32 hidden lg:flex items-center gap-3 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 animate-float" style={{ animationDelay: '1s' }}>
                 <div className="w-10 h-10 rounded-full bg-gold-50 flex items-center justify-center text-gold-600">
                   <GraduationCap className="w-5 h-5" />
                 </div>
