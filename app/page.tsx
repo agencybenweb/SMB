@@ -68,9 +68,9 @@ export default async function HomePage() {
 
                 <ScrollReveal delay={0.1}>
                   <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-                    Upgrade Your <br />
+                    Révolutionnez <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-white drop-shadow-sm">
-                      Beauty Tech
+                      Votre Institut
                     </span>
                   </h1>
                 </ScrollReveal>
@@ -84,12 +84,12 @@ export default async function HomePage() {
                 <ScrollReveal delay={0.3} className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
                   <Link href="/appareils">
                     <Button className="tech-button bg-white text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 h-14 text-base">
-                      Explorer le catalogue
+                      EXPLORER LE CATALOGUE
                     </Button>
                   </Link>
                   <Link href="/contact">
                     <Button variant="outline" className="tech-button bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-indigo-600 hover:border-white h-14 text-base transition-colors duration-300">
-                      Démo Gratuite
+                      DÉMO GRATUITE
                     </Button>
                   </Link>
                 </ScrollReveal>
@@ -109,7 +109,7 @@ export default async function HomePage() {
                     <div className="h-2 w-1/2 bg-slate-100 rounded-full" />
                   </div>
                   <div className="mt-auto w-full">
-                    <div className="bg-indigo-600 h-10 w-full rounded-xl flex items-center justify-center text-white text-sm font-bold">Start Session</div>
+                    <div className="bg-indigo-600 h-10 w-full rounded-xl flex items-center justify-center text-white text-sm font-bold">Démarrer Séance</div>
                   </div>
                 </div>
 
@@ -126,7 +126,7 @@ export default async function HomePage() {
                     </div>
                     <div className="h-px bg-slate-200 w-full mb-1"></div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] text-slate-400 font-bold">Revenue</span>
+                      <span className="text-[10px] text-slate-400 font-bold">C.A.</span>
                       <span className="text-xs text-green-600 font-bold">▲ 24%</span>
                     </div>
                   </div>
@@ -184,15 +184,15 @@ export default async function HomePage() {
       <section className="py-24 bg-slate-50/50">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Why Choose Us?</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Pourquoi Nous Choisir ?</h2>
             <p className="text-slate-500 text-lg">La technologie au service de votre réussite.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Zap, title: "Cutting Edge", desc: "Dernières innovations mondiales.", color: "bg-yellow-100 text-yellow-600" },
-              { icon: ShieldCheck, title: "Secure & Safe", desc: "Certifications médicales CE.", color: "bg-green-100 text-green-600" },
-              { icon: Activity, title: "High Perf", desc: "Rentabilité boostée dès le mois 1.", color: "bg-blue-100 text-blue-600" }
+              { icon: Zap, title: "Dernière Génération", desc: "Des innovations mondiales pour garder une longueur d'avance.", color: "bg-yellow-100 text-yellow-600" },
+              { icon: ShieldCheck, title: "Sécurité Certifiée", desc: "Appareils conformes CE et formations certifiantes expertes.", color: "bg-green-100 text-green-600" },
+              { icon: Activity, title: "Rentabilité Immédiate", desc: "Un retour sur investissement boosté dès le premier mois.", color: "bg-blue-100 text-blue-600" }
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1} className="tech-card group">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform`}>
@@ -213,11 +213,11 @@ export default async function HomePage() {
             <div className="flex justify-between items-end mb-12">
               <div>
                 <span className="text-indigo-600 font-bold tracking-wider uppercase text-sm mb-2 block">Nos Solutions</span>
-                <h2 className="text-4xl font-bold text-slate-900">Best Sellers</h2>
+                <h2 className="text-4xl font-bold text-slate-900">Nos Incontournables</h2>
               </div>
               <Link href="/appareils">
                 <Button variant="ghost" className="text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 font-bold gap-2">
-                  View All <ArrowRight className="w-4 h-4" />
+                  Tout Voir <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
@@ -233,7 +233,7 @@ export default async function HomePage() {
                         <div className="w-full h-full flex items-center justify-center text-slate-300 font-bold text-2xl">IMG</div>
                       )}
                       <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">
-                        NEW
+                        NOUVEAU
                       </div>
                     </div>
                     <div className="px-2 pb-4">
@@ -261,15 +261,15 @@ export default async function HomePage() {
 
             <div className="relative z-10 space-y-8">
               <h2 className="text-4xl md:text-6xl font-bold text-white">
-                Ready to scale your business?
+                Prêt à changer de dimension ?
               </h2>
               <p className="text-indigo-200 text-xl max-w-2xl mx-auto">
-                Rejoignez les leaders de l'esthétique et boostez votre chiffre d'affaires.
+                Rejoignez les leaders de l'esthétique et boostez votre chiffre d'affaires dès aujourd'hui.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link href="/contact">
                   <Button className="tech-button bg-white text-slate-900 hover:bg-slate-100 h-14 px-10 text-base">
-                    Get Started Now
+                    Prendre Rendez-vous
                   </Button>
                 </Link>
               </div>
