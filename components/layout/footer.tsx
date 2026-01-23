@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, ArrowRight, ShieldCheck } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="relative bg-transparent pt-0 pb-6 px-4 font-sans">
 
-      {/* Footer Bubble Container - Compact Version */}
-      <div className="container mx-auto max-w-7xl bg-slate-900 text-slate-300 rounded-[2.5rem] overflow-hidden relative shadow-2xl shadow-slate-200/50">
+      {/* Footer Bubble Container - Luxury Black & Gold Version */}
+      <div className="container mx-auto max-w-7xl bg-slate-950 text-slate-300 rounded-[2.5rem] overflow-hidden relative shadow-2xl shadow-slate-900/50 border border-slate-800">
 
         {/* Decorative Gradient Blob Inside Bubble */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none opacity-40" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none opacity-40" />
 
         <div className="px-8 py-10 md:p-10 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -17,7 +17,7 @@ export function Footer() {
             {/* Brand Column */}
             <div className="space-y-4">
               <Link href="/" className="flex items-center gap-2 group">
-                <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center text-slate-950 font-bold text-lg shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
                   M
                 </div>
                 <span className="text-xl font-bold text-white tracking-tight">My Sculpt</span>
@@ -27,8 +27,8 @@ export function Footer() {
               </p>
               <div className="flex gap-3 pt-1">
                 {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                  <a key={i} href="#" className="w-8 h-8 rounded-full bg-slate-800/80 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all duration-300 group border border-slate-700 hover:border-indigo-500 hover:-translate-y-1">
-                    <Icon className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
+                  <a key={i} href="#" className="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-amber-500 hover:text-slate-950 transition-all duration-300 group hover:-translate-y-1 hover:border-amber-500">
+                    <Icon className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-950" />
                   </a>
                 ))}
               </div>
@@ -46,7 +46,7 @@ export function Footer() {
                   { l: "Contact", h: "/contact" },
                 ].map((item, i) => (
                   <li key={i}>
-                    <Link href={item.h} className="flex items-center gap-2 hover:text-indigo-400 transition-colors group w-fit">
+                    <Link href={item.h} className="flex items-center gap-2 hover:text-amber-400 transition-colors group w-fit">
                       {item.l}
                     </Link>
                   </li>
@@ -66,7 +66,7 @@ export function Footer() {
                   { l: "Espace Client", h: "/dashboard" },
                 ].map((item, i) => (
                   <li key={i}>
-                    <Link href={item.h} className="hover:text-indigo-400 transition-colors block w-fit">
+                    <Link href={item.h} className="hover:text-amber-400 transition-colors block w-fit">
                       {item.l}
                     </Link>
                   </li>
@@ -78,24 +78,24 @@ export function Footer() {
             <div>
               <h3 className="text-white font-bold text-sm mb-4">Contact</h3>
               <ul className="space-y-2 text-xs">
-                <li className="flex items-start gap-3 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                  <MapPin className="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" />
+                <li className="flex items-start gap-3 p-2 rounded-xl bg-slate-900 border border-slate-800/50">
+                  <MapPin className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
                   <span>123 Avenue des Champs-Élysées,<br />75008 Paris, France</span>
                 </li>
-                <li className="flex items-center gap-3 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                  <Phone className="w-4 h-4 text-indigo-500 shrink-0" />
+                <li className="flex items-center gap-3 p-2 rounded-xl bg-slate-900 border border-slate-800/50">
+                  <Phone className="w-4 h-4 text-amber-500 shrink-0" />
                   <span className="font-semibold text-white">+33 1 23 45 67 89</span>
                 </li>
-                <li className="flex items-center gap-3 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                  <Mail className="w-4 h-4 text-indigo-500 shrink-0" />
-                  <span className="text-indigo-300">contact@mysculpt.fr</span>
+                <li className="flex items-center gap-3 p-2 rounded-xl bg-slate-900 border border-slate-800/50">
+                  <Mail className="w-4 h-4 text-amber-500 shrink-0" />
+                  <span className="text-amber-200">contact@mysculpt.fr</span>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="mt-8 pt-6 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-slate-500">
               © {new Date().getFullYear()} My Sculpt Technology. All rights reserved.
             </p>
