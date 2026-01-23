@@ -7,7 +7,6 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 export default async function HomePage() {
   let featuredDevices;
 
-  // Récupération sécurisée tech
   try {
     featuredDevices = await prisma.device.findMany({
       where: { status: "ACTIVE", featured: true },
@@ -43,16 +42,16 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
 
-      {/* HERO SECTION - Vibrant Tech Style */}
+      {/* HERO SECTION - Luxury Black & Gold Style */}
       <section className="relative pt-40 pb-32 overflow-hidden">
         <div className="container mx-auto px-4 max-w-7xl">
 
           {/* Main Hero Card Container */}
-          <div className="relative rounded-[3rem] bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-indigo-500/30">
+          <div className="relative rounded-[3rem] bg-gradient-to-br from-slate-950 via-gray-900 to-stone-900 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-amber-900/20 border border-amber-500/10">
 
             {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-pink-500/20 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-yellow-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
 
             {/* Content Flex */}
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
@@ -60,38 +59,38 @@ export default async function HomePage() {
               {/* Left Text */}
               <div className="flex-1 text-center md:text-left space-y-8">
                 <ScrollReveal>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-4">
-                    <Sparkles className="w-4 h-4 text-yellow-300" />
-                    <span className="text-sm font-semibold tracking-wide text-white/90">Nouvelle Collection 2026</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-amber-500/20 backdrop-blur-md mb-4 text-amber-200">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <span className="text-sm font-semibold tracking-wide">Nouvelle Collection 2026</span>
                   </div>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.1}>
-                  <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+                  <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white">
                     Révolutionnez <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-white drop-shadow-sm">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-400 drop-shadow-sm">
                       Votre Institut
                     </span>
                   </h1>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.2}>
-                  <p className="text-xl text-indigo-100 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed">
-                    Des équipements esthétiques de pointe pour propulser votre institut vers le futur. Performance, Design et Rentabilité.
+                  <p className="text-xl text-slate-300 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    L'excellence technologique pour des résultats d'exception. Performance, Design et Rentabilité Absolue.
                   </p>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.3} className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
                   <Link href="/appareils" className="relative group overflow-hidden rounded-full">
-                    <Button className="tech-button bg-white text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 h-14 text-base relative z-10">
+                    <Button className="tech-button bg-amber-500 text-slate-950 hover:bg-amber-400 h-14 text-base relative z-10 font-bold border-none">
                       EXPLORER LE CATALOGUE
                     </Button>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full shimmer-effect z-20 pointer-events-none" />
                   </Link>
                   <Link href="/contact" className="group">
-                    <Button variant="outline" className="tech-button bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-indigo-600 hover:border-white h-14 text-base transition-colors duration-300 relative overflow-hidden">
+                    <Button variant="outline" className="tech-button bg-transparent border-2 border-amber-500/30 text-amber-100 hover:bg-amber-500 hover:text-slate-900 hover:border-amber-500 h-14 text-base transition-colors duration-300 relative overflow-hidden">
                       <span className="relative z-10">DÉMO GRATUITE</span>
-                      <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
+                      <div className="absolute inset-0 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
                     </Button>
                   </Link>
                 </ScrollReveal>
@@ -99,45 +98,44 @@ export default async function HomePage() {
 
               {/* Right Visuals - Floating Elements Style */}
               <div className="flex-1 w-full relative h-[400px] md:h-[500px]">
-                {/* Simulated Floating UI Elements inspired by the image provided */}
 
                 {/* Mockup Central */}
-                <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-white rounded-[2rem] shadow-2xl flex flex-col items-center p-4 z-20 animate-float">
-                  <div className="w-full h-32 bg-indigo-100 rounded-xl mb-4 overflow-hidden relative">
-                    <div className="absolute inset-0 flex items-center justify-center text-4xl">💆‍♀️</div>
+                <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-slate-950 rounded-[2rem] shadow-2xl shadow-black/50 border border-slate-800 flex flex-col items-center p-4 z-20 animate-float">
+                  <div className="w-full h-32 bg-slate-900 rounded-xl mb-4 overflow-hidden relative border border-slate-800">
+                    <div className="absolute inset-0 flex items-center justify-center text-4xl">👑</div>
                   </div>
                   <div className="w-full space-y-2">
-                    <div className="h-2 w-3/4 bg-slate-100 rounded-full" />
-                    <div className="h-2 w-1/2 bg-slate-100 rounded-full" />
+                    <div className="h-2 w-3/4 bg-slate-800 rounded-full" />
+                    <div className="h-2 w-1/2 bg-slate-800 rounded-full" />
                   </div>
                   <div className="mt-auto w-full">
-                    <div className="bg-indigo-600 h-10 w-full rounded-xl flex items-center justify-center text-white text-sm font-bold">Démarrer Séance</div>
+                    <div className="bg-gradient-to-r from-amber-600 to-yellow-600 h-10 w-full rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-amber-900/20">Démarrer Séance</div>
                   </div>
                 </div>
 
                 {/* Floating Bubble Central - Growth Chart */}
-                <div className="absolute top-8 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+                <div className="absolute top-8 left-4 bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-2xl shadow-xl z-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
                   <div className="flex flex-col gap-2 w-32">
                     <div className="flex justify-between items-end">
-                      <div className="w-2 h-4 bg-indigo-200 rounded-t-sm"></div>
-                      <div className="w-2 h-6 bg-indigo-300 rounded-t-sm"></div>
-                      <div className="w-2 h-3 bg-indigo-200 rounded-t-sm"></div>
-                      <div className="w-2 h-8 bg-indigo-400 rounded-t-sm"></div>
-                      <div className="w-2 h-5 bg-indigo-300 rounded-t-sm"></div>
-                      <div className="w-2 h-10 bg-indigo-600 rounded-t-sm"></div>
+                      <div className="w-2 h-4 bg-slate-700 rounded-t-sm"></div>
+                      <div className="w-2 h-6 bg-slate-600 rounded-t-sm"></div>
+                      <div className="w-2 h-3 bg-slate-700 rounded-t-sm"></div>
+                      <div className="w-2 h-8 bg-amber-700/50 rounded-t-sm"></div>
+                      <div className="w-2 h-5 bg-amber-600/50 rounded-t-sm"></div>
+                      <div className="w-2 h-10 bg-amber-500 rounded-t-sm"></div>
                     </div>
-                    <div className="h-px bg-slate-200 w-full mb-1"></div>
+                    <div className="h-px bg-slate-700 w-full mb-1"></div>
                     <div className="flex justify-between items-center">
                       <span className="text-[10px] text-slate-400 font-bold">C.A.</span>
-                      <span className="text-xs text-green-600 font-bold">▲ 24%</span>
+                      <span className="text-xs text-amber-400 font-bold">▲ 24%</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Floating Bubble 1 */}
-                <div className="absolute top-10 right-10 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '3s' }}>
+                <div className="absolute top-10 right-10 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '3s' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
                       <Activity className="w-5 h-5" />
                     </div>
                     <div>
@@ -148,9 +146,9 @@ export default async function HomePage() {
                 </div>
 
                 {/* Floating Bubble 2 */}
-                <div className="absolute bottom-20 left-0 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '4s' }}>
+                <div className="absolute bottom-20 left-0 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '4s' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
                       <CheckCircle2 className="w-5 h-5" />
                     </div>
                     <div>
@@ -161,7 +159,7 @@ export default async function HomePage() {
                 </div>
 
                 {/* Background Element Circle */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/50 to-purple-500/50 rounded-full blur-3xl opacity-50 z-0 animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-yellow-500/20 rounded-full blur-3xl opacity-30 z-0 animate-pulse" />
               </div>
 
             </div>
@@ -172,9 +170,9 @@ export default async function HomePage() {
       {/* METRICS / LOGOS - Clean Pill Style */}
       <section className="py-10 -mt-20 relative z-20">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-6 md:gap-12 bg-white/95 backdrop-blur-xl border border-white/60 p-10 rounded-[2.5rem] shadow-2xl shadow-indigo-100/50">
+          <div className="inline-flex flex-wrap items-center justify-center gap-6 md:gap-12 bg-white/95 backdrop-blur-xl border border-white/60 p-10 rounded-[2.5rem] shadow-2xl shadow-slate-200/50">
             {['500+ Centres', 'Formation Incluse', 'SAV France', 'Garantie 2 Ans'].map((label, i) => (
-              <span key={i} className="px-8 py-3 bg-slate-50 text-slate-800 font-bold rounded-full text-base hover:bg-indigo-50 hover:text-indigo-600 transition-colors cursor-default border border-slate-100 shadow-sm">
+              <span key={i} className="px-8 py-3 bg-slate-50 text-slate-800 font-bold rounded-full text-base hover:bg-slate-900 hover:text-amber-400 transition-colors cursor-default border border-slate-200 shadow-sm">
                 {label}
               </span>
             ))}
@@ -182,26 +180,26 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* FEATURES GRID - Tech Cards */}
+      {/* FEATURES GRID - Luxury Cards */}
       <section className="py-24 bg-slate-50/50">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Pourquoi Nous Choisir ?</h2>
-            <p className="text-slate-500 text-lg">La technologie au service de votre réussite.</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">L'Excellence My Sculpt</h2>
+            <p className="text-slate-500 text-lg">La technologie au service de votre prestige.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Zap, title: "Dernière Génération", desc: "Des innovations mondiales pour garder une longueur d'avance.", color: "bg-yellow-100 text-yellow-600" },
-              { icon: ShieldCheck, title: "Sécurité Certifiée", desc: "Appareils conformes CE et formations certifiantes expertes.", color: "bg-green-100 text-green-600" },
-              { icon: Activity, title: "Rentabilité Immédiate", desc: "Un retour sur investissement boosté dès le premier mois.", color: "bg-blue-100 text-blue-600" }
+              { icon: Zap, title: "Dernière Génération", desc: "Des innovations mondiales pour garder une longueur d'avance.", color: "bg-amber-100 text-amber-700" },
+              { icon: ShieldCheck, title: "Sécurité Certifiée", desc: "Appareils conformes CE et formations certifiantes expertes.", color: "bg-slate-100 text-slate-700" },
+              { icon: Activity, title: "Rentabilité Immédiate", desc: "Un retour sur investissement boosté dès le premier mois.", color: "bg-stone-100 text-stone-700" }
             ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="tech-card group hover-glow bg-white relative overflow-hidden transition-all duration-300">
+              <ScrollReveal key={i} delay={i * 0.1} className="tech-card group hover-glow bg-white relative overflow-hidden transition-all duration-300 border border-slate-100">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 relative z-10 shadow-sm`}>
                   <item.icon className="w-7 h-7" />
                 </div>
-                <div className="absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br from-indigo-50/50 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" />
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 relative z-10 group-hover:text-indigo-900 transition-colors">{item.title}</h3>
+                <div className="absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br from-amber-100/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" />
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 relative z-10 group-hover:text-amber-600 transition-colors">{item.title}</h3>
                 <p className="text-slate-500 font-medium leading-relaxed relative z-10 group-hover:text-slate-600">{item.desc}</p>
               </ScrollReveal>
             ))}
@@ -215,11 +213,11 @@ export default async function HomePage() {
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="flex justify-between items-end mb-12">
               <div>
-                <span className="text-indigo-600 font-bold tracking-wider uppercase text-sm mb-2 block">Nos Solutions</span>
-                <h2 className="text-4xl font-bold text-slate-900">Nos Incontournables</h2>
+                <span className="text-amber-600 font-bold tracking-wider uppercase text-sm mb-2 block">Nos Chefs-d'œuvre</span>
+                <h2 className="text-4xl font-bold text-slate-900">Collection Exclusive</h2>
               </div>
               <Link href="/appareils">
-                <Button variant="ghost" className="text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 font-bold gap-2">
+                <Button variant="ghost" className="text-slate-900 hover:text-amber-600 hover:bg-amber-50 font-bold gap-2">
                   Tout Voir <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
@@ -228,27 +226,27 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-3 gap-8">
               {featuredDevices.map((device, i) => (
                 <ScrollReveal key={device.id} delay={i * 0.1} className="group relative">
-                  <div className="bg-white rounded-[2rem] p-4 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-indigo-500/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+                  <div className="bg-white rounded-[2rem] p-4 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-amber-900/10 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
                     <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-100 mb-6 overflow-hidden relative group">
                       {device.imageUrl ? (
                         <>
                           <img src={device.imageUrl} alt={device.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                          <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                           {/* Shine Effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full shimmer-effect pointer-events-none z-10" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full shimmer-effect pointer-events-none z-10" />
                         </>
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-slate-300 font-bold text-2xl">IMG</div>
                       )}
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm">
-                        NOUVEAU
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm border border-slate-200">
+                        PREMIUM
                       </div>
                     </div>
                     <div className="px-2 pb-4">
                       <h3 className="text-xl font-bold text-slate-900 mb-2">{device.name}</h3>
                       <p className="text-slate-500 text-sm line-clamp-2 mb-4">{device.description}</p>
                       <Link href={`/appareils/${device.id}`}>
-                        <Button className="w-full rounded-xl bg-slate-900 text-white hover:bg-indigo-600 font-bold h-12">
+                        <Button className="w-full rounded-xl bg-slate-900 text-white hover:bg-amber-500 hover:text-black font-bold h-12 transition-all">
                           Découvrir
                         </Button>
                       </Link>
@@ -261,22 +259,22 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* CTA FOOTER - Vibrant Gradient */}
+      {/* CTA FOOTER - Black & Gold Gradient */}
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="relative rounded-[3rem] bg-slate-900 overflow-hidden p-12 md:p-24 text-center">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,#4f46e5,#312e81)] opacity-50" />
+          <div className="relative rounded-[3rem] bg-slate-950 overflow-hidden p-12 md:p-24 text-center border border-slate-800 shadow-2xl shadow-slate-900/50">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,#d97706,#0f172a)] opacity-20" />
 
             <div className="relative z-10 space-y-8">
               <h2 className="text-4xl md:text-6xl font-bold text-white">
                 Prêt à changer de dimension ?
               </h2>
-              <p className="text-indigo-200 text-xl max-w-2xl mx-auto">
-                Rejoignez les leaders de l'esthétique et boostez votre chiffre d'affaires dès aujourd'hui.
+              <p className="text-slate-400 text-xl max-w-2xl mx-auto">
+                Rejoignez l'élite de l'esthétique et boostez votre chiffre d'affaires dès aujourd'hui.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link href="/contact">
-                  <Button className="tech-button bg-white text-slate-900 hover:bg-slate-100 h-14 px-10 text-base">
+                  <Button className="tech-button bg-amber-500 text-black hover:bg-amber-400 h-14 px-10 text-base border-none">
                     Prendre Rendez-vous
                   </Button>
                 </Link>
