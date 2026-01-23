@@ -8,53 +8,72 @@ export default function FormationPage() {
     <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
 
       {/* HERO SECTION - Luxury Black & Gold Style */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      {/* HERO SECTION - Refined Floating Style */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="container mx-auto px-4 max-w-7xl">
+          <div className="relative flex flex-col items-center text-center max-w-5xl mx-auto space-y-8 z-10">
 
-          {/* Main Hero Card Container */}
-          <div className="relative rounded-[3rem] bg-gradient-to-br from-slate-950 via-gray-900 to-stone-900 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-gold-900/20 border border-gold-500/10">
+            {/* Main Content with Floating Elements Behind/Around */}
 
-            {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
-            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-slate-900 border border-slate-800 text-gold-200 shadow-xl shadow-gold-900/10 mb-6">
+                <Award className="w-4 h-4 text-gold-400" />
+                <span className="text-sm font-bold tracking-wide uppercase">Certification Agréée</span>
+              </div>
+            </ScrollReveal>
 
-            {/* Content Flex */}
-            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
-
-              <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-gold-500/20 backdrop-blur-md mb-4 text-gold-200">
-                  <Award className="w-4 h-4 text-gold-400" />
-                  <span className="text-sm font-semibold tracking-wide">Certification Agréée</span>
-                </div>
-              </ScrollReveal>
+            <div className="relative">
+              {/* Floating Bubbles Background - Subtle */}
+              <div className="absolute -top-20 -left-20 w-64 h-64 bg-gold-400/10 rounded-full blur-[80px] -z-10 animate-pulse" />
+              <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-slate-900/5 rounded-full blur-[60px] -z-10" />
 
               <ScrollReveal delay={0.1}>
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white mb-6">
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-slate-900 mb-6">
                   L'Académie <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-yellow-100 to-gold-400 drop-shadow-sm">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 via-amber-400 to-gold-600 drop-shadow-sm">
                     My Sculpt
                   </span>
                 </h1>
               </ScrollReveal>
-
-              <ScrollReveal delay={0.2}>
-                <p className="text-xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
-                  Maîtrisez l'art de la technologie esthétique.
-                  Des formations certifiantes expertes pour garantir des résultats d'exception à votre clientèle.
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.3} className="flex flex-wrap gap-4 justify-center pt-8">
-                <Button className="tech-button bg-gold-500 text-slate-950 hover:bg-gold-400 h-14 px-8 text-base relative z-10 font-bold border-none rounded-full">
-                  Découvrir les Modules
-                </Button>
-                <Button variant="outline" className="tech-button bg-transparent border-2 border-gold-500/30 text-gold-100 hover:bg-gold-500 hover:text-slate-900 hover:border-gold-500 h-14 px-8 text-base transition-colors duration-300 rounded-full">
-                  <PlayCircle className="w-5 h-5 mr-2" /> Démo E-learning
-                </Button>
-              </ScrollReveal>
-
             </div>
+
+            <ScrollReveal delay={0.2} className="relative max-w-2xl mx-auto">
+              <p className="text-xl text-slate-500 font-medium leading-relaxed">
+                Maîtrisez l'art de la technologie esthétique.
+                Des formations certifiantes expertes pour garantir des résultats d'exception à votre clientèle.
+              </p>
+
+              {/* Floating Widgets Elements */}
+              <div className="absolute top-1/2 -right-32 hidden lg:flex items-center gap-3 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 animate-float" style={{ animationDelay: '1s' }}>
+                <div className="w-10 h-10 rounded-full bg-gold-50 flex items-center justify-center text-gold-600">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs text-slate-400 font-bold uppercase">Diplômés</div>
+                  <div className="text-sm font-bold text-slate-900">+500 Experts</div>
+                </div>
+              </div>
+
+              <div className="absolute -bottom-16 -left-24 hidden lg:flex items-center gap-3 bg-slate-900 p-4 rounded-2xl shadow-xl border border-slate-800 animate-float" style={{ animationDelay: '2s' }}>
+                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gold-400">
+                  <Video className="w-5 h-5" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs text-slate-400 font-bold uppercase">E-Learning</div>
+                  <div className="text-sm font-bold text-white">Accès 24/7</div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.3} className="flex flex-wrap gap-4 justify-center pt-8 relative z-20">
+              <Button className="tech-button bg-slate-900 text-white hover:bg-gold-500 hover:text-slate-900 h-14 px-8 text-base shadow-xl hover:shadow-gold-500/20 border-none rounded-full transition-all duration-300">
+                Découvrir les Modules
+              </Button>
+              <Button variant="outline" className="tech-button bg-white border-2 border-slate-100 text-slate-600 hover:border-gold-500 hover:text-gold-600 h-14 px-8 text-base transition-colors duration-300 rounded-full">
+                <PlayCircle className="w-5 h-5 mr-2" /> Démo E-learning
+              </Button>
+            </ScrollReveal>
+
           </div>
         </div>
       </section>

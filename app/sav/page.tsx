@@ -7,38 +7,61 @@ export default function SAVPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
 
-      {/* HERO SECTION - Luxury Black & Gold Style */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
+      {/* HERO SECTION - Refined Floating Style */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="relative rounded-[3rem] bg-gradient-to-br from-slate-950 via-gray-900 to-stone-900 p-8 md:p-20 text-white overflow-hidden shadow-2xl shadow-gold-900/20 border border-gold-500/10">
-            {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
+          <div className="relative flex flex-col items-center text-center max-w-5xl mx-auto space-y-8 z-10">
 
-            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
-              <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-gold-500/20 backdrop-blur-md mb-4 text-gold-200">
-                  <LifeBuoy className="w-4 h-4 text-gold-400" />
-                  <span className="text-sm font-semibold tracking-wide">Support Premium</span>
-                </div>
-              </ScrollReveal>
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-slate-900 border border-slate-800 text-gold-200 shadow-xl shadow-gold-900/10 mb-6">
+                <LifeBuoy className="w-4 h-4 text-gold-400" />
+                <span className="text-sm font-bold tracking-wide uppercase">Support Premium</span>
+              </div>
+            </ScrollReveal>
+
+            <div className="relative">
+              {/* Floating Bubbles Background - Subtle */}
+              <div className="absolute -top-10 -right-20 w-64 h-64 bg-gold-400/10 rounded-full blur-[80px] -z-10 animate-pulse" />
+              <div className="absolute top-20 -left-20 w-64 h-64 bg-slate-900/5 rounded-full blur-[60px] -z-10" />
 
               <ScrollReveal delay={0.1}>
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white mb-2">
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-slate-900 mb-6">
                   Service & <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-yellow-100 to-gold-400 drop-shadow-sm">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 via-amber-400 to-gold-600 drop-shadow-sm">
                     Assistance
                   </span>
                 </h1>
               </ScrollReveal>
-
-              <ScrollReveal delay={0.2}>
-                <p className="text-xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
-                  Parce que votre activité ne doit jamais s'arrêter, notre équipe d'experts est à vos côtés.
-                  Réactivité immédiate et pièces certifiées d'origine.
-                </p>
-              </ScrollReveal>
             </div>
+
+            <ScrollReveal delay={0.2} className="relative max-w-2xl mx-auto">
+              <p className="text-xl text-slate-500 font-medium leading-relaxed">
+                Parce que votre activité ne doit jamais s'arrêter, notre équipe d'experts est à vos côtés.
+                Réactivité immédiate et pièces certifiées d'origine.
+              </p>
+
+              {/* Floating Widgets Elements */}
+              <div className="absolute top-0 -right-40 hidden lg:flex items-center gap-3 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 animate-bounce" style={{ animationDuration: '3s' }}>
+                <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600 border border-green-100">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs text-slate-400 font-bold uppercase">Réponse</div>
+                  <div className="text-sm font-bold text-slate-900">&lt; 24h</div>
+                </div>
+              </div>
+
+              <div className="absolute bottom-0 -left-40 hidden lg:flex items-center gap-3 bg-slate-900 p-4 rounded-2xl shadow-xl border border-slate-800 animate-float" style={{ animationDelay: '1.5s' }}>
+                <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-gold-400 border border-slate-700">
+                  <Wrench className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs text-slate-400 font-bold uppercase">Atelier</div>
+                  <div className="text-sm font-bold text-white">France</div>
+                </div>
+              </div>
+            </ScrollReveal>
+
           </div>
         </div>
       </section>
