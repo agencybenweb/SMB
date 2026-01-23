@@ -114,20 +114,20 @@ export default async function HomePage() {
                 </div>
 
                 {/* Floating Bubble Central - Growth Chart */}
-                <div className="absolute top-8 left-4 bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-2xl shadow-xl z-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
-                  <div className="flex flex-col gap-2 w-32">
-                    <div className="flex justify-between items-end">
-                      <div className="w-2 h-4 bg-slate-700 rounded-t-sm"></div>
-                      <div className="w-2 h-6 bg-slate-600 rounded-t-sm"></div>
-                      <div className="w-2 h-3 bg-slate-700 rounded-t-sm"></div>
-                      <div className="w-2 h-8 bg-gold-700/50 rounded-t-sm"></div>
-                      <div className="w-2 h-5 bg-gold-600/50 rounded-t-sm"></div>
-                      <div className="w-2 h-10 bg-gold-500 rounded-t-sm"></div>
+                <div className="absolute top-8 left-0 bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl shadow-xl z-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+                  <div className="flex flex-col gap-4 w-48">
+                    <div className="flex justify-between items-end h-24">
+                      <div className="w-4 bg-slate-700 rounded-t-sm h-[40%]"></div>
+                      <div className="w-4 bg-slate-600 rounded-t-sm h-[60%]"></div>
+                      <div className="w-4 bg-slate-700 rounded-t-sm h-[30%]"></div>
+                      <div className="w-4 bg-gold-700/50 rounded-t-sm h-[80%]"></div>
+                      <div className="w-4 bg-gold-600/50 rounded-t-sm h-[50%]"></div>
+                      <div className="w-4 bg-gold-500 rounded-t-sm h-full shadow-[0_0_15px_rgba(234,179,8,0.5)]"></div>
                     </div>
-                    <div className="h-px bg-slate-700 w-full mb-1"></div>
+                    <div className="h-px bg-slate-700 w-full"></div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] text-slate-400 font-bold">C.A.</span>
-                      <span className="text-xs text-gold-400 font-bold">▲ 24%</span>
+                      <span className="text-sm text-slate-300 font-bold tracking-wide">CHIFFRE D'AFFAIRES</span>
+                      <span className="text-xl text-gold-400 font-bold drop-shadow-sm">+24%</span>
                     </div>
                   </div>
                 </div>
