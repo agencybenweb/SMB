@@ -100,10 +100,10 @@ export default async function HomePage() {
               </div>
 
               {/* Right Visuals - Floating Elements Style */}
-              <div className="flex-1 w-full relative h-[520px] lg:h-[500px]">
+              <div className="flex-1 w-full relative h-[100px] lg:h-[500px] flex flex-col justify-end">
 
                 {/* Mockup Central */}
-                <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-slate-950 rounded-[2rem] shadow-2xl shadow-black/50 border border-slate-800 flex flex-col items-center p-4 z-20 animate-float">
+                <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-slate-950 rounded-[2rem] shadow-2xl shadow-black/50 border border-slate-800 hidden lg:flex flex-col items-center p-4 z-20 animate-float">
                   <div className="w-full h-32 bg-slate-900 rounded-xl mb-4 overflow-hidden relative border border-slate-800">
                     <div className="absolute inset-0 flex items-center justify-center text-4xl">👑</div>
                   </div>
@@ -161,10 +161,10 @@ export default async function HomePage() {
                   </div>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-tr from-gold-500/20 to-yellow-500/20 rounded-full blur-3xl opacity-30 z-0 animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-gold-500/20 to-yellow-500/20 rounded-full blur-3xl opacity-30 z-0 animate-pulse hidden lg:block" />
 
-                {/* Mobile Bubbles Container - Bottom Aligned */}
-                <div className="absolute bottom-6 left-0 right-0 flex lg:hidden justify-center gap-3 z-30 px-4">
+                {/* Mobile Bubbles Container - Static Flow */}
+                <div className="relative mt-8 flex lg:hidden justify-center gap-3 z-30 px-4">
                   <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-xl">
                     <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
                       <CheckCircle2 className="w-4 h-4" />
