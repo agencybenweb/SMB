@@ -46,14 +46,14 @@ export function Header() {
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 px-4 ${visible ? "translate-y-0" : "-translate-y-full"
     } ${scrolled ? "pt-4" : "pt-6"}`;
 
-  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 pl-3 pr-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5";
+  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 px-4 flex-1 md:flex-initial flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5 ml-auto";
 
   return (
     <header className={headerClasses}>
-      <div className={navContainerClasses}>
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className="relative w-24 h-24 -my-8 rounded-full overflow-hidden shadow-2xl shadow-gold-500/40 group-hover:scale-105 transition-transform border-[3px] border-gold-500/50 z-50">
+      <div className="container mx-auto max-w-7xl flex items-center justify-between">
+        {/* LOGO - External to Menu Pill */}
+        <Link href="/" className="relative z-50 flex-shrink-0 mr-4 group">
+          <div className="relative w-24 h-24 -my-2 rounded-full overflow-hidden shadow-2xl shadow-gold-500/40 group-hover:scale-110 transition-transform duration-300 border-[3px] border-gold-500/50">
             <Image
               src="/logo.png"
               alt="My Sculpt Logo"
@@ -63,30 +63,11 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Desktop Nav - Centered Pills */}
-        <nav className="hidden lg:flex items-center gap-1 bg-white/5 p-1.5 rounded-full border border-white/5 shadow-inner mx-4">
-          {[
-            ['Appareils', '/appareils'],
-            ['Technologies', '/technologies'],
-            ['Formation', '/formation'],
-            ['Experts', '/sav'],
-            ['Contact', '/contact']
-          ].map(([label, href]) => (
-            <Link
-              key={href}
-              href={href}
-              className="px-5 py-2 rounded-full text-sm font-semibold text-slate-300 hover:bg-slate-800 hover:text-gold-400 hover:shadow-sm transition-all duration-200"
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+        {/* MENU PILL - Floating Container */}
+        <div className={navContainerClasses}>
 
-        {/* Actions - Right */}
-        <div className="flex items-center gap-2">
-
-          {/* Cart */}
-          <Link href="/cart">
+          {/* LEFT: Cart (Replaces old Logo position) */}
+          <Link href="/cart" className="mr-2 md:mr-4 shrink-0">
             <Button variant="ghost" size="icon" className="rounded-full text-slate-300 hover:bg-slate-800 hover:text-gold-400 relative">
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
@@ -97,49 +78,72 @@ export function Header() {
             </Button>
           </Link>
 
-          {/* Auth Buttons */}
-          {status === "loading" ? (
-            <div className="w-24 h-9 bg-slate-800 animate-pulse rounded-full" />
-          ) : session ? (
-            <div className="hidden md:flex items-center gap-2">
-              <Link href="/dashboard">
-                <Button variant="ghost" size="sm" className="rounded-full gap-2 font-medium text-slate-300 hover:bg-slate-800 hover:text-gold-400">
-                  <LayoutDashboard className="w-4 h-4" />
-                  <span className="hidden xl:inline">Pro Dashboard</span>
-                </Button>
-              </Link>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => signOut({ callbackUrl: '/' })}
-                className="rounded-full text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-colors"
-                title="Déconnexion"
+          {/* CENTER: Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {[
+              ['Appareils', '/appareils'],
+              ['Technologies', '/technologies'],
+              ['Formation', '/formation'],
+              ['Experts', '/sav'],
+              ['Contact', '/contact']
+            ].map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                className="px-4 py-2 rounded-full text-sm font-semibold text-slate-300 hover:bg-slate-800 hover:text-gold-400 hover:shadow-sm transition-all duration-200"
               >
-                <LogOut className="w-4 h-4" />
-              </Button>
-              {session.user?.role === "ADMIN" && (
-                <Link href="/admin">
-                  <Button size="icon" variant="ghost" className="rounded-full text-gold-500 hover:bg-slate-800">
-                    <Shield className="w-4 h-4" />
+                {label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* RIGHT: Actions & Mobile Toggle */}
+          <div className="flex items-center gap-2 ml-2 md:ml-4">
+
+            {/* Auth Buttons */}
+            {status === "loading" ? (
+              <div className="w-24 h-9 bg-slate-800 animate-pulse rounded-full" />
+            ) : session ? (
+              <div className="hidden md:flex items-center gap-2">
+                <Link href="/dashboard">
+                  <Button variant="ghost" size="sm" className="rounded-full gap-2 font-medium text-slate-300 hover:bg-slate-800 hover:text-gold-400">
+                    <LayoutDashboard className="w-4 h-4" />
+                    <span className="hidden xl:inline">Pro Dashboard</span>
                   </Button>
                 </Link>
-              )}
-            </div>
-          ) : (
-            <Link href="/auth/login" className="hidden md:block">
-              <Button className="rounded-full bg-gold-400 text-slate-950 hover:bg-gold-300 transition-colors font-bold px-6 shadow-lg shadow-gold-900/20">
-                Espace Pro
-              </Button>
-            </Link>
-          )}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => signOut({ callbackUrl: '/' })}
+                  className="rounded-full text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-colors"
+                  title="Déconnexion"
+                >
+                  <LogOut className="w-4 h-4" />
+                </Button>
+                {session.user?.role === "ADMIN" && (
+                  <Link href="/admin">
+                    <Button size="icon" variant="ghost" className="rounded-full text-gold-500 hover:bg-slate-800">
+                      <Shield className="w-4 h-4" />
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            ) : (
+              <Link href="/auth/login" className="hidden md:block">
+                <Button className="rounded-full bg-gold-400 text-slate-950 hover:bg-gold-300 transition-colors font-bold px-6 shadow-lg shadow-gold-900/20">
+                  Espace Pro
+                </Button>
+              </Link>
+            )}
 
-          {/* Mobile Toggle */}
-          <button
-            className="lg:hidden p-2 text-slate-300 hover:bg-slate-800 rounded-full transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {/* Mobile Toggle */}
+            <button
+              className="lg:hidden p-2 text-slate-300 hover:bg-slate-800 rounded-full transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
