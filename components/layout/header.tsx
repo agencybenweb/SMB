@@ -46,14 +46,14 @@ export function Header() {
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 px-4 ${visible ? "translate-y-0" : "-translate-y-full"
     } ${scrolled ? "pt-4" : "pt-6"}`;
 
-  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 px-4 flex-1 md:flex-initial flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5 ml-auto";
+  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 px-4 flex-1 md:flex-initial flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5";
 
   return (
     <header className={headerClasses}>
-      <div className="container mx-auto max-w-7xl flex items-center justify-between">
-        {/* LOGO - External to Menu Pill */}
-        <Link href="/" className="relative z-50 flex-shrink-0 mr-4 group">
-          <div className="relative w-24 h-24 -my-2 rounded-full overflow-hidden shadow-2xl shadow-gold-500/40 group-hover:scale-110 transition-transform duration-300 border-[3px] border-gold-500/50">
+      <div className="container mx-auto max-w-7xl relative flex items-center justify-center">
+        {/* LOGO - External to Menu Pill - Absolute Left */}
+        <Link href="/" className="absolute left-0 z-50 flex-shrink-0 group">
+          <div className="relative w-24 h-24 -my-2 rounded-full overflow-hidden shadow-2xl shadow-gold-500/40 transition-transform duration-300 border-[3px] border-gold-500/50">
             <Image
               src="/logo.png"
               alt="My Sculpt Logo"
