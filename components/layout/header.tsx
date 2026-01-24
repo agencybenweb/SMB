@@ -46,14 +46,14 @@ export function Header() {
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 px-4 ${visible ? "translate-y-0" : "-translate-y-full"
     } ${scrolled ? "pt-4" : "pt-6"}`;
 
-  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-3 px-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5";
+  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 px-6 max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5";
 
   return (
     <header className={headerClasses}>
       <div className={navContainerClasses}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-md shadow-gold-500/20 group-hover:scale-105 transition-transform border border-gold-500/20">
+          <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-md shadow-gold-500/20 group-hover:scale-105 transition-transform border border-gold-500/20">
             <Image
               src="/logo.png"
               alt="My Sculpt Logo"
@@ -61,9 +61,6 @@ export function Header() {
               className="object-cover"
             />
           </div>
-          <span className="font-bold text-lg text-slate-200 tracking-tight hidden sm:block group-hover:text-gold-400 transition-colors">
-            My Sculpt
-          </span>
         </Link>
 
         {/* Desktop Nav - Centered Pills */}
