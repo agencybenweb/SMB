@@ -52,13 +52,13 @@ export function Header() {
     <header className={headerClasses}>
       <div className="container mx-auto max-w-7xl relative flex items-center justify-center">
         {/* LOGO - External to Menu Pill - Absolute Left */}
-        <Link href="/" className="absolute left-0 z-50 flex-shrink-0 group">
-          <div className="relative w-24 h-24 -my-2 rounded-full overflow-hidden shadow-2xl shadow-gold-500/40 transition-transform duration-300 border-[3px] border-gold-500/50">
+        <Link href="/" className="absolute left-4 lg:left-0 z-50 flex-shrink-0 group">
+          <div className="relative w-24 h-24 -my-2 rounded-full overflow-hidden shadow-2xl shadow-gold-500/40 transition-transform duration-300 border-[3px] border-gold-500/50 bg-slate-950">
             <Image
               src="/logo.png"
               alt="My Sculpt Logo"
               fill
-              className="object-cover scale-150"
+              className="object-cover"
             />
           </div>
         </Link>
