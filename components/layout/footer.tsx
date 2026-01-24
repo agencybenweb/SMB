@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 
@@ -16,11 +17,15 @@ export function Footer() {
 
             {/* Brand Column */}
             <div className="space-y-4">
-              <Link href="/" className="flex items-center gap-2 group">
-                <div className="w-8 h-8 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center text-slate-950 font-bold text-lg shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
-                  M
+              <Link href="/" className="inline-block group">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg shadow-gold-500/20 border-2 border-gold-500/40 bg-slate-950 transition-transform group-hover:scale-105">
+                  <Image
+                    src="/logo.png"
+                    alt="My Sculpt"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <span className="text-xl font-bold text-white tracking-tight">My Sculpt</span>
               </Link>
               <p className="text-xs leading-relaxed text-slate-400 max-w-xs">
                 La plateforme technologique de référence pour l'esthétique.
@@ -82,13 +87,17 @@ export function Footer() {
                   <MapPin className="w-4 h-4 text-gold-500 mt-0.5 shrink-0" />
                   <span>123 Avenue des Champs-Élysées,<br />75008 Paris, France</span>
                 </li>
-                <li className="flex items-center gap-3 p-2 rounded-xl bg-slate-900 border border-slate-800/50">
-                  <Phone className="w-4 h-4 text-gold-500 shrink-0" />
-                  <span className="font-semibold text-white">+33 1 23 45 67 89</span>
+                <li className="group">
+                  <a href="tel:+33123456789" className="flex items-center gap-3 p-2 rounded-xl bg-slate-900 border border-slate-800/50 group-hover:border-gold-500/30 transition-colors">
+                    <Phone className="w-4 h-4 text-gold-500 shrink-0" />
+                    <span className="font-semibold text-white group-hover:text-gold-400 transition-colors">+33 1 23 45 67 89</span>
+                  </a>
                 </li>
-                <li className="flex items-center gap-3 p-2 rounded-xl bg-slate-900 border border-slate-800/50">
-                  <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                  <span className="text-gold-200">contact@mysculpt.fr</span>
+                <li className="group">
+                  <a href="mailto:contact@mysculpt.fr" className="flex items-center gap-3 p-2 rounded-xl bg-slate-900 border border-slate-800/50 group-hover:border-gold-500/30 transition-colors">
+                    <Mail className="w-4 h-4 text-gold-500 shrink-0" />
+                    <span className="text-gold-200 group-hover:text-gold-400 transition-colors">contact@mysculpt.fr</span>
+                  </a>
                 </li>
               </ul>
             </div>
