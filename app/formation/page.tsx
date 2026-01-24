@@ -43,7 +43,31 @@ export default function FormationPage() {
                 Des formations certifiantes expertes pour garantir des résultats d'exception à votre clientèle.
               </p>
 
-              {/* Floating Widgets Elements */}
+
+              {/* Mobile Bubbles (In-Flow) */}
+              <div className="flex lg:hidden flex-wrap justify-center gap-4 mt-8 mb-4">
+                <div className="flex items-center gap-3 bg-white p-3 rounded-2xl shadow-lg border border-slate-100">
+                  <div className="w-10 h-10 rounded-full bg-gold-50 flex items-center justify-center text-gold-600">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs text-slate-400 font-bold uppercase">Diplômés</div>
+                    <div className="text-sm font-bold text-slate-900">+500 Experts</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 bg-slate-900 p-3 rounded-2xl shadow-lg border border-slate-800">
+                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gold-400">
+                    <Video className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs text-slate-400 font-bold uppercase">E-Learning</div>
+                    <div className="text-sm font-bold text-white">Accès 24/7</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Widgets Elements (Desktop Only) */}
               <div className="absolute top-[65%] -right-32 hidden lg:flex items-center gap-3 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 animate-float" style={{ animationDelay: '0s' }}>
                 <div className="w-10 h-10 rounded-full bg-gold-50 flex items-center justify-center text-gold-600">
                   <GraduationCap className="w-5 h-5" />
