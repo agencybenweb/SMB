@@ -46,13 +46,13 @@ export function Header() {
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 px-4 ${visible ? "translate-y-0" : "-translate-y-[200%]"
     } ${scrolled ? "pt-4" : "pt-6"}`;
 
-  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 px-4 flex-1 md:flex-initial flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5";
+  const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 px-4 flex items-center gap-2 md:gap-4 transition-all duration-300 relative z-50 ring-1 ring-white/5 ml-auto lg:mx-auto";
 
   return (
     <header className={headerClasses}>
-      <div className="container mx-auto max-w-7xl relative flex items-center justify-center">
-        {/* LOGO - External to Menu Pill - Absolute Left */}
-        <Link href="/" className="absolute left-4 lg:left-0 z-50 flex-shrink-0 group">
+      <div className="container mx-auto max-w-7xl relative flex items-center justify-between lg:justify-center pointer-events-none">
+        {/* LOGO - Relative on Mobile (Layout flow), Absolute on Desktop (Centered Menu) */}
+        <Link href="/" className="relative lg:absolute lg:left-0 z-50 flex-shrink-0 group pointer-events-auto">
           <div className="relative w-16 h-16 -my-1 rounded-full overflow-hidden shadow-xl shadow-gold-500/30 transition-transform duration-300 border-2 border-gold-500/40 bg-slate-950">
             <Image
               src="/logo.png"
@@ -63,11 +63,11 @@ export function Header() {
           </div>
         </Link>
 
-        {/* MENU PILL - Floating Container */}
-        <div className={navContainerClasses}>
+        {/* MENU PILL - Pointer Events Auto */}
+        <div className={`${navContainerClasses} pointer-events-auto`}>
 
-          {/* LEFT: Cart (Replaces old Logo position) */}
-          <Link href="/cart" className="mr-2 md:mr-4 shrink-0">
+          {/* LEFT: Cart */}
+          <Link href="/cart" className="shrink-0 order-first">
             <Button variant="ghost" size="icon" className="rounded-full text-slate-300 hover:bg-slate-800 hover:text-gold-400 relative">
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
