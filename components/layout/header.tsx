@@ -52,7 +52,7 @@ export function Header() {
     <header className={headerClasses}>
       <div className="container mx-auto max-w-7xl relative flex items-center justify-between lg:justify-center pointer-events-none">
         {/* LOGO - Relative on Mobile (Layout flow), Absolute on Desktop (Centered Menu) */}
-        <Link href="/" className="relative lg:absolute lg:left-0 z-50 flex-shrink-0 group pointer-events-auto">
+        <Link href="/" className="relative lg:absolute lg:left-[calc(50%-540px)] z-50 flex-shrink-0 group pointer-events-auto">
           <div className="relative w-16 h-16 -my-1 rounded-full overflow-hidden shadow-xl shadow-gold-500/30 transition-transform duration-300 border-2 border-gold-500/40 bg-slate-950">
             <Image
               src="/logo.png"
