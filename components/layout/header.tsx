@@ -43,7 +43,7 @@ export function Header() {
 
   // Définition du style flottant "Bulle" avec contraste renforcé (Dark Luxury Mode)
   // Ajout de la logique de masquage au scroll (translate-y)
-  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 px-4 ${visible ? "translate-y-0" : "-translate-y-full"
+  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 px-4 ${visible ? "translate-y-0" : "-translate-y-[200%]"
     } ${scrolled ? "pt-4" : "pt-6"}`;
 
   const navContainerClasses = "bg-slate-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full py-2 px-4 flex-1 md:flex-initial flex items-center justify-between transition-all duration-300 relative z-50 ring-1 ring-white/5";
