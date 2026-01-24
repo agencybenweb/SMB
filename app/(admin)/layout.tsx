@@ -16,6 +16,7 @@ import {
     Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AdminMobileNav } from "@/components/admin/admin-mobile-nav";
 
 export const dynamic = 'force-dynamic';
 
@@ -123,8 +124,8 @@ export default async function AdminLayout({
             <div className="flex-1 flex flex-col h-screen overflow-hidden">
                 <header className="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 shrink-0">
                     <div className="md:hidden">
-                        {/* Mobile menu trigger placeholder */}
-                        <Button variant="ghost" size="icon"><LayoutDashboard className="w-5 h-5" /></Button>
+                        {/* Mobile menu trigger */}
+                        <AdminMobileNav user={session.user} />
                     </div>
                     <div className="ml-auto flex items-center gap-4">
                         <Link href="/" target="_blank">
