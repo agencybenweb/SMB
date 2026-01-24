@@ -58,7 +58,7 @@ export function Header() {
               src="/logo.png"
               alt="My Sculpt Logo"
               fill
-              className="object-cover"
+              className="object-cover scale-110"
             />
           </div>
         </Link>
