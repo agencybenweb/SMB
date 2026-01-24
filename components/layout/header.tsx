@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
@@ -51,9 +52,14 @@ export function Header() {
     <header className={headerClasses}>
       <div className={navContainerClasses}>
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group shrink-0">
-          <div className="w-9 h-9 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center text-slate-950 font-bold shadow-md shadow-gold-500/20 group-hover:scale-105 transition-transform">
-            M
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
+          <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-md shadow-gold-500/20 group-hover:scale-105 transition-transform border border-gold-500/20">
+            <Image
+              src="/logo.png"
+              alt="My Sculpt Logo"
+              fill
+              className="object-cover"
+            />
           </div>
           <span className="font-bold text-lg text-slate-200 tracking-tight hidden sm:block group-hover:text-gold-400 transition-colors">
             My Sculpt
