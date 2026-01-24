@@ -57,7 +57,7 @@ export default async function HomePage() {
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
 
             {/* Content Flex */}
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12">
 
               {/* Left Text */}
               <div className="flex-1 text-center md:text-left space-y-8">
@@ -100,7 +100,7 @@ export default async function HomePage() {
               </div>
 
               {/* Right Visuals - Floating Elements Style */}
-              <div className="flex-1 w-full relative h-[100px] lg:h-[500px] flex flex-col justify-end">
+              <div className="flex-1 w-full relative h-auto lg:h-[500px] flex flex-col justify-end">
 
                 {/* Mockup Central */}
                 <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-slate-950 rounded-[2rem] shadow-2xl shadow-black/50 border border-slate-800 hidden lg:flex flex-col items-center p-4 z-20 animate-float">
@@ -164,7 +164,7 @@ export default async function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-gold-500/20 to-yellow-500/20 rounded-full blur-3xl opacity-30 z-0 animate-pulse hidden lg:block" />
 
                 {/* Mobile Bubbles Container - Static Flow */}
-                <div className="relative mt-8 flex lg:hidden justify-center gap-3 z-30 px-4">
+                <div className="relative mt-4 flex lg:hidden justify-center gap-3 z-30 px-4">
                   <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-xl">
                     <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
                       <CheckCircle2 className="w-4 h-4" />
