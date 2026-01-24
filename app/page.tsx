@@ -136,7 +136,7 @@ export default async function HomePage() {
                 </div>
 
                 {/* Floating Bubble 1 */}
-                <div className="absolute top-10 right-10 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '3s' }}>
+                <div className="absolute top-10 right-10 hidden lg:block bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '3s' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-600">
                       <Activity className="w-5 h-5" />
@@ -149,7 +149,7 @@ export default async function HomePage() {
                 </div>
 
                 {/* Floating Bubble 2 */}
-                <div className="absolute bottom-20 left-0 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '4s' }}>
+                <div className="absolute bottom-20 left-0 hidden lg:block bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '4s' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
                       <CheckCircle2 className="w-5 h-5" />
