@@ -253,9 +253,9 @@ export default async function HomePage() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {featuredDevices.map((device, i) => (
-                <ScrollReveal key={device.id} delay={i * 0.1} className="group relative">
-                  <div className="bg-white rounded-[2rem] p-4 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-gold-500/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                    <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-100 mb-6 overflow-hidden relative group border border-slate-200">
+                <ScrollReveal key={device.id} delay={i * 0.1} className="group relative h-full">
+                  <div className="bg-white rounded-[2rem] p-4 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-gold-500/20 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+                    <div className="aspect-[4/3] rounded-[1.5rem] bg-slate-100 mb-6 overflow-hidden relative group border border-slate-200 flex-shrink-0">
                       {device.imageUrl ? (
                         <>
                           <img src={device.imageUrl} alt={device.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -270,10 +270,10 @@ export default async function HomePage() {
                         PREMIUM
                       </div>
                     </div>
-                    <div className="px-2 pb-4">
+                    <div className="px-2 pb-4 flex-1 flex flex-col">
                       <h3 className="text-xl font-bold text-slate-900 mb-2">{device.name}</h3>
-                      <p className="text-slate-500 text-sm line-clamp-2 mb-4">{device.description}</p>
-                      <Link href={`/appareils/${device.slug || device.id}`}>
+                      <p className="text-slate-500 text-sm line-clamp-2 mb-4 flex-1">{device.description}</p>
+                      <Link href={`/appareils/${device.slug || device.id}`} className="mt-auto block">
                         <Button className="w-full rounded-xl bg-gold-500 text-slate-950 hover:bg-gold-400 font-bold h-12 transition-all">
                           Découvrir
                         </Button>
