@@ -53,7 +53,7 @@ export function Header() {
       <div className={navContainerClasses}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className="relative w-[4.5rem] h-[4.5rem] -my-6 rounded-full overflow-hidden shadow-xl shadow-gold-500/30 group-hover:scale-105 transition-transform border-2 border-gold-500/40 z-50">
+          <div className="relative w-24 h-24 -my-8 rounded-full overflow-hidden shadow-2xl shadow-gold-500/40 group-hover:scale-105 transition-transform border-[3px] border-gold-500/50 z-50">
             <Image
               src="/logo.png"
               alt="My Sculpt Logo"
