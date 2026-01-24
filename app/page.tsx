@@ -302,7 +302,7 @@ export default async function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link href="/contact">
-                  <Button className="tech-button bg-gold-500 text-slate-950 hover:bg-gold-400 h-14 px-10 text-base border-none">
+                  <Button className="tech-button bg-gold-500 text-slate-950 hover:bg-gold-400 h-14 px-10 text-base border-none hover:scale-105 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)] active:scale-95 transition-all duration-300 font-bold tracking-wide uppercase">
                     Prendre Rendez-vous
                   </Button>
                 </Link>
