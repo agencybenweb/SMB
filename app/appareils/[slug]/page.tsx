@@ -7,6 +7,7 @@ import { ArrowLeft, CheckCircle2, FileText, Play, Download, Settings, BarChart3,
 import { Badge } from "@/components/ui/badge";
 import { AddToCartButton } from "@/components/shop/add-to-cart-button";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { ProductViewer3D } from "@/components/ui/product-viewer-3d";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -86,6 +87,14 @@ export default async function DeviceDetailPage({ params }: PageProps) {
   const certifications = safeJsonParse<string[]>(device.certifications, []);
   const galleryUrls = safeJsonParse<string[]>(device.galleryUrls, []);
 
+  // Map slugs to 3D model files
+  const device3DModels: Record<string, string> = {
+    "my-body-cryo-360": "/MeshyCryotherapy.glb",
+    "cryo-demo": "/MeshyCryotherapy.glb",
+  };
+
+  const model3D = device3DModels[slug] || (slug.includes("cryo") ? "/MeshyCryotherapy.glb" : null);
+
   return (
     <div className="bg-white min-h-screen pb-20 pt-28">
 
@@ -106,7 +115,9 @@ export default async function DeviceDetailPage({ params }: PageProps) {
           <div className="space-y-6">
             <ScrollReveal>
               <div className={`aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl relative group ${device.featured ? 'ring-4 ring-gold-500/20' : 'border border-slate-100'}`}>
-                {device.imageUrl ? (
+                {model3D ? (
+                  <ProductViewer3D modelUrl={model3D} className="w-full h-full bg-slate-950" />
+                ) : device.imageUrl ? (
                   <img
                     src={device.imageUrl}
                     alt={device.name}
@@ -119,7 +130,9 @@ export default async function DeviceDetailPage({ params }: PageProps) {
                   </div>
                 )}
                 {/* Shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full shimmer-effect pointer-events-none z-10" />
+                {!model3D && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full shimmer-effect pointer-events-none z-10" />
+                )}
               </div>
             </ScrollReveal>
 
