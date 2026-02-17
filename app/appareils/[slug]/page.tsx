@@ -91,6 +91,8 @@ export default async function DeviceDetailPage({ params }: PageProps) {
   const device3DModels: Record<string, string> = {
     "my-body-cryo-360": "/MeshyCryotherapy.glb",
     "cryo-demo": "/MeshyCryotherapy.glb",
+    "my-hydra-face": "/MeshyMyhydraface.glb",
+    "my-hydra-face-b": "/MeshyMyhydraface.glb",
   };
 
   const model3D = device3DModels[slug] || (slug.includes("cryo") ? "/MeshyCryotherapy.glb" : null);
