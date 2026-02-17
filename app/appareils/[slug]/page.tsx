@@ -95,6 +95,9 @@ export default async function DeviceDetailPage({ params }: PageProps) {
     "my-hydra-face-b": "/MeshyMyhydraface.glb",
     "my-body-laser-r-1": "/MeshyMybodylaserR.glb",
     "my-body-laser-r-2": "/MeshyMybodylaserR.glb",
+    "my-body-laser-r-1-poignee": "/MeshyMybodylaserR.glb",
+    "my-body-laser-r-2-poignees": "/MeshyMybodylaserR.glb",
+    "my-body-laser-r": "/MeshyMybodylaserR.glb",
     "my-skin-light": "/MeshyMyskinlight.glb",
     "my-skin-light-r": "/MeshyMyskinlight.glb",
   };
