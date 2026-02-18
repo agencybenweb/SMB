@@ -102,6 +102,7 @@ export default async function DeviceDetailPage({ params }: PageProps) {
     "mybodylaser-r": "/MeshyMybodylaserR.glb",
     "my-skin-light": "/MeshyMyskinlight.glb",
     "my-skin-light-r": "/MeshyMyskinlight.glb",
+    "my-lift-hifu": "/MeshyMylifthifu.glb",
   };
 
   const model3D = device3DModels[slug] || (slug.includes("cryo") ? "/MeshyCryotherapy.glb" : null);
