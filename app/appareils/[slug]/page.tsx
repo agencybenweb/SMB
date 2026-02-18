@@ -103,6 +103,11 @@ export default async function DeviceDetailPage({ params }: PageProps) {
     "my-skin-light": "/MeshyMyskinlight.glb",
     "my-skin-light-r": "/MeshyMyskinlight.glb",
     "my-lift-hifu": "/MeshyMylifthifu.glb",
+    "my-slim-sculpt": "/MeshyMybodysculpt.glb",
+    "my-slim-sculpt-s-4": "/MeshyMybodysculpt.glb",
+    "my-slim-sculpt-s-2": "/MeshyMybodysculpt.glb",
+    "my-slim-sculpt-s": "/MeshyMybodysculpt.glb",
+    "my-lift-face-up": "/MeshyMyliftfaceup.glb",
   };
 
   const model3D = device3DModels[slug] || (slug.includes("cryo") ? "/MeshyCryotherapy.glb" : null);
